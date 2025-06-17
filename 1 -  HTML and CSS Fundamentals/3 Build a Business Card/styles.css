@@ -1,5 +1,6 @@
 body {
     margin: 20px;
+   
 }
 
 
@@ -8,3 +9,7 @@ Challenge:
 Set the width of the image to 150px.
 PS: Use a class to select the img element.
 */
+
+.picture-img {
+    width: 150px;
+}
