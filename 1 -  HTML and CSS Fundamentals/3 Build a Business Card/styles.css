@@ -1,3 +1,10 @@
+/*
+Challenge:
+Center the text in the <p> and <h4> elements.
+
+Note: you should only add ONE property, as inheritance 
+should take care of applying it to both elements.
+*/
 
 body {
     margin: 20px;
@@ -8,16 +15,13 @@ body {
 }
 
 .card {
-    /*
-    Challenge:
-    Give the card a width of 400px wide and center it.
-    */
     width: 400px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    text-align: center;
 }
 
 .border-blue {
