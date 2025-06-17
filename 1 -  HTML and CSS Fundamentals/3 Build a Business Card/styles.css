@@ -16,8 +16,18 @@ PS: Use a class to select the img element.
 
 
 .card {
-    border-style: dotted;
-    border-color: blue;
+    
     padding: 20px;
     display: flex;
+}
+/*
+Challenge:
+Create a utility class for the dotted blue border.
+Give the class to both flexbox children in the HTML.
+*/
+
+.blue-border {
+    border-color: blue;
+    border-style: dotted;
+    border-width: .1rem;
 }
