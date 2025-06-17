@@ -1,33 +1,23 @@
 body {
     margin: 20px;
-   
 }
 
-
-/*
-Challenge:
-Set the width of the image to 150px.
-PS: Use a class to select the img element.
-*/
-
-.picture-img {
+.avatar {
     width: 150px;
 }
 
-
 .card {
-    
     padding: 20px;
     display: flex;
+    /*
+    Challenge:
+    Add horizontal space around the flex children.
+    Hint: google "justify content"
+    */
+    justify-content: space-around;
 }
-/*
-Challenge:
-Create a utility class for the dotted blue border.
-Give the class to both flexbox children in the HTML.
-*/
 
-.blue-border {
-    border-color: blue;
-    border-style: dotted;
-    border-width: .1rem;
+.border-blue {
+    border: 1px dotted blue;
 }
+
