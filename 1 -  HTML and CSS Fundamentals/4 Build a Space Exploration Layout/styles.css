@@ -6,6 +6,12 @@ body {
     font-family: 'Orbitron', sans-serif;
 }
 
+/*
+Challenge 2:
+Select the logo using its "id", and reduce its
+width to a suitable level.
+*/
+
 .btn {
     padding: 6px 12px;
     background: white;
@@ -13,14 +19,10 @@ body {
     font-family: 'Orbitron', sans-serif;
 }
 
-/* 
-Challenge:
-Add the underline to the title using a <span> and a class.
-*/
-
 .underline {
-    text-decoration: underline;
-    text-decoration-thickness: 6px;
-    text-underline-offset: 9px;
-    
+    border-bottom: 4px solid white;
+}
+
+#logo-img {
+    width:8rem;
 }
