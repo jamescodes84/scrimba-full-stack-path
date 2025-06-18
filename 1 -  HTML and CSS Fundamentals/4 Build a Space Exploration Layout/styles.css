@@ -20,5 +20,7 @@ Add the underline to the title using a <span> and a class.
 
 .underline {
     text-decoration: underline;
+    text-decoration-thickness: 6px;
+    text-underline-offset: 9px;
     
 }
