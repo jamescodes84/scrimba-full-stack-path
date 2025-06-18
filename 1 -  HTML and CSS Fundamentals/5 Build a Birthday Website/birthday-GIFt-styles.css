@@ -99,5 +99,7 @@ a {
 }
 
 #footer {
-    padding-top: 1rem;
+    font-style: italic;
+    width: 400px;
+    margin: 40px auto 20px;
 }
