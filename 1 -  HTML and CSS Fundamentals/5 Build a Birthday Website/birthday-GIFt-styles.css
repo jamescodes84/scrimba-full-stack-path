@@ -6,11 +6,9 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Today is Nick's birthday 🎉</h1>
-        
+        <h1 class="thin-blurred-border">Today is Nick's birthday 🎉</h1>
         <img id="bff-img" src="nick.jpg">
-        
-        <h2>24 years old</h2>
-        <h4>01.11.2022</h4>
+        <h2 class="thin-blurred-border">24 years old</h2>
+        <h4 class="thin-blurred-border">01.11.2022</h4>
     </body>
 </html>
