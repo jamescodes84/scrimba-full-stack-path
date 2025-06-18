@@ -48,9 +48,13 @@ h1, h2, h3, h4, p {
     margin-top: 0;
 }
 
+#gift-img-cheers {
+    height: 200px;
+}
+
 .gift-img {
     margin: 20px auto;
-    width: 400px;
+    max-width: 400px;
     height: 400px;
     border: 6px solid white;
     border-radius: 10px;
@@ -74,23 +78,26 @@ h1, h2, h3, h4, p {
     background-image: url("images/badass.gif");
 }
 
-#gift-img-cheers {
-    height: 200px;
-}
-
 #gift-img-cheers:hover {
     background-image: url("images/cheers.gif");
 }
-/*
-Challenge:
-Create the "cheers" GIFt section.
 
-Note: this GIFt should have a height of 200px. 
-Select the #gift-img-cheers id and override 
-the height that the element got from the 
-.gift-img class.
+/* 
+Add the footer paragraph according to the design. 
+Configure the anchor tag to open the link in a new tab.
+Forgotten how to do it? Google it! 
 
-Text: 
-This one's for you, my friend 🥂
+Link: 
+https://scrimba.com/learn/htmlandcss
+
+Text:
+Want to create your own Birthday GIFt site? Take this HTML & CSS course.
 */
 
+a {
+    color: white;
+}
+
+#footer {
+    padding-top: 1rem;
+}
