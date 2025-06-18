@@ -1,16 +1,24 @@
+body {
+    text-align: center;
+    font-family: 'Happy Monkey', cursive;
+    background: #a2d2ff;
+    color: #ffffff;
+}
 
+/*
+Challenge:
+Add a thin blurred border around the <h1>, <h2>, 
+and <h4> using the text-shadow technique you 
+learned in the Space Exploration section. Set
+the blur to 1px and the color to black.
+*/
 
-<html>
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1 class="thin-blurred-border">Today is Nick's birthday 🎉</h1>
-        <img id="bff-img" src="nick.jpg">
-        <h2 class="thin-blurred-border">24 years old</h2>
-        <h4 class="thin-blurred-border">01.11.2022</h4>
-    </body>
-</html>
+#bff-img {
+    width: 150px;
+    border-radius: 50%;
+    border: 6px solid #EFB0C9;
+}
+
+.thin-blurred-border {
+    text-shadow: 0px 0px 01px black;
+}
