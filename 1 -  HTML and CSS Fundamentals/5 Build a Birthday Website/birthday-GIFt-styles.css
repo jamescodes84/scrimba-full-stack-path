@@ -13,24 +13,29 @@ h1, h2, h3, h4, p {
     width: 150px;
     border-radius: 50%;
     border: 6px solid #EFB0C9;
-}
-
-h2, h4 {
-    background: #EFB0C9;
+    margin-bottom: 10px;
 }
 
 /*
 Challenge:
-First, wrap the HTML elements in a <div> with an 
-id called "header".
-
-Then, select the "header" and use flexbox to achieve
-the layout you've been provided in the design slide.
+Make the bday elements look like the
+provided design slide.
 */
+
+#bday-age {
+    background: #EFB0C9;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+#bday-date {
+    background: #EFB0C9;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
 #header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    
 }
