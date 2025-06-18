@@ -27,7 +27,7 @@ id called "header".
 Then, select the "header" and use flexbox to achieve
 the layout you've been provided in the design slide.
 */
-.header {
+#header {
     display: flex;
     flex-direction: column;
     justify-content: center;
