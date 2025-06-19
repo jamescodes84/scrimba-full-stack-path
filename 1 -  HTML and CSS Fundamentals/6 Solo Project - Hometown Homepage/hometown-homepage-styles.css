@@ -24,6 +24,8 @@ img {
     width: 100%;
     height: 19rem;
     background-image:url("./images/torshov.jpg");
+    background-position:fixed; 
+    background-attachment: fixed;
     background-size: cover;
     display:flex;
     flex-direction: column;
@@ -33,7 +35,7 @@ img {
 }
 
 #hero-h1 {
-    margin-top: 6rem;
+    margin-top: 90px;
     margin-bottom: 0px;
     width: 13rem;
     font-size: 32px;
@@ -45,7 +47,7 @@ img {
 }
 
 #hero-h2 {
-  
+   
     width: 22rem;
     font-size: 18px;
     border-radius: 10px;
@@ -66,7 +68,7 @@ img {
 }
 
 #activities-h3 {
-    margin: 2rem 2rem;
+    margin: 2rem 3rem;
     color: #1D3557;
     font-weight: 700;
     
@@ -75,13 +77,21 @@ img {
 #activities-images-div {
     display: flex;
     justify-content: space-evenly;
+  
 }
 
-#activities-images-div > img {
+.activity-image {
     border-radius: 50%;
 }
-
 .image-title {
     color: #1D3557;
     font-weight: 700;
+    margin: 0rem 3rem;
+}
+.image-text {
+   
+    width: 12rem;
+    color: #1D3557;
+    margin: 1rem auto 6rem auto;
+    font-size: smaller;
 }
