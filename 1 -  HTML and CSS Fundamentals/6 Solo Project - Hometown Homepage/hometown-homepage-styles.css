@@ -64,3 +64,24 @@ img {
     flex-direction: column;
     
 }
+
+#activities-h3 {
+    margin: 2rem 2rem;
+    color: #1D3557;
+    font-weight: 700;
+    
+}
+
+#activities-images-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#activities-images-div > img {
+    border-radius: 50%;
+}
+
+.image-title {
+    color: #1D3557;
+    font-weight: 700;
+}
