@@ -3,27 +3,32 @@ body {
     padding-top: 30%;
     width:400px;
     display: flex;
+    
     flex-direction: column;
+    background-color: white;
     
 }
 
 .board-container {
-    border: 1px solid black;
-    padding-top:1rem;
+    
+    padding-top:0rem;
+    width: 23rem;
+    background-color: red;
+    
+    margin: 20%;
 }
 
 .scores-container {
     margin-top: 0px;
     display: flex;
     justify-content: space-around;
-    border: 1px solid green;
+    background-color: #1B244A;
+    
 }
 
 
 .score-outer-div {
     width: 11rem;
-    
-    border: 1px solid red;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -38,37 +43,63 @@ body {
 
 .score-inner-div {
     background-color: black;
-    width: 4rem;
-    height: 3rem;
+    width: 5rem;
+    height: 4rem;
     margin: 0rem 0rem 0rem 0rem;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 2px;
+    font-family: 'Cursed Timer ULiL', sans-serif;
+    font-size: 3rem;
+    color: #F94F6D;
 }
 
 .add-points-outer-div {
     display: flex;
-    
 }
 
 .add-points-inner-div {
-    background-color: blue;
+    background-color:#1B244A;
+    color: #9AABD8;
     width: 2.3rem;
     height: 2.3rem;
-    margin: 1.3rem .25rem 1rem .25rem;
-    color: white;
+    margin: 1.3rem .25rem 0rem .25rem;
+    border: 1px solid #9AABD8;
+    border-radius: 3px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-   
+     font-family: 'Cursed Timer ULiL', sans-serif;
 }
 
 .button-div{
-    margin: 0px auto;
+    display:flex;
+    align-items: center;
+    
+    
+    margin: 0px 0px 1rem 0px;
+    background-color: #1B244A;
+   
 }
 button {
     width:5rem;
     height: 2rem;
     margin: 0px auto;
+    background-color:#1B244A;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+    border: 1px solid #9AABD8;
+    color: #9AABD8;
+}
+
+#color-container {
+    background-color: white;
+    
+}
+
+.score-h3 {
+    color: #EEEEEE;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
