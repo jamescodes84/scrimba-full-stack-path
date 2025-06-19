@@ -1,13 +1,10 @@
-/* Complete the CSS styling according to the provided design */
-
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("./images/table.png")
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background-image: url("images/table.png");
+    background-size: cover;
+    font-weight: bold;
+    color: white;
+    text-align: center;
 }
 
 h1 {
@@ -16,10 +13,17 @@ h1 {
 
 #message-el {
     font-style: italic;
-    
 }
 
-p {
-    color: white;
-    font-weight: bold;
+/* 
+3. Style the button according to the provided design
+text color - #016f32
+width      - 150px
+background - goldenrod
+ */
+ 
+button {
+    color:  #016f32;
+    width: 150px;
+    background: goldenrod;
 }
