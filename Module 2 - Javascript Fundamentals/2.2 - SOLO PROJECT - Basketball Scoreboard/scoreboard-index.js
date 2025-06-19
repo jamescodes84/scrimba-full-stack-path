@@ -35,3 +35,10 @@ function addThreeGuest() {
     guestScore += 3
     document.getElementById("guest-score-div").innerText = guestScore
 }
+
+function reset() {
+    homeScore = 0;
+    guestScore = 0;
+    document.getElementById("home-score-div").innerText = homeScore;
+    document.getElementById("guest-score-div").innerText = guestScore;
+}
