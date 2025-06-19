@@ -95,3 +95,22 @@ img {
     margin: 1rem auto 6rem auto;
     font-size: smaller;
 }
+
+#guide-div{
+    margin:2rem 13rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A8DADC;
+    padding: 0rem .75rem;
+    border-bottom: 5px solid #1D3557;
+    border-radius: 5px;
+   
+}
+#guide-description{
+    padding-left: 1rem;
+    width: 10rem;
+    color: #1D3557;
+    font-size:smaller;
+    
+}
