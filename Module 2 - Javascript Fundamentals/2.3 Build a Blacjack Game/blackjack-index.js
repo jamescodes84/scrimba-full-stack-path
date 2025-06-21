@@ -11,7 +11,7 @@ let cardsEl = document.getElementById("cards-el")
 // 3. Grab ahold of the player-el paragraph and store it in a variable called playerEl
 let playerEl = document.getElementById("player-el")
 // 4. Render the player's name and chips in playerEl
-playerEl.innerText ="Name: " + player.name + " Chips: " + player.chips
+playerEl.innerText =player.name + "  $" + player.chips
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
     if (randomNumber > 10) {
