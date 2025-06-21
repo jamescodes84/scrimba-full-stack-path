@@ -1,8 +1,12 @@
-// Log out "Button clicked!" when the user clicks the "SAVE INPUT" button
+// Create two variables:
+// myLeads -> should be assigned to an empty array
+// inputEl -> should be assigned to the text input field
+let myLeads = []
+let inputEl = document.getElementById("input-el")
+let inputBtn = document.getElementById("input-btn")
 
-function handleClick() {
-    document.getElementById("input-btn").addEventListener("click", () => {
-        console.log("Button clicked!")
-    })
-    
-}
+inputBtn.addEventListener("click", function() {
+    console.log("Button clicked!")
+})
+
+
