@@ -9,8 +9,9 @@ inputBtn.addEventListener("click", function() {
     inputEl.value = ""
     renderLeads()
 })
-
+/* */
 function renderLeads() {
+    console.log("rendering...")
     let listItems = ""
     for (let i = 0; i < myLeads.length; i++) {
         listItems += `
