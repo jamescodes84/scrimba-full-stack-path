@@ -2,40 +2,41 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
-// 1. Store the delete button in a deleteBtn variable
-const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const deleteBtn = document.getElementById("delete-btn")
+const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
+
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
-    renderLeads()
+    renderLeads(myLeads)
 }
 
-// 2. Listen for double clicks on the delete button (google it!)
-document.getElementById("delete-btn").addEventListener("dblclick", () => {
+// Refector the function so that it takes a parameter, leads, that it uses
+// instead of the global myLeads variable. Remember to update all invocations 
+// of the function as well.
+
+function renderLeads(leads) {
+    let listItems = ""
+    for (let i = 0; i < leads.length; i++) {
+        listItems += `
+            <li>
+                <a target='_blank' href='${leads[i]}'>
+                    ${leads[i]}
+                </a>
+            </li>
+        `
+    }
+    ulEl.innerHTML = listItems
+}
+
+deleteBtn.addEventListener("dblclick", function() {
     localStorage.clear()
     myLeads = []
-    ulEl.innerHTML="<ul></ul>"
+    renderLeads(myLeads)
 })
-// 3. When clicked, clear localStorage, myLeads, and the DOM
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value = ""
     localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    renderLeads()
-  
+    renderLeads(myLeads)
 })
-
-function renderLeads() {
-    let listItems = ""
-    for (let i = 0; i < myLeads.length; i++) {
-        listItems += `
-            <li>
-                <a target='_blank' href='${myLeads[i]}'>
-                    ${myLeads[i]}
-                </a>
-            </li>
-        `
-    }
-    ulEl.innerHTML = listItems  
-}
