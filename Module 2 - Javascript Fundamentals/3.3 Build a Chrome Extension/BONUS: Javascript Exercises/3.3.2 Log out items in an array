@@ -1,0 +1,14 @@
+let myCourses = ["Learn CSS Animations", "UI Design Fundamentals", "Intro to Clean Code"]
+
+// Create a function that takes a single parameter, an array,
+// and logs all the items of the array to the console.
+// Call the function while passing in myCourses as an argument
+
+function logItems(arrayInput) {
+    for (let i = 0; i < arrayInput.length; i++) {
+        console.log(arrayInput[i])
+        
+    }
+}
+
+logItems(myCourses)
