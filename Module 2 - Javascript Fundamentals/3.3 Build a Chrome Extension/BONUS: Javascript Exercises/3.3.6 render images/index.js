@@ -12,7 +12,7 @@ container = document.getElementById("container")
 let imageList = ""
 for (let i = 0; i < imgs.length; i++){
    
-    imageList += `<img src="${imgs[i]}" />`
+    imageList += `<img class = "team-img" src="${imgs[i]}" />`
 }
 console.log(imageList)
 container.innerHTML = imageList
