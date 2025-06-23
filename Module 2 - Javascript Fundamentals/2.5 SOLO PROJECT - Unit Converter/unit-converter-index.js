@@ -13,6 +13,7 @@ const massLeft = document.getElementById("massLeft")
 const massRight = document.getElementById("mass-right")
 const numInput = document.getElementById("num-input")
 const convertButton = document.getElementById("convert-btn")
+let input = document.getElementById("num-input")
 let numberToConvert = 0
 let units = {
     "feetToMeters" : "",
@@ -21,7 +22,12 @@ let units = {
     "gallonsToLiters" : ""
 }
 
-
+input.addEventListener('keydown', (event) => {
+    numberToConvert = Number(numInput.value)
+    
+    convertUnits(numberToConvert)
+    updateView()
+});
 
 convertButton.addEventListener("click", () => {
     numberToConvert = Number(numInput.value)
