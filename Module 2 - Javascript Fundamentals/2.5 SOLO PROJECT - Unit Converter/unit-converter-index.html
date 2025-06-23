@@ -6,25 +6,29 @@
         <div id="outermost-div">
             <div id="header-div">
                  <p>Metric / Imperial Conversion</p>
-                 <input type="text" id="num-input"/>
+                 <input type="text" id="num-input" placeholder="0"/>
                   <button id="convert-btn">Convert</button>
             </div>
             
            <div id="conversions-outer-div">
             
                 <div id="conversion1" class="conversion-div">
-                    Length (Meter / Feet) 
-                    <div id="length-div"><div id="length-left"></div>|<div id="length-right"></div></div>
+                    <span class="output-label">Length (Meters / Feet)</span>
+                    <div id="length-output-div" class="output-div">  0 meters = 0.000 feet   |   0 feet = 0.000 meters</div>
                 </div>
-                <div id="conversion1" class="conversion-div">
-                    Volume (Liters / Gallons)
-                    <div id="volume-div"><div id="volume-left"></div>|<div id="volume-right"></div></div>
-                    
+                
+                <div id="conversion2" class="conversion-div">
+                    <span class="output-label">Volume (Liters / Gallons)</span>
+                    <div id="volume-output-div" class="output-div">  0 liters = 0.000 gallons   |   0 gallons = 0.000 liters</div>
                 </div>
-                <div id="conversion1" class="conversion-div">
-                    Mass (Kilograms / Pounds)
-                    <div id="mass-div"><div id="mass-left"></div>|<div id="mass-right"></div></div>
+                
+                <div id="conversion3" class="conversion-div">
+                    <span class="output-label">Mass (Pounds / Kilograms)</span>
+                    <div id="mass-output-div" class="output-div">   0 kilos = 0.000 pounds   |  0 pounds = 0.000 kilos</div>
                 </div>
+                     
+                     
+                
                 
             </div>
         </div>
