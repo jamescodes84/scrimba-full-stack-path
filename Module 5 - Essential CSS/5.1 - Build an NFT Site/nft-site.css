@@ -1,24 +1,63 @@
+body{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: whitesmoke;
+}
+
+h1{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif; 
+    margin: 0px;
+}
+
+h2{
+    margin: 0;
+}
+
+a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
 /* 
 Challenge:
-1. Create a body selector.
-2. Set the base font size and text color to 
-   the values given on the slide.
-3. Bring in "Roboto" from Google Fonts and 
-   set it as the default font. Make sure 
-   browsers will fall back on a sans-serif 
-   font if Roboto is unavailable.
-4. Override HTML's default margin.
+1. Add padding of 20px left and right and 15px top 
+   and bottom to the header. 
 */
- 
- 
-body {
-   font-size: 16px;
-   font-weight: 400;
-   color: #2b283a;
-   font-family: "Roboto", sans-serif;
-   margin: 0rem;
+
+header{
+    background-color: #b80000;
+    padding: 15px 20px;
+    
 }
- 
- 
+
+section{
+    padding: 30px 20px;
+    display: flex;
+}
+
+.header-text{
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.selected{
+    text-decoration: underline;
+}
+
+.text-left{
+    padding-right: 20px;
+}
+
+img{
+    width: 250px;
+}
+
+footer{
+    padding: 5px;
+    text-align: center;
+    font-size: small;
+}
 
 
