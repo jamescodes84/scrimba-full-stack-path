@@ -10,6 +10,16 @@ header{
     padding: 45px 0;
 }
 
+/* 
+Challenge:
+1. Add CSS so the text in the first section 
+   renders correctly. 
+⚠️ Watch out for the amount of white space 
+   you have between the start of the section 
+   and the h2.
+⚠️ Don't write too much code!
+*/
+
 h1{
     color: whitesmoke;
     font-size: 36px;
@@ -22,19 +32,14 @@ h3{
     margin:0;
 }
 
-section {
+section{
     padding: 45px 0;
 }
 
-.main-image {
-    width: 100%;
+.main-image{
+    width:100%;
 }
-/* 
-Challenge:
-1. Create a "section" selector and give it the 
-   same padding as the header.
-2. In index.html, find the image of the purple 
-   sneakers and attach a class to it. 
-3. Make it so this image takes up 100% 
-   of the section width.
-*/
+
+h2 {
+    margin:0;
+}
