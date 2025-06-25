@@ -10,16 +10,6 @@ header{
     padding: 45px 0;
 }
 
-/* 
-Challenge:
-1. Add CSS so the text in the first section 
-   renders correctly. 
-⚠️ Watch out for the amount of white space 
-   you have between the start of the section 
-   and the h2.
-⚠️ Don't write too much code!
-*/
-
 h1{
     color: whitesmoke;
     font-size: 36px;
@@ -27,7 +17,7 @@ h1{
 }
 
 h2{
-    font-size: 24px;
+    margin-top: 0;
 }
 
 h3{
@@ -36,9 +26,29 @@ h3{
     margin:0;
 }
 
-p{
-    font-size: 16px;
+a{
+    color: #ef5839;
+    text-decoration: underline dotted; 
 }
+
+a:hover{
+    color: #d4b44c;
+}
+
+a:active{
+    color: #d4b44c;
+}
+
+/* 
+Challenge:
+1. In index.html, wrap the contents of the
+   header and sections in container divs.
+2. Create a selector and add the properties 
+   needed to fix the content width and align
+   it to the center.
+⚠️ The background colors must stay full 
+   width!
+*/
 
 section{
     padding: 45px 0;
@@ -46,4 +56,10 @@ section{
 
 .main-image{
     width:100%;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 620px;
 }
