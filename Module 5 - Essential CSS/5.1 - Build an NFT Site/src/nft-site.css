@@ -1,88 +1,77 @@
-/* 
-Challenge:
-1. Refactor the CSS to make it DRYer
-   by grouping selectors together where
-   possible.
-*/
-
 body{
-    font-size: 16px;
-    color: #2b283a;
-    font-family: 'Roboto', sans-serif;
     margin: 0;
+    color: #333;
+    font-family: 'Roboto';
 }
 
-/* typography */
-h1, .section-two {
-    color: whitesmoke
+section, .ad-container{
+    padding: 20px;
 }
-h1{
-    
-    font-size: 36px;
-    margin: 0;
+
+.ad-container{
+    border: 3px solid midnightblue;
+    border-radius: 4px;
+}
+
+.links-container{
+    padding: 20px;
+}
+
+h2, h4{
+    color: midnightblue;
 }
 
 h2{
-    margin-top: 0;
+    margin: 0;
 }
 
-h3{
-    color: #d0aaff;
-    font-size: 20px;
-    margin:0;
+h4{
+    margin-bottom:0px
 }
 
-/* links */
+ul{
+    margin-top: 10px;
+    line-height: 22px;
+}
+
+button{
+    padding: 10px 19px;
+    color: midnightblue;
+    font-weight: bold;
+    background-color: skyblue;
+    border-radius: 4.6px;
+    border: 3px solid midnightblue;
+}
 
 a{
-    color: #ef5839;
-    text-decoration: underline dotted; 
+    margin: 10px
 }
 
-a:hover, a:active{
-    color: #d4b44c;
+.ad-container a{
+    color: limegreen;
+    font-size: 18px;
 }
 
-
-/* layout */
-header, .section-two {
-    background-color: #5f29a3;
+.links-container a {
+    color: dodgerblue;
+    font-size: 20px;
+    text-decoration: none;
 }
 
-
-header, section, footer{
-    padding: 45px 0;
+.links-container a:hover {
+    color: fuchsia;
 }
+/* 
+Challenge:
+1. Create a compound selector which
+targets the anchor links inside the
+class "links-container".
+2. Set their color to dodgerblue.
+3. Set the size to 20px.
+4. Remove the underline.
 
-.container{
-    width: 620px;
-    margin: 0 auto;
-}
-
-.main-image{
-    width:100%;
-}
-
-.section-two-image-container{
-    display: flex;
-    justify-content: space-between;
-}
-
-.feature-image{
-    width: 300px;
-    border-radius: 4.6px;
-}
-
-footer{
-    text-align: center;
-    color: #5f29a3;
-}
-
-
-
-
-
-
-
-
-
+Stretch Goal:
+1. Put a hover state on them so
+the color changes to fuschia when
+the cursor hovers over them.
+*/
