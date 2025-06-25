@@ -1,63 +1,50 @@
 body{
-    margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: whitesmoke;
-}
-
-h1{
-    color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif; 
-    margin: 0px;
-}
-
-h2{
+    font-size: 16px;
+    color: #2b283a;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
 
-a{
+header {
+    background-color: #5f29a3;
     color: whitesmoke;
-    text-decoration: none;
+    margin: 0;
+    padding: 45px 0rem 45px 0rem;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+   
 }
 
+h1 {
+    margin: 0;
+   
+    font-size: 36px;
+}
+
+h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #d0aaff;
+    size: 20px;
+}
 /* 
 Challenge:
-1. Add padding of 20px left and right and 15px top 
-   and bottom to the header. 
+1. Create a "header" selector.
+2. Give it its background color.
+3. What CSS property do you need to use to remove
+   the annoying white space at the top? Give this 
+   property a value of 45px top and bottom.
+3. Create selectors for the h1 and h3 elements.
+4. Assign the correct margins, size & colors to h1
+   and h3.
+At the end of the challenge, the h1 and h3 will 
+still be up right up against the left-hand edge of 
+the browser. That is fine for now.   
 */
+ 
+ 
 
-header{
-    background-color: #b80000;
-    padding: 15px 20px;
-    
-}
-
-section{
-    padding: 30px 20px;
-    display: flex;
-}
-
-.header-text{
-    margin: 0;
-    font-size: 14px;
-    color: #666;
-}
-
-.selected{
-    text-decoration: underline;
-}
-
-.text-left{
-    padding-right: 20px;
-}
-
-img{
-    width: 250px;
-}
-
-footer{
-    padding: 5px;
-    text-align: center;
-    font-size: small;
-}
+ 
+ 
 
 
