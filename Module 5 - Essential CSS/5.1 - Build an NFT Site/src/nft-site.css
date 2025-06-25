@@ -25,20 +25,13 @@ h3{
     font-size: 20px;
 }
 
-/* 
-Challenge:
-1. Increase the line-height of the 
-   paragraph text to 23px;
-*/
-
 p{
     line-height: 23px;
 }
 
-
 /* links */
 
-a{
+#craft-link{
     color: #ef5839;
     text-decoration: underline dotted; 
 }
@@ -47,7 +40,46 @@ a:hover, a:active{
     color: #d4b44c;
 }
 
+/* 
+Challenge:
+1. Style the 4 button-style links as per 
+   the specifications on the slide.
+2. Remember to group the selectors
+   where possible to keep the CSS DRY.
+⚠️ Think: what would make good class
+   names for these links? 
+*/
+
 /* layout */
+
+.link {
+    padding: 10px 19px;
+    border-radius: 4.6px;
+    text-decoration: none;
+}
+
+.dark-purple-link {
+    background-color: #5f29a3;
+    color: whitesmoke;
+}
+
+.link:hover {
+    background-color: #f3e885;
+    color: #2b382a;
+}
+
+.light-purple-link {
+    background-color: #d0aaff;
+    color: #5f29a3;
+}
+
+
+.white-link {
+    background-color: whitesmoke;
+    color: #5f29a3;
+}
+
+
 
 header, section, footer{
     padding: 45px 0;
@@ -68,10 +100,6 @@ header, .section-two{
 
 .main-image{
     width:100%;
-}
-
-section p{
-    line-height: 18.4px;
 }
 
 .section-two-image-container{
