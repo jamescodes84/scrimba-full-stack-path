@@ -1,3 +1,10 @@
+/* 
+Challenge:
+1. Refactor the CSS to make it DRYer
+   by grouping selectors together where
+   possible.
+*/
+
 body{
     font-size: 16px;
     color: #2b283a;
@@ -6,9 +13,11 @@ body{
 }
 
 /* typography */
-
+h1, .section-two {
+    color: whitesmoke
+}
 h1{
-    color: whitesmoke;
+    
     font-size: 36px;
     margin: 0;
 }
@@ -30,28 +39,19 @@ a{
     text-decoration: underline dotted; 
 }
 
-a:hover{
+a:hover, a:active{
     color: #d4b44c;
 }
 
-a:active{
-    color: #d4b44c;
-}
 
 /* layout */
-
-header{
+header, .section-two {
     background-color: #5f29a3;
-    padding: 45px 0;
 }
 
-section{
-    padding: 45px 0;
-}
 
-.section-two{
-    color: whitesmoke;
-    background-color: #5f29a3;
+header, section, footer{
+    padding: 45px 0;
 }
 
 .container{
@@ -73,23 +73,13 @@ section{
     border-radius: 4.6px;
 }
 
-/* 
-Challenge:
-1. Center the footer's text horizontally.
-2. Give the text space top and bottom.
-   ⚠️ Don't add margin! Look at sections
-   and header for inspiration. 
-3. Give the text the correct color.
-*/
-
-.footer-container {
-    font-size: 16px;
+footer{
+    text-align: center;
     color: #5f29a3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
 }
+
+
+
 
 
 
