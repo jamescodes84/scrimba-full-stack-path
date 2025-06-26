@@ -1,6 +1,14 @@
 body {
-    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    margin: 2rem;
     padding: 0;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0px 25px;
+    padding: 2rem;
 }
 
 /*
@@ -8,3 +16,64 @@ Challenge:
 1. Get this layout looking like the 
    screenshots on the slide.
 */  
+
+ul {
+    padding: 25px;
+}
+#outer-container {
+    border: 1px solid red;
+    margin: 2rem;
+    width: 400px;
+    padding: 0;
+}
+
+#navbar-container {
+    /* border: 1px dashed fuchsia; */
+    
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+#navbar-ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    /* border: 1px dashed purple; */
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+    background-color: #282828;
+}
+
+#icon-img {
+    width: 25px;
+}
+
+#subheading1-section {
+   
+  
+    
+    border: 1px dotted green;
+    display: flex;
+    justify-content: start;
+    align-items: start;;
+}
+
+header {
+    font-weight: 700;
+    border: 1px solid green;
+    padding: 1.5rem;
+    background-color: #282828;
+}
+
+img {
+    width: 100%;
+    
+}
+
+p {
+    margin: 0px 25px;
+    padding: 1rem;
+}
