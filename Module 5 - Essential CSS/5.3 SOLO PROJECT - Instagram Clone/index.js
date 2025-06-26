@@ -28,3 +28,10 @@ const posts = [
     }
 ]
 
+let filePath = "images/post-vangogh.jpg"
+
+let imageContainer = document.getElementById("img-placeholder-div")
+
+
+
+imageContainer.innerHTML= `<img id="loaded-image" src="${filePath}" width=375px height=375px/>`

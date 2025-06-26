@@ -1,4 +1,5 @@
 html, body {
+    font-family: "Source Sans 3", sans-serif;
     margin: 0 auto;
     padding: 0;
     display: block;
@@ -9,15 +10,15 @@ html, body {
     display: flex;
     flex-direction: column;
     margin: 2rem;
-    border: 1px solid red;
+    border: 1px solid black;
 
-    height: 500px;
+    height: 600px;
     width: 375px;
 }
 
-
 .header-container {
-    border: 1px dashed green;
+    
+    border-bottom: 1px solid #C6C6C6;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,11 +27,39 @@ html, body {
 }
 
 .profile-container {
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     display: flex;
+    justify-content: start;
+    /* align-items: center; */
     
-    align-items: center;
-    
+}
+
+.likes-container {
+    font-weight: 700;
+    /* border: 1px solid red; */
+     margin:0 .3rem;
+}
+
+#icons-container {
+    /* border: 1px dotted fuchsia; */
+    margin:0 .3rem;
+    padding: 0;
+}
+
+.metadata-container {
+    height: 100%;
+    /* border: 1px solid brown; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.comments-container {
+    /* border: 1px solid blue; */
+    margin: 0 0.3rem;
+}
+.icon-img {
+    width: 23px;
 }
 
 #profile-img {
@@ -42,14 +71,35 @@ html, body {
 #logo-img {
     width: 127px;
 }
+
 #user-img {
     height: 34px;
     border-radius: 100%;
 }
 
 #user-info-container {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     display: block;
     line-height: .3rem;
+   
+}
 
+#loaded-image{
+    /* border: 1px solid red; */
+    
+    margin: 0 auto;
+    padding: 0;    
+}
+
+#name-p {
+    font-weight: 700;
+   
+}
+#homeland-p {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 400;
+}
+
+#username-span {
+    font-weight: 700;
 }

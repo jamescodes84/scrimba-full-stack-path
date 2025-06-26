@@ -1,5 +1,8 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
@@ -11,10 +14,31 @@
             <div class="profile-container">
                 <img src="images/avatar-vangogh.jpg" class="subheader-img" id="profile-img"/>
                 <div id="user-info-container">
-                    <p>Vincent van Gogh</p>
-                    <p>Zudert, Netherlands</p>
+                    <p id="name-p">Vincent van Gogh</p>
+                    <p id="homeland-p">Zudert, Netherlands</p>
                 </div>
             </div>
+            
+            <span class="metadata-container">
+                <span class="image-container" >
+                    <span id="img-placeholder-div"></span>
+            
+                </span>
+                
+                <div id="icons-container">
+                    <img src="images/icon-heart.png" id="like-icon" class="icon-img"/>
+                    <img src="images/icon-comment.png" id="comment-icon" class="icon-img" />
+                    <img src="images/icon-dm.png" id="dm-icon" class="icon-img" />
+                </div>
+                
+                <div class="likes-container">
+                    21,492 Likes
+                </div>
+                
+                <div class="comments-container">
+                   <span id="username-span"> Vincey1969</span> just tooke a few mushrooms lol.
+                </div>
+            </span>
             <script src="index.js"></script>
         </div>
     </body>
