@@ -5,14 +5,12 @@ html, body {
     
 }
 
-
-
-
 .outer-container {
+    display: flex;
+    flex-direction: column;
     margin: 2rem;
     border: 1px solid red;
-    display: flex;
-    justify-content: space-between;
+
     height: 500px;
     width: 375px;
 }
@@ -23,23 +21,35 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     height: 67px;
     padding: 0 .7rem;
 }
 
-.header-img {
-   
+.profile-container {
+    border: 1px solid purple;
+    display: flex;
+    
+    align-items: center;
+    
 }
 
+#profile-img {
+    height: 34px;
+    border-radius: 100%;
+    margin: .5rem .5rem;
+}
 
 #logo-img {
     width: 127px;
 }
-
 #user-img {
-    
-
     height: 34px;
     border-radius: 100%;
+}
+
+#user-info-container {
+    border: 1px solid orange;
+    display: block;
+    line-height: .3rem;
+
 }
