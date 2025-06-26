@@ -1,79 +1,58 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    margin: 2rem;
-    padding: 0;
-}
-
-h1{
-    font-size: 40px;
-    font-weight: 400;
-    margin: 0px 25px;
-    padding: 2rem;
-}
-
-/*
-Challenge:
-1. Get this layout looking like the 
-   screenshots on the slide.
-*/  
-
-ul {
-    padding: 25px;
-}
-#outer-container {
-    border: 1px solid red;
-    margin: 2rem;
-    width: 400px;
-    padding: 0;
-}
-
-#navbar-container {
-    /* border: 1px dashed fuchsia; */
-    
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-}
-#navbar-ul {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    /* border: 1px dashed purple; */
     margin: 0;
     padding: 0;
-    color: whitesmoke;
-    background-color: #282828;
-}
-
-#icon-img {
-    width: 25px;
-}
-
-#subheading1-section {
-   
-  
-    
-    border: 1px dotted green;
-    display: flex;
-    justify-content: start;
-    align-items: start;;
+    font-family: 'Montserrat', sans-serif;
+    color: #282828;
 }
 
 header {
-    font-weight: 700;
-    border: 1px solid green;
-    padding: 1.5rem;
     background-color: #282828;
+    color: whitesmoke;
 }
 
-img {
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    margin: 0;
+    padding: 25px;
+    gap: 10px
+}
+
+li {
+    cursor: pointer;
+}
+
+.icon {
+    width: 25px;
+}
+
+.align-right {
+/* 
+Challenge:
+1. Add a line of CSS to position the menu 
+   icon at the right-hand end of the ul 
+   element. The logo and location pin should 
+   remain where they are.
+*/
+    margin-left: auto;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 400;
+    margin: 30px 25px;
+}
+
+.item-img {
     width: 100%;
-    
 }
 
-p {
-    margin: 0px 25px;
-    padding: 1rem;
+.caption {
+    margin: 0 25px;
 }
