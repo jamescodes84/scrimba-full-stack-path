@@ -78,5 +78,12 @@ button {
     padding: 10px 15px;
     font-weight: 700;
     cursor: pointer;
+    margin-left: 20px;
 }
 
+.caption {
+    display: flex;
+    justify-content: space-between;
+
+    
+}
