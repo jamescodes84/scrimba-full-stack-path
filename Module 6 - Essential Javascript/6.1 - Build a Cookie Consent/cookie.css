@@ -86,6 +86,16 @@ Challenge:
     box-shadow: 0px 0px 6px 2px #666;
     background-color: #212529;
     color: whitesmoke;
+
+    /* 
+    Scrimba solution:
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    */
 }
 
 .modal-inner{
