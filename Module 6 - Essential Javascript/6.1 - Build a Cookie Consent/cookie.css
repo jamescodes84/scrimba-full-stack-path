@@ -65,37 +65,19 @@ main{
 /* modal */
   
 .modal {
-    
-/*
-Challenge:
-1. Make the modal sit on top of the other content. 
-2. Make sure it is centrally aligned both horizontally
-   and vertically (just like in the slide).
-3. When it's positioned correctly, set its display 
-   property to 'none'.
-*/
- 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
     height: 420px;
     width: 350px;
     border-radius: 5px;
     box-shadow: 0px 0px 6px 2px #666;
     background-color: #212529;
     color: whitesmoke;
-
-    /* 
-    Scrimba solution:
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    */
 }
 
 .modal-inner{
@@ -173,3 +155,12 @@ input{
     margin-bottom: 0;
 }
 
+.idiot-gif{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.idiot-gif img{
+    box-shadow: 1px 1px 3px #999;
+    border-radius: 5px;
+}
