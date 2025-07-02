@@ -17,7 +17,10 @@ consentForm.addEventListener('submit', function(e){
     <div class="modal-inner-loading">
         <img src="images/loading.svg" class="loading">
         <p id="upload-text">Uploading your data to the dark web...</p>
-    </div>` 
+    </div>`
+    setTimeout(function(){
+        document.getElementById('upload-text').innerHTML = `Making the sale...`
+    }, 1500) 
   
 /*   
 Challenge: 
@@ -26,12 +29,5 @@ Challenge:
    sale..." after 1.5 seconds.
 ⚠️ Do not change the loading svg!
 */   
-    setTimeout(() => {
-         modalText.innerHTML = `
-            <div class="modal-inner-loading">
-                <img src="images/loading.svg" class="loading">
-                <p id="upload-text">Making the sale...</p>
-            </div>
-        ` 
-    }, 1500)
+
 })
