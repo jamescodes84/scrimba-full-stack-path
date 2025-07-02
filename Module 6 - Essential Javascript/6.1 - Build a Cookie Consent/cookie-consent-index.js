@@ -1,7 +1,7 @@
 const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('modal-close-btn')
 const consentForm = document.getElementById('consent-form')
-
+const modalText = document.getElementById('modal-text')
 
 setTimeout(function(){
     modal.style.display = 'inline'
@@ -13,31 +13,25 @@ modalCloseBtn.addEventListener('click', function(){
 
 consentForm.addEventListener('submit', function(e){
     e.preventDefault()
-/*
-Challenge:
-1. Take control of the "modal-text" element. 
-2. Make it so that when a user clicks on 
-   the accept button, the HTML string below
-   is inserted into the modal-text div.
-    
-<div class="modal-inner-loading">
-    <img src="images/loading.svg" class="loading">
-    <p id="uploadText">
-        Uploading your data to the dark web...
-    </p>
-</div>
-*/ 
-const modalText = document.getElementById('modal-text')
-modalText.innerHTML = `
+    modalText.innerHTML = `
     <div class="modal-inner-loading">
         <img src="images/loading.svg" class="loading">
-        <p id="uploadText">
-            Uploading your data to the dark web...
-        </p>
-    </div>
-`
-    
-
+        <p id="upload-text">Uploading your data to the dark web...</p>
+    </div>` 
+  
+/*   
+Challenge: 
+1. Use a setTimeout to make the phrase "Uploading
+   your data to the dark web" change to "Making the 
+   sale..." after 1.5 seconds.
+⚠️ Do not change the loading svg!
+*/   
+    setTimeout(() => {
+         modalText.innerHTML = `
+            <div class="modal-inner-loading">
+                <img src="images/loading.svg" class="loading">
+                <p id="upload-text">Making the sale...</p>
+            </div>
+        ` 
+    }, 1500)
 })
- 
-
