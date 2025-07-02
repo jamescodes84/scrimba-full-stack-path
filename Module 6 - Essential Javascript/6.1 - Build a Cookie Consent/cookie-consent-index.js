@@ -13,6 +13,22 @@ modalCloseBtn.addEventListener('click', function(){
 
 consentForm.addEventListener('submit', function(e){
     e.preventDefault()
+    
+    const consentFormData = new FormData(consentForm)
+    console.log(consentFormData)
+
+/*   
+Challenge: 
+1. Create a const to store the user's name and
+   use a FormData method to extract the 
+   submitted name from the FormData object.
+2. Insert the user's name into the HTML string
+   that contains the final message we show our
+   users.
+*/ 
+    const userName = consentFormData.get('fullName')
+    console.log(userName)
+    
     modalText.innerHTML = `
     <div class="modal-inner-loading">
         <img src="images/loading.svg" class="loading">
@@ -20,30 +36,19 @@ consentForm.addEventListener('submit', function(e){
     </div>` 
     
     setTimeout(function(){
-        document.getElementById('upload-text').innerText = "Making the sale..."
+        document.getElementById('upload-text').innerText = `
+        Making the sale...`
     }, 1500)
-  
-/*   
-Challenge: 
-1. Make it so that 1.5 seconds after seeing the 
-   "Making the sale..." message, the modal is 
-   cleared of its content and the following 
-   string of HTML is displayed instead.
-   
-   `<h2>Thanks you sucker! </h2>
-    <p>We just sold the rights to your eternal soul.</p>
-    <div class="idiot-gif">
-        <img src="images/pirate.gif">
-    </div>
-    ` 
-*/  setTimeout(() => {
+    
+    
+    setTimeout(function(){
         document.getElementById('modal-inner').innerHTML = `
-        <h2>Thanks you sucker! </h2>
+        <h2>Thanks <span class="modal-display-name" id="name-span">${userName}</span>, you sucker! </h2>
         <p>We just sold the rights to your eternal soul.</p>
         <div class="idiot-gif">
             <img src="images/pirate.gif">
         </div>
-    ` 
-}, 3000)
-
+    `
+    }, 3000)
+    
 }) 
