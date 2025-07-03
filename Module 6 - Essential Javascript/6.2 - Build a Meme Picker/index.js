@@ -1,61 +1,14 @@
-import { catsData } from '/data.js'
+// We can much more easily target pseudo elements like :checked
+const submitBtn = document.getElementById('submit-btn')
 
-const emotionRadios = document.getElementById('emotion-radios')
+submitBtn.addEventListener('click', function(){
+ const checkedRadio = document.querySelector('input[type="radio"]:checked')
+ console.log(checkedRadio.value)
+})
 
-emotionRadios.addEventListener('change', highlightCheckedOption)
-
-function highlightCheckedOption(e){
 /*
 Challenge:
-1. Create an array of all items that have 
-   the "radio" class.
-2. Iterate over the array and remove the 
-   "highlight" class from each one.
-*/ 
-
-    const radioArray = document.getElementsByClassName('radio')
-    for (let listItem of radioArray) {
-        // listItem.parentElement.classList.remove('highlight')
-        listItem.classList.remove('highlight')
-    }
-    
-    document.getElementById(e.target.id).parentElement.classList.add('highlight')
-}
-
-function getEmotionsArray(cats){
-    const emotionsArray = []    
-    for (let cat of cats){
-        for (let emotion of cat.emotionTags){
-            if (!emotionsArray.includes(emotion)){
-                emotionsArray.push(emotion)
-            }
-        }
-    }
-    return emotionsArray
-}
-
-
-function renderEmotionsRadios(cats){
-        
-    let radioItems = ``
-    const emotions = getEmotionsArray(cats)
-    for (let emotion of emotions){
-        radioItems += `
-        <div class="radio">
-            <label for="${emotion}">${emotion}</label>
-            <input
-            type="radio"
-            id="${emotion}"
-            value="${emotion}"
-            name="emotions"
-            >
-        </div>`
-    }
-    emotionRadios.innerHTML = radioItems
-}
-
-renderEmotionsRadios(catsData)
-
-
-
-
+1. Muscle memory exercise: log out 
+   the value of the checked radio 
+   option.
+*/
