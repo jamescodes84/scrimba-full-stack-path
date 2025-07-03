@@ -2,6 +2,7 @@ import { catsData } from '/data.js'
 
 const emotionRadios = document.getElementById('emotion-radios')
 const getImageBtn = document.getElementById('get-image-btn')
+const gifsOnlyOption = document.getElementById('gifs-only-option')
 
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
@@ -16,26 +17,27 @@ function highlightCheckedOption(e){
 }
 
 
-function getMatchingCatsArray(){
-    
-/*
-Challenge:
-1. Take control of the gifs only option checkbox.
-2. Set up a const in getMatchingCatsArray to store 
-   a boolean which will be set to true if the 
-   "gifs only" option is checked and false if it's
-   not. (Think what a good name for this const would 
-   be.)
-3. Log it out to check it's working.
-*/
-    let gifCheckbox = document.getElementById('gifs-only-option')
-    
-    const isGif = gifCheckbox.checked
-    console.log(isGif)
-     
+function getMatchingCatsArray(){     
     if(document.querySelector('input[type="radio"]:checked')){
         const selectedEmotion = document.querySelector('input[type="radio"]:checked').value
-        console.log(selectedEmotion)  
+        const isGif = gifsOnlyOption.checked
+/*
+Challenge:
+1. Use the .filter() and .includes() methods to get 
+   an array of cats which have the selected emotion
+   in their emotionTags array. 
+2. Store this array in a const and log it out to check
+   it's working. Think: what would be a good name for the
+   const?
+*/  
+
+    
+    const catsWithEmotion = catsData.filter((cat)=>{
+        return cat.emotionTags.includes(selectedEmotion)
+    })
+    
+    console.log(catsWithEmotion)
+
     }  
 }
 
