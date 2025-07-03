@@ -2,23 +2,32 @@ import { catsData } from '/data.js'
 
 const emotionRadios = document.getElementById('emotion-radios')
 
-function getEmotionsArray(cats){
-    const emotionsArray = []
-        
-    for (let cat of cats){
-        for (let emotion of cat.emotionTags){
 /*
 Challenge:
-1. Refactor this nested for of so that an 
-   emotion is only pushed to emotionsArray
-   if it is not already in emotionsArray.
-   Extra kudos if you use the "logical not"
-   operator - feel free to google it!
+1. Add an eventListener to emotionRadios that will listen 
+   out for any *change* in our radio buttons. When it detects
+   a change, it should log out the id of the element that 
+   was selected.
+⚠️️ ️T️h️is won't work if the eventListener is listening out for a 
+   'click'. Google what event to listen for - I've already 
+   given you a clue!
 */
-            if (!emotionsArray.includes(emotion)) {
+
+emotionRadios.addEventListener("change", (event) => {
+    let clickedId = event.target.id
+    let clickedElement = document.getElementById(clickedId)
+    console.log(clickedId)
+    
+    
+})
+
+function getEmotionsArray(cats){
+    const emotionsArray = []    
+    for (let cat of cats){
+        for (let emotion of cat.emotionTags){
+            if (!emotionsArray.includes(emotion)){
                 emotionsArray.push(emotion)
             }
-           
         }
     }
     return emotionsArray
