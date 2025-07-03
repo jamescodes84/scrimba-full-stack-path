@@ -1,11 +1,5 @@
-/*
-Challenge:
-1. Move the data to a file called data.js 
-   and import it into index.js.
-*/
- 
+import { catsData } from '/data.js'
 
-import { catsData } from "./data.js"
 const emotionRadios = document.getElementById('emotion-radios')
 
 function getEmotionsArray(cats){
@@ -18,12 +12,31 @@ function getEmotionsArray(cats){
     return emotionsArray
 }
 
-
 function renderEmotionsRadios(cats){
+    
     let radioItems = ``
     const emotions = getEmotionsArray(cats)
     for (let emotion of emotions){
-        radioItems += `<p>${emotion}</p>`
+/*
+Challenge:
+1. Swap out `<p>${emotion}</p>` for HTML
+   that will render a radio input for each
+   emotion. Remember to use "type", "id", 
+   "value", and "name" properties on each radio.
+   ("id" and "value" can both be set to the
+   "emotion").
+2. Remember to give each radio a label.
+   (What property does a label need?)
+3. Enclose each individual radio input in this div:
+   <div class="radio">
+      **RADIO HERE**
+   </div>
+*/ 
+        radioItems += `
+        <div class = "radio">
+            <input type="radio" id="${emotion}" value="${emotion}" name="radio-list" />
+            <label for="${emotion}">${emotion}</label>
+        </div>` 
     }
     emotionRadios.innerHTML = radioItems
 }
@@ -32,4 +45,13 @@ renderEmotionsRadios(catsData)
 
 
 
+/*
+<input 
+    type="radio"
+    id="ducks"
+    value="ducks"
+    name="choice-radios"
+    >
+    <label for="ducks">1 horse-sized duck</label>
 
+*/
