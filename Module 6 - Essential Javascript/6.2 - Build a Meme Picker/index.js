@@ -3,6 +3,8 @@ import { catsData } from '/data.js'
 const emotionRadios = document.getElementById('emotion-radios')
 const getImageBtn = document.getElementById('get-image-btn')
 const gifsOnlyOption = document.getElementById('gifs-only-option')
+const memeModalInner = document.getElementById('meme-modal-inner')
+const memeModal = document.getElementById('meme-modal')
 
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
@@ -39,22 +41,41 @@ function getSingleCatObject(){
     const catsArray = getMatchingCatsArray()
     
     if (catsArray.length === 1){
-        console.log(catsArray[0])
+        return catsArray[0]
     }
     else {
-        /*
-        Challenge:
-        1. If catsArray has more than one object, 
-        select an object at random and log it out.
-        */ 
-        const randomCat = Math.floor(Math.random() * catsArray.length)
-        console.log(catsArray[randomCat]) 
+        const randomNumber = Math.floor(Math.random() * catsArray.length)
+        return catsArray[randomNumber]
     }
     
 }
 
 function renderCat(){
-    getSingleCatObject() // temporary 
+    /*
+    Challenge:
+    1. Take the object that is returned by 
+    getSingleCatObject and save it to a const 
+    called "catObject".
+    2. Set memeModalInner’s innerHTML to the HTML 
+    string below, remembering to insert the relevant 
+    data from catObject to replace the UPPERCASE text.
+    3. Set memeModal’s display property to "flex". 
+    
+        `<img 
+            class="cat-img" 
+            src="./images/CAT IMAGE"
+            alt="CAT ALT TEXT"
+            >`
+    */ 
+    const catObject = getSingleCatObject()
+    memeModalInner.innerHTML = `
+        <img 
+            class="cat-img" 
+            src="./images/${catObject.image}"
+            alt="an image of ${catObject.alt}"
+        />
+    `
+    memeModal.classList.add('flex')
 }
  
 function getEmotionsArray(cats){
