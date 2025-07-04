@@ -6,7 +6,7 @@ const gifsOnlyOption = document.getElementById('gifs-only-option')
 
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
-getImageBtn.addEventListener('click', getMatchingCatsArray)
+getImageBtn.addEventListener('click', renderCat)
 
 function highlightCheckedOption(e){
     const radios = document.getElementsByClassName('radio')
@@ -22,26 +22,33 @@ function getMatchingCatsArray(){
         const isGif = gifsOnlyOption.checked
         
         const matchingCatsArray = catsData.filter(function(cat){
-        /*
-        Challenge:
-        1. Change the .filter() method's function so it returns an 
-        array that only has GIFs if the 'GIFs only' option is 
-        checked. If the 'GIFs only' option is not checked, it
-        should return an array of all matches as it does now.
-        */ 
-
-        if (isGif) {
-            return (cat.emotionTags.includes(selectedEmotion) && cat.isGif)
-        } else {
-            return (cat.emotionTags.includes(selectedEmotion))
-        }
-
             
+            if(isGif){
+                return cat.emotionTags.includes(selectedEmotion) && cat.isGif
+            }
+            else{
+                return cat.emotionTags.includes(selectedEmotion)
+            }            
         })
-        console.log(matchingCatsArray)
-    }  
+        return matchingCatsArray 
+    }   
 }
 
+function getSingleCatObject(){
+/*
+Challenge:
+1. Inside this function, call getMatchingCatsArray 
+   and save whatever it returns to a const called 
+   “catsArray”. 
+*/  
+    const catsArray = getMatchingCatsArray()
+    
+}
+
+function renderCat(){
+
+}
+ 
 function getEmotionsArray(cats){
     const emotionsArray = []    
     for (let cat of cats){
