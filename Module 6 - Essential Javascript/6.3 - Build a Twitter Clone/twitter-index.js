@@ -10,19 +10,10 @@ function getFeedHtml(){
     let feedHtml = ``
 /*
 Challenge:
-1. Inside each span that has a class of "tweet-detail",
-   add an <i> tag.
-2. Give each <i> tag the classes it needs to render the
-   correct icons next to the numbers.
-   The classes you will need are:
-    fa-regular, 
-    fa-solid, 
-    fa-comment-dots, 
-    fa-heart, 
-    fa-retweet
+1. Add data attributes to each of the  <i> tags. You can call
+   them 'reply', 'like', and 'retweet’.
+2. Each data attribute should hold the tweet's uuid.
 */
-
-
     
     tweetsData.forEach(function(tweet){
         feedHtml += `
@@ -34,15 +25,15 @@ Challenge:
             <p class="tweet-text">${tweet.tweetText}</p>
             <div class="tweet-details">
                 <span class="tweet-detail">
-                    <i class="fa-comment-dots fa-regular"></i>
+                    <i class="fa-regular fa-comment-dots" data-reply="${tweet.uuid}"></i>
                     ${tweet.replies.length}
                 </span>
                 <span class="tweet-detail">
-                    <i class="fa-heart fa-solid"></i>
+                    <i class="fa-solid fa-heart" data-like="${tweet.uuid}"></i>
                     ${tweet.likes}
                 </span>
                 <span class="tweet-detail">
-                    <i class="fa-retweet fa-solid"></i>
+                    <i class="fa-solid fa-retweet" data-retweet="${tweet.uuid}"></i>
                     ${tweet.retweets}
                 </span>
             </div>   
