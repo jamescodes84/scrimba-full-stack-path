@@ -58,13 +58,14 @@ function handleReplyClick(replyId){
     document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
-const tweetInput = document.getElementById('tweet-input')
+
 function handleTweetBtnClick(){
 /*
 Challenge:
 1. No empty tweets!
 2. Clear the textarea after tweeting!
 */
+const tweetInput = document.getElementById('tweet-input')
     if(tweetInput.value){
         tweetsData.unshift({
             handle: `@Scrimba`,
