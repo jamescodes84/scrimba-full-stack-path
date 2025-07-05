@@ -1,12 +1,11 @@
 import { tweetsData } from './data.js'
-const tweetInput = document.getElementById('tweet-input')
-const tweetBtn = document.getElementById('tweet-btn')
-
+import { v4 as uuidv4 } from 'uuid';
 /*
 Challenge:
-1. Somewhere in index.js there is a line of code 
-   we no longer need. Find it and delete it!
-*/ 
+1. Bring in uuidjs.
+*/
+
+const tweetInput = document.getElementById('tweet-input')
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
@@ -21,11 +20,6 @@ document.addEventListener('click', function(e){
     else if(e.target.id === 'tweet-btn'){
         handleTweetBtnClick()
     }
-/*
-Challenge:
-1. Add an else if so that if the Tweet button
-   is clicked, handleTweetBtnClick is called.
-*/ 
 })
  
 function handleLikeClick(tweetId){ 
@@ -64,6 +58,29 @@ function handleReplyClick(replyId){
 
 function handleTweetBtnClick(){
     console.log(tweetInput.value)
+    /*
+    Challenge:
+    2. When the Tweet button is clicked, log out an object
+    for a new tweet. Make sure you include the text of 
+    the tweet (how can you get that?) and a unique 
+    identifier using uuidjs.
+    
+    The handle @Scrimba (or whatever you prefer) and 
+    the profile pic scrimbalogo.png can be hard-coded.
+    */ 
+    console.log({
+        
+        handle: `@bigballio`,
+        profilePic: `scrimbalogo.png`,
+        likes: 0,
+        retweets: 0,
+        tweetText: `${tweetInput.value}`,
+        replies: [],
+        isLiked: false,
+        isRetweeted: false,
+        uuid: `${uuidv4()}`,
+
+    })
 }
 
 function getFeedHtml(){
