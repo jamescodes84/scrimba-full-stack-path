@@ -7,7 +7,7 @@ Challenge:
    of code to a better position. Find it and move it!
 */
 
-const tweetInput = document.getElementById('tweet-input')
+
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
@@ -58,30 +58,29 @@ function handleReplyClick(replyId){
     document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
+const tweetInput = document.getElementById('tweet-input')
 function handleTweetBtnClick(){
-    /*
-    Challenge:
-    1. No empty tweets!
-    2. Clear the textarea after tweeting!
-    */
-    console.log(tweetInput.value)
-    if (tweetInput.value ===''){
-        return
+/*
+Challenge:
+1. No empty tweets!
+2. Clear the textarea after tweeting!
+*/
+    if(tweetInput.value){
+        tweetsData.unshift({
+            handle: `@Scrimba`,
+            profilePic: `images/scrimbalogo.png`,
+            likes: 0,
+            retweets: 0,
+            tweetText: tweetInput.value,
+            replies: [],
+            isLiked: false,
+            isRetweeted: false,
+            uuid: uuidv4()
+        })
+    render()
+    tweetInput.value = ''
     }
 
-    tweetsData.unshift({
-        handle: `@Scrimba`,
-        profilePic: `images/scrimbalogo.png`,
-        likes: 0,
-        retweets: 0,
-        tweetText: tweetInput.value,
-        replies: [],
-        isLiked: false,
-        isRetweeted: false,
-        uuid: uuidv4()
-    })
-    tweetInput.value = ''
-    render()
 }
 
 function getFeedHtml(){
