@@ -1,6 +1,12 @@
 import { tweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
+/*
+Challenge:
+3. We could improve index.js by moving one line
+   of code to a better position. Find it and move it!
+*/
+
 const tweetInput = document.getElementById('tweet-input')
 
 document.addEventListener('click', function(e){
@@ -53,12 +59,16 @@ function handleReplyClick(replyId){
 }
 
 function handleTweetBtnClick(){
-/*
-Challenge:
-1. Add the new tweet object to 'tweetsData'
-   and make it render at the top of the feed. 
-*/ 
-    console.log()
+    /*
+    Challenge:
+    1. No empty tweets!
+    2. Clear the textarea after tweeting!
+    */
+    console.log(tweetInput.value)
+    if (tweetInput.value ===''){
+        return
+    }
+
     tweetsData.unshift({
         handle: `@Scrimba`,
         profilePic: `images/scrimbalogo.png`,
@@ -70,6 +80,7 @@ Challenge:
         isRetweeted: false,
         uuid: uuidv4()
     })
+    tweetInput.value = ''
     render()
 }
 
