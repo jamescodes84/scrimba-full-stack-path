@@ -51,26 +51,25 @@ function getFeedHtml(){
     tweetsData.forEach(function(tweet){
         
         let likeIconClass = ''
-        let retweetIconClass = ''
         
         if (tweet.isLiked){
             likeIconClass = 'liked'
         }
         
-        if (tweet.isRetweeted) {
+        let retweetIconClass = ''
+        
+        if (tweet.isRetweeted){
             retweetIconClass = 'retweeted'
-        } 
-        
-        
+        }
         
 /*
 Challenge:
-1. Use an if statement to set the value of 
-   'retweetIconClass' to the string 
-   'retweeted' if the tweet has been retweeted. 
-2. In the retweet icon tag, add 'retweetIconClass' 
-   to the list of classes.
+1. Use an if statement to check if a tweet has replies.
+2. If it does, log out the uuid for that tweet.
 */
+        if (tweet.replies.length > 0){
+            console.log(tweet.uuid)
+        }
           
         feedHtml += `
 <div class="tweet">
