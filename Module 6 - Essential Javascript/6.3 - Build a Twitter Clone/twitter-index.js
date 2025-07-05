@@ -1,9 +1,5 @@
 import { tweetsData } from './data.js'
-import { v4 as uuidv4 } from 'uuid';
-/*
-Challenge:
-1. Bring in uuidjs.
-*/
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 const tweetInput = document.getElementById('tweet-input')
 
@@ -57,30 +53,24 @@ function handleReplyClick(replyId){
 }
 
 function handleTweetBtnClick(){
-    console.log(tweetInput.value)
-    /*
-    Challenge:
-    2. When the Tweet button is clicked, log out an object
-    for a new tweet. Make sure you include the text of 
-    the tweet (how can you get that?) and a unique 
-    identifier using uuidjs.
-    
-    The handle @Scrimba (or whatever you prefer) and 
-    the profile pic scrimbalogo.png can be hard-coded.
-    */ 
-    console.log({
-        
-        handle: `@bigballio`,
-        profilePic: `scrimbalogo.png`,
+/*
+Challenge:
+1. Add the new tweet object to 'tweetsData'
+   and make it render at the top of the feed. 
+*/ 
+    console.log()
+    tweetsData.unshift({
+        handle: `@Scrimba`,
+        profilePic: `images/scrimbalogo.png`,
         likes: 0,
         retweets: 0,
-        tweetText: `${tweetInput.value}`,
+        tweetText: tweetInput.value,
         replies: [],
         isLiked: false,
         isRetweeted: false,
-        uuid: `${uuidv4()}`,
-
+        uuid: uuidv4()
     })
+    render()
 }
 
 function getFeedHtml(){
