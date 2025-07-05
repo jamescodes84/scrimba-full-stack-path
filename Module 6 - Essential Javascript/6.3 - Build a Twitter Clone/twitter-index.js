@@ -2,9 +2,9 @@ import { tweetsData } from './data.js'
 const tweetInput = document.getElementById('tweet-input')
 const tweetBtn = document.getElementById('tweet-btn')
 
-tweetBtn.addEventListener('click', function(){
-    console.log(tweetInput.value)
-})
+// tweetBtn.addEventListener('click', function(){
+//     console.log(tweetInput.value)
+// })
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
@@ -15,7 +15,16 @@ document.addEventListener('click', function(e){
     }
     else if(e.target.dataset.reply){
         handleReplyClick(e.target.dataset.reply)
+    } else if (e.target.id==='tweet-btn') {
+      
+        handleTweetBtnClick()
+        
     }
+/*
+Challenge:
+1. Add an else if so that if the Tweet button
+   is clicked, handleTweetBtnClick is called.
+*/ 
 })
  
 function handleLikeClick(tweetId){ 
@@ -49,27 +58,11 @@ function handleRetweetClick(tweetId){
 }
 
 function handleReplyClick(replyId){
-    /*
-    Challenge:
-    1. Use the uuid stored in 'replyId' to take control 
-    of the div containing that tweet’s replies. 
-    (Check the HTML string below to remind yourself 
-    what id that div will have.)  
-    */
-    
-    let replyTweet = document.getElementById(`replies-${replyId}`)
-    /*
-    
-    
-    2. Toggle the CSS class "hidden" on that div. 
-    */ 
-    if (replyTweet.classList.contains('hidden')) {
-        replyTweet.classList.remove('hidden')
-    } else {
-        replyTweet.classList.add('hidden')
-    }
-    
+    document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
+}
 
+function handleTweetBtnClick(){
+    console.log(tweetInput.value)
 }
 
 function getFeedHtml(){
