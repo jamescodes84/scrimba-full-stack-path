@@ -13,8 +13,11 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.retweet){
         handleRetweetClick(e.target.dataset.retweet)
     }
+    else if(e.target.dataset.reply){
+        handleReplyClick(e.target.dataset.reply)
+    }
 })
-
+ 
 function handleLikeClick(tweetId){ 
     const targetTweetObj = tweetsData.filter(function(tweet){
         return tweet.uuid === tweetId
@@ -45,6 +48,30 @@ function handleRetweetClick(tweetId){
     render() 
 }
 
+function handleReplyClick(replyId){
+    /*
+    Challenge:
+    1. Use the uuid stored in 'replyId' to take control 
+    of the div containing that tweet’s replies. 
+    (Check the HTML string below to remind yourself 
+    what id that div will have.)  
+    */
+    
+    let replyTweet = document.getElementById(`replies-${replyId}`)
+    /*
+    
+    
+    2. Toggle the CSS class "hidden" on that div. 
+    */ 
+    if (replyTweet.classList.contains('hidden')) {
+        replyTweet.classList.remove('hidden')
+    } else {
+        replyTweet.classList.add('hidden')
+    }
+    
+
+}
+
 function getFeedHtml(){
     let feedHtml = ``
     
@@ -62,42 +89,22 @@ function getFeedHtml(){
             retweetIconClass = 'retweeted'
         }
         
-        
-        
-        /*
-        Challenge:
-        1. If a tweet has replies, iterate through the replies
-        and wrap each one in the HTML template provided below. 
-        Make sure to replace words in UPPERCASE with data from 
-        the tweet. On each iteration, add this HTML to repliesHtml.
-        
-        <div class="tweet-reply">
-            <div class="tweet-inner">
-                <img src="PROFILE PIC" class="profile-pic">
-                    <div>
-                        <p class="handle">HANDLE</p>
-                        <p class="tweet-text">TWEET TEXT</p>
-                    </div>
-                </div>
-        </div>
-        */
         let repliesHtml = ''
+        
         if(tweet.replies.length > 0){
-            console.log(tweet.uuid)
-            for (let reply of tweet.replies) {
-                repliesHtml += 
-                `
-                <div class="tweet-reply">
-                    <div class="tweet-inner">
-                        <img src="${tweet.profilePic}" class="profile-pic">
-                        <div>
-                            <p class="handle">${reply.handle}</p>
-                            <p class="tweet-text">${reply.tweetText}</p>
-                        </div>
-                    </div>
-                </div>    
-                `
-            }
+            tweet.replies.forEach(function(reply){
+                repliesHtml+=`
+<div class="tweet-reply">
+    <div class="tweet-inner">
+        <img src="${reply.profilePic}" class="profile-pic">
+            <div>
+                <p class="handle">${reply.handle}</p>
+                <p class="tweet-text">${reply.tweetText}</p>
+            </div>
+        </div>
+</div>
+`
+            })
         }
         
           
@@ -130,18 +137,11 @@ function getFeedHtml(){
             </div>   
         </div>            
     </div>
-    <div id="replies-${tweet.uuid}">
-       ${repliesHtml}
+    <div class="hidden" id="replies-${tweet.uuid}">
+        ${repliesHtml}
     </div>   
 </div>
 `
-/*
-Challenge:
-2. Place repliesHtml in its parent div remembering 
-   to update that divs id.
-*/
-
-
    })
    return feedHtml 
 }
