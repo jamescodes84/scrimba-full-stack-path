@@ -10,18 +10,9 @@ document.addEventListener('click', function(e){
     if(e.target.dataset.like){
        handleLikeClick(e.target.dataset.like) 
     }
-/*
-Challenge:
-1. Make this eventListener call "handleRetweetClick" 
-   when the retweet icon is clicked, passing in the
-   uuid from that tweet.  
-*/ 
-    if (e.target.dataset.retweet) {
-       
+    else if(e.target.dataset.retweet){
         handleRetweetClick(e.target.dataset.retweet)
-         
     }
-
 })
 
 function handleLikeClick(tweetId){ 
@@ -40,41 +31,39 @@ function handleLikeClick(tweetId){
 }
 
 function handleRetweetClick(tweetId){
-    /*
-    Challenge:
-    2. Find the retweeted tweet's object in tweetsData 
-    and save it to a const.
-    */
-   
-    const targetTweetObject =  tweetsData.filter((tweet)=>{
+    const targetTweetObj = tweetsData.filter(function(tweet){
         return tweet.uuid === tweetId
     })[0]
-    console.log(targetTweetObject)
     
-    /*
-    3. Increment or decrement the retweet count of the 
-    tweet and flip its isRetweeted boolean.
-    */
-    
-    if (targetTweetObject.isRetweeted){
-        targetTweetObject.retweets -= 1
-    } else {
-        targetTweetObject.retweets += 1
+    if(targetTweetObj.isRetweeted){
+        targetTweetObj.retweets--
     }
-    
-    targetTweetObject.isRetweeted = !targetTweetObject.isRetweeted
-    
-    /*
-    4. Call the render function.  
-    */   
-    
-    render()
+    else{
+        targetTweetObj.retweets++
+    }
+    targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted
+    render() 
 }
 
 function getFeedHtml(){
     let feedHtml = ``
     
     tweetsData.forEach(function(tweet){
+        
+        let likeIconClass = ''
+        
+        /*
+        Challenge:
+        1. Use an if statement to set the value of 
+        'likeIconClass' to the string 'liked' 
+        if the tweet has been liked. 
+        2. In the like icon tag, add 'likeIconClass' 
+        to the list of classes.
+        */            
+        if (tweet.isLiked) {
+            likeIconClass = 'liked'
+        } 
+
         feedHtml += `
 <div class="tweet">
     <div class="tweet-inner">
@@ -90,7 +79,7 @@ function getFeedHtml(){
                     ${tweet.replies.length}
                 </span>
                 <span class="tweet-detail">
-                    <i class="fa-solid fa-heart"
+                    <i class="fa-solid fa-heart ${likeIconClass}"
                     data-like="${tweet.uuid}"
                     ></i>
                     ${tweet.likes}
