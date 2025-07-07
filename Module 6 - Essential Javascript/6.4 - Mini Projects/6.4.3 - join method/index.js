@@ -1,15 +1,8 @@
 import { playlistArr } from '/playlist.js'
 
-/*
-Challenge
-1. Use the .join() method to remove 
-   those annoying commas!
-⚠️ You will need to chain two methods
-   together to complete the challenge.
-*/
-
-const playlistHtml = playlistArr.map(function(track){
-    return `
+const playlistHtml = []
+playlistArr.forEach(function(track){
+    playlistHtml.push( `
     <section class="card">
         <div class="card-start">
             <img src="/images/${track.albumArt}">
@@ -23,6 +16,7 @@ const playlistHtml = playlistArr.map(function(track){
         </div>
     </section>
     `
-}).
+    )
+})
 
-document.getElementById('container').innerHTML = playlistHtml
+document.getElementById('container').innerHTML = playlistHtml.join('')
