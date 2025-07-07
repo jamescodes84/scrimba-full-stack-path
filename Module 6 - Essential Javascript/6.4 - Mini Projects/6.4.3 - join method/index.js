@@ -1,0 +1,1 @@
+const guestsArr = ['Amy', 'Clare', 'Keith', 'Dan'] 
