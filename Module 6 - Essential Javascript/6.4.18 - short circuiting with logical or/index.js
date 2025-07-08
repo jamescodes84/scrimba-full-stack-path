@@ -11,6 +11,6 @@ Challenge:
 */
     
 // Complete this line of code 👇
-const jobHunterName = 
+const jobHunterName = jobHunter.name || jobHunter.username
 
 console.log(`Hey ${jobHunterName}!`)
