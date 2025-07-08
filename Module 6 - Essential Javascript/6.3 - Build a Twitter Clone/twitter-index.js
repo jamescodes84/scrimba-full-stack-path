@@ -1,14 +1,6 @@
 import { tweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
-/*
-Challenge:
-3. We could improve index.js by moving one line
-   of code to a better position. Find it and move it!
-*/
-
-
-
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
        handleLikeClick(e.target.dataset.like) 
@@ -58,14 +50,8 @@ function handleReplyClick(replyId){
     document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
-
 function handleTweetBtnClick(){
-/*
-Challenge:
-1. No empty tweets!
-2. Clear the textarea after tweeting!
-*/
-const tweetInput = document.getElementById('tweet-input')
+    const tweetInput = document.getElementById('tweet-input')
     if(tweetInput.value){
         tweetsData.unshift({
             handle: `@Scrimba`,
@@ -89,17 +75,17 @@ function getFeedHtml(){
     
     tweetsData.forEach(function(tweet){
         
-        let likeIconClass = ''
+/*
+Challenge:
+1. Refactor the two lets and conditionals on 
+   lines 85-95 to use ternary operators.
+   ⚠️ You might need to do some research!
+*/
         
-        if (tweet.isLiked){
-            likeIconClass = 'liked'
-        }
+        let likeIconClass = tweet.isLiked ? 'Liked' : ''
         
-        let retweetIconClass = ''
-        
-        if (tweet.isRetweeted){
-            retweetIconClass = 'retweeted'
-        }
+        let retweetIconClass = tweet.isRetweeted ? 'retweeted' : ''
+
         
         let repliesHtml = ''
         
