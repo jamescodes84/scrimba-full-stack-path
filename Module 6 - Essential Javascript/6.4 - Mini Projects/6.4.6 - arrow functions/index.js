@@ -1,7 +1,8 @@
-function speedWarning(speed){
-    return `You are going at ${speed} mph!`
-}
 
+
+let speedWarning = (speed) => {
+   return `You are going ${speed} mph!`
+}
 console.log(speedWarning(40))
 
 /*
