@@ -71,7 +71,7 @@ export const interplanetaryDestinationsArr = [
     }
 ]
 
-const shortSpaceTripsArr = [
+export const shortSpaceTripsArr = [
     {
         destination: 'Moon pass',
         distanceKM: 5000000,
