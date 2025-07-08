@@ -5,6 +5,9 @@ Challenge
 1. Use the .reduce() method to find the total of all of the students grades.
 2. Do some simple maths to log out the class average. 
 */
-
-
-console.log(`The class average is ????`)
+let total = 0
+total = grades.reduce((total, grade) => {
+    return total += grade
+    
+})
+console.log(`The class average is ${total / grades.length }`)
