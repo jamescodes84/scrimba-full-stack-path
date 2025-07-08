@@ -1,27 +1,13 @@
-import propertyForSaleArr from '/properties/propertyForSaleArr'
-import placeholderPropertyObj from '/properties/placeholderPropertyObj'
+const playerGuess = 3
+const correctAnswer = 6
 
-function getPropertyHtml(propertyArr = [placeholderPropertyObj]) {
-    return propertyArr.map(property => {
-        const {
-            propertyLocation,
-            priceGBP,
-            roomsM2,
-            comment,
-            image
-        } = property
-        const totalRoomSizeM2 = roomsM2.reduce((total, current) => total + current)
-        return `
-            <section class="card">
-                <img src="/images/${image}">
-                <div class="card-right">
-                    <h2>${propertyLocation}</h2>
-                    <h3>${priceGBP}</h3>
-                    <p>${comment}</p>
-                    <h3>${totalRoomSizeM2} m&sup2;</h3>
-                </div>
-            </section>` 
-    }).join('')
-}
+/*
+Challenge 
+1. Refactor the if else statement to use a ternary operator.
+*/
 
-document.getElementById('container').innerHTML = getPropertyHtml()
+let message = ''
+
+
+message = playerGuess === correctAnswer ? 'Correct!' : 'Wrong!'
+console.log(message)
