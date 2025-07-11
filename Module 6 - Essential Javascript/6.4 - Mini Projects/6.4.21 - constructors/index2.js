@@ -12,3 +12,23 @@ Challenge:
 5. Check it’s working by creating several instances of 
    Character and adding items to their arrays.
 */
+
+function Character(name) {
+    this.name = name
+    this.collectedItemsArr = []
+    this.addItem = function(item) {
+        this.collectedItemsArr.push(item)
+        console.log(`${this.name} now has: ${this.collectedItemsArr.join(', ')}`)
+    }
+}
+
+let wizard = new Character('Gandalf')
+let dwarf = new Character('Gimli')
+let ranger = new Character('Strider')
+
+wizard.addItem("staff - white")
+wizard.addItem("sword - glamdring")
+dwarf.addItem("big axe")
+dwarf.addItem("small axe")
+ranger.addItem("sword - narsil")
+ranger.addItem("dagger - small")
