@@ -1,7 +1,7 @@
 const accountBalanceUsd = '$45,000,000,000 🤑💰'
 const swissBankPassCodesArr = [1234,5678,9876,3434]
 
-function authenticationCheck(passCode){
+
 /*
 Challenge:
 1. If the passcode passed into authenticationCheck 
@@ -14,7 +14,10 @@ Challenge:
 ⚠️ Make sure you short-circuit with &&
    hint.md for help!
 */
+function authenticationCheck(passCode){
 
+   swissBankPassCodesArr.includes(passCode) && console.log(accountBalanceUsd)
+   
    
 }
 
