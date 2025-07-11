@@ -4,12 +4,12 @@ const checkButton = document.getElementById('btn-check')
 
 //set minimum drinking and driving ages for a jurisdiction 
 const minDrinkAge = 21
-const minDriveAge = 16
+const minDriveAge = 18
 
 //check button click event listener
 checkButton.addEventListener('click', function () {
-        let message = ''
-        const age = ageInput.value
+    let message = ''
+    const age = ageInput.value
         // Age is below the minDrinkAge and minDriveAge
         if (age < minDrinkAge && age < minDriveAge) {
             message = `I'm sorry, you cannot drink or drive ⛔`
@@ -24,8 +24,7 @@ checkButton.addEventListener('click', function () {
             message = "You can drink 🍺 and drive 🚗 (not at the same time though!)"
         } 
         renderMessage(message)
-    }
-)
+})
 
 function renderMessage(message) {
     resultDisplay.innerText = message
