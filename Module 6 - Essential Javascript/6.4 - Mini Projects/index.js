@@ -1,17 +1,24 @@
-const playerGuess = 3
-const correctAnswer = 6
+const accountBalanceUsd = '$45,000,000,000 🤑💰'
+const swissBankPassCodesArr = [1234,5678,9876,3434]
+
 
 /*
-Challenge 
-1. Refactor the if else statement to use a ternary operator.
+Challenge:
+1. If the passcode passed into authenticationCheck 
+   exists in swissBankPassCodesArr, authenticationCheck 
+   should log out accountBalanceUsd. 
+   
+   If the passcode does not exist in swissBankPassCodesArr 
+   then authenticationCheck need not do anything.
+   
+⚠️ Make sure you short-circuit with &&
+   hint.md for help!
 */
+function authenticationCheck(passCode){
 
-let message = ''
-if (playerGuess === correctAnswer) {
-    message = 'Correct!'
-}
-else {
-    message = 'Wrong!'
+   swissBankPassCodesArr.includes(passCode) && console.log(accountBalanceUsd)
+   
+   
 }
 
-console.log(message)
+authenticationCheck(3434)
