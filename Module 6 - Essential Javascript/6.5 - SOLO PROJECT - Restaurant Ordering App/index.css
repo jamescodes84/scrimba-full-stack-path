@@ -1,3 +1,39 @@
 body {
     margin: 0;
 } 
+
+#outer-container {
+    border: 1px solid red;
+     margin: 1rem; 
+    width: 600px;
+    height: 800px;
+}
+
+#header-container {
+    border: 1px dashed blue;
+    font-family: "Smythe", system-ui;
+    font-weight: 400;
+     font-style: normal;
+    background-size:100%;
+    color:#FFFFFF;
+    width: 100%;
+    height: 167px;
+    font-weight: 400;
+    
+}
+
+#header-h1 {
+    margin: 3rem 1rem 1rem 3rem;
+}
+#header-h2 {
+    margin: 1rem 0rem 0rem 3rem;
+}
+
+
+#items-container {
+    border: 1px dashed green;
+}
+
+#cart-container {
+    border: 1px solid fuchsia;
+}
