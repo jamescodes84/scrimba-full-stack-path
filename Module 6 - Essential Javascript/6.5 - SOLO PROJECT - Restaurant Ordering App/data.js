@@ -3,7 +3,7 @@ export const restaurantData = [
         headline: "Jimmy's Diner",
         subText: "The best burgers and pizzas in town",
         image: "burger.png",
-        menuArray:  [
+        itemsArray:  [
             {
                 name: "Pizza",
                 ingredients: ["pepperoni", "mushrom", "mozarella"],

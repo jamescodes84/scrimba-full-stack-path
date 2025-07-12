@@ -1,24 +1,25 @@
 body {
     margin: 0;
+     font-family: "Smythe", system-ui;
 } 
 
 #outer-container {
     border: 1px solid red;
      margin: 1rem; 
     width: 600px;
-    height: 800px;
+    height: 1200px;
 }
 
 #header-container {
     border: 1px dashed blue;
-    font-family: "Smythe", system-ui;
-    font-weight: 400;
-     font-style: normal;
+   
+    /* font-weight: 400; */
+    font-style: normal;
     background-size:100%;
     color:#FFFFFF;
     width: 100%;
     height: 167px;
-    font-weight: 400;
+
     
 }
 
@@ -32,8 +33,54 @@ body {
 
 #items-container {
     border: 1px dashed green;
+    margin-top: 2rem;
+   
 }
+
 
 #cart-container {
     border: 1px solid fuchsia;
+}
+
+
+.item-outer-container {
+    display: flex;
+    /* justify-content: space-between; */
+    /* padding: 3rem; */
+    align-items: center;
+    border-bottom: 1px solid #D2D2D2;
+    margin:0rem 3rem;
+   
+}
+.item-inner-container {
+    /* width: 12rem; */
+}
+
+.item-emoji {
+    margin: 1rem;
+    font-size: 78px;
+}
+.item-name-h1 {
+    font-size: 28px;
+    font-weight: 400;
+    color: #000000;
+}
+.item-ingredients-h2 {
+    font-size: 16px;
+    color: #8B8B8B;
+    font-weight: 400;
+   
+}
+.item-price-h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+}
+.item-add-button {
+    border-radius: 50%;
+    border: 1px solid #D2D2D2;
+    background-color: #FFFFFF;
+    margin-left: auto;
+    width: 3.5rem;
+    height: 3.5rem;
 }
