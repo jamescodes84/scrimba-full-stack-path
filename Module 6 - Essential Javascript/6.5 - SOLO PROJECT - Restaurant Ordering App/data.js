@@ -6,7 +6,7 @@ export const restaurantData = [
         itemsArray:  [
             {
                 name: "Pizza",
-                ingredients: ["pepperoni", "mushrom", "mozarella"],
+                ingredients: ["pepperoni", "mushrom","parmesan", "mozarella"],
                 id: 0,
                 price: 14,
                 emoji: "🍕"

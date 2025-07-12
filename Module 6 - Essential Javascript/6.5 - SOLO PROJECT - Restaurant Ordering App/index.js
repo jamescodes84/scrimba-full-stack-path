@@ -1,19 +1,16 @@
-import { menuArray, restaurantData} from './data.js'
+import { restaurantData } from './data.js'
 
 let restaurantChoice = "burger"
+let outerContainer = document.getElementById("outer-container")
 let restaurant = {}
 const headerContainer = document.getElementById("header-container")
-
-
-
+const cartContainer = document.getElementById("cart-container")
 
 
 function render() {
    renderHeader()
    renderItems()  
 }
-
-
 
 function renderHeader() {
      switch (restaurantChoice) {
@@ -35,7 +32,6 @@ function renderItems() {
     let itemsList = ``
     let itemsContainer = document.getElementById("items-container")
     for (let item of restaurant.itemsArray){
-        console.log(item)
         itemsContainer.innerHTML +=
             `
                 <div class="item-outer-container">
@@ -46,7 +42,7 @@ function renderItems() {
                         <h2 class="item-price-h2">$${item.price}</h2>
                         
                     </div>
-                    <button class="item-add-button">+</button>
+                    <button class="item-add-button" id="${item.name}">+</button>
                 </div>
             `
     }
@@ -57,4 +53,24 @@ switch (restaurantChoice) {
             restaurant = restaurantData[0]
             // console.log(restaurant)
     }
+    
+    
+outerContainer.addEventListener("click", (event) => {
+    
+   if (event.target.type === "submit") {
+    // console.log('button clicked')
+    // console.log(restaurant.itemsArray)
+    
+    restaurant.itemsArray.filter((item) => {
+        if (item.name === event.target.id) {
+             cartContainer.innerHTML += `
+                ${event.target.id} button clicked<br>
+             `
+            
+        }
+    })
+    
+   }
+   
+})   
 render(restaurantChoice)

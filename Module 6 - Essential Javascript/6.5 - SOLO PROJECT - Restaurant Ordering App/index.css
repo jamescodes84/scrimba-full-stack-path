@@ -11,7 +11,7 @@ body {
 }
 
 #header-container {
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
    
     /* font-weight: 400; */
     font-style: normal;
@@ -32,7 +32,7 @@ body {
 
 
 #items-container {
-    border: 1px dashed green;
+    /* border: 1px dashed green; */
     margin-top: 2rem;
    
 }
