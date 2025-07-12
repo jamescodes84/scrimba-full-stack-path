@@ -25,6 +25,7 @@ export const restaurantData = [
                 emoji: "🍺",
                 id: 2
             }
+           
         ]
     }
 ]

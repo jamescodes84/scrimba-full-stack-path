@@ -12,7 +12,7 @@ let cart = new Map()
 
 function render() {
    renderHeader()
-   renderItems()  
+   renderItemsAvailable()  
 }
 
 function renderHeader() {
@@ -30,7 +30,7 @@ function renderHeader() {
     }
 }
 
-function renderItems() {
+function renderItemsAvailable() {
   
     let itemsList = ``
     let itemsContainer = document.getElementById("items-container")
@@ -55,18 +55,36 @@ function renderItems() {
 function renderCart() {
     let subTotal = 0
     let cartHTML = `<div id="cart-h1-container"><h1 id="cart-h1">Your Order</h1></div>`
+   
     for ( const [name , details] of cart) {
-        console.log(name, details)
+        // console.log(name, details)
         cartHTML += `
         
-        <div class="cart-item-name">${name} $${details.price} x ${details.quantity} </div>
+        <div class="cart-item-details"><span class="cart-remove-span">
+            ${name}
+            <button class="cart-remove-button" id="${name}-remove-button" data-item=${name}>remove 1 ${name}</button></span> <div>$${details.price} x ${details.quantity}</div> </div>
         
         `
         subTotal += details.price * details.quantity
     }
+    
+    // for (let lineBreaks = 0; lineBreaks < (restaurantData.itemsArray.length - cart.size); lineBreaks ++){
+    //     cartHTML += `<br>`
+    // }
+    let lineBreaks = restaurant.itemsArray.length - cart.size
+    // console.log(lineBreaks)
+    for (let i = 0; i < lineBreaks; i++){
+        cartHTML += `<div class="line-break-div"></div>`
+    }
     cartHTML += `
     <hr>
-    Total: ${subTotal}`
+    <div class="cart-total-details">
+   <span> Total:</span><span>${subTotal}</span>
+    </div>
+    <div id="checkout-button-container">
+    <button id="complete-order-button">Complete Order</button>
+    </div>
+    `
     cartContainer.innerHTML = cartHTML
 }
 
@@ -89,15 +107,22 @@ outerContainer.addEventListener("click", (event) => {
              
              if (cart.has(item.name)) {
                 cart.set(item.name, {price: item.price, quantity: cart.get(item.name).quantity += 1})
-                console.log("item already in cart")
+                // console.log("item already in cart")
              } else {
                 cart.set(item.name, {price: item.price, quantity: 1})
-                console.log(`${item.name} added to cart`)
+                // console.log(`${item.name} added to cart`)
              }
         
         }
     })
+    if (event.target.classList.contains("cart-remove-button")) {
+        const event = document.querySelector('.cart-remove-button')
+        console.log("item removed")
+        console.log(event.dataset.item)
+        
+    }
         renderCart()
+    
    }
    
 })   
