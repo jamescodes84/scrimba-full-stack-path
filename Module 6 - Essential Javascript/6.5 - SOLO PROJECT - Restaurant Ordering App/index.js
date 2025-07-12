@@ -1,11 +1,14 @@
 import { restaurantData } from './data.js'
 
-let restaurantChoice = "burger"
-let outerContainer = document.getElementById("outer-container")
-let restaurant = {}
+
+const outerContainer = document.getElementById("outer-container")
 const headerContainer = document.getElementById("header-container")
 const cartContainer = document.getElementById("cart-container")
 
+let restaurantChoice = "burger"
+let restaurant = {}
+
+let cart = new Map()
 
 function render() {
    renderHeader()
@@ -48,6 +51,25 @@ function renderItems() {
     }
 }
 
+
+function renderCart() {
+    let subTotal = 0
+    let cartHTML = `<div id="cart-h1-container"><h1 id="cart-h1">Your Order</h1></div>`
+    for ( const [name , details] of cart) {
+        console.log(name, details)
+        cartHTML += `
+        
+        <div class="cart-item-name">${name} $${details.price} x ${details.quantity} </div>
+        
+        `
+        subTotal += details.price * details.quantity
+    }
+    cartHTML += `
+    <hr>
+    Total: ${subTotal}`
+    cartContainer.innerHTML = cartHTML
+}
+
 switch (restaurantChoice) {
         case "burger":
             restaurant = restaurantData[0]
@@ -61,15 +83,21 @@ outerContainer.addEventListener("click", (event) => {
     // console.log('button clicked')
     // console.log(restaurant.itemsArray)
     
+    // add selected item to cart array or increase quantity
     restaurant.itemsArray.filter((item) => {
         if (item.name === event.target.id) {
-             cartContainer.innerHTML += `
-                ${event.target.id} button clicked<br>
-             `
-            
+             
+             if (cart.has(item.name)) {
+                cart.set(item.name, {price: item.price, quantity: cart.get(item.name).quantity += 1})
+                console.log("item already in cart")
+             } else {
+                cart.set(item.name, {price: item.price, quantity: 1})
+                console.log(`${item.name} added to cart`)
+             }
+        
         }
     })
-    
+        renderCart()
    }
    
 })   
