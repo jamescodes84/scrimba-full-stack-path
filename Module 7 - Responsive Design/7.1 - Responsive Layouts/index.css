@@ -121,7 +121,6 @@ header,
 }
 
 .feature-image {
-    width: 48.8%;
     border-radius: 4.6px;
 }
 
@@ -138,11 +137,16 @@ footer {
        of 480px or wider
     2. Within the media query, select .section-two-image-container
        and add the flexbox property to display the images on the same row
+    3. Inside the media query, select .feature-image and 
+       add the fluid width for wider screens only
 */
 
 @media (min-width: 480px) {
     .section-two-image-container {
-        display: flex;
         flex-direction: row;
     }
+    .feature-image {
+        width: 48.8%;
+    }
 }
+
