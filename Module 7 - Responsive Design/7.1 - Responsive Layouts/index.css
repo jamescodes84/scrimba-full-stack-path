@@ -108,12 +108,27 @@ header,
 .container {
     width: 90%;
     max-width: 800px;
+    border: 2px solid tomato;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
+
+/*
+  Challenge:
+   1. Apply a maximum width to .main-image
+   2. Make the image slightly narrower than 
+     its container and center it on the page 
+*/
 
 .main-image {
     width: 100%;
-    margin-bottom: 32px;
+    max-width: 400px;
+    
+    
+    margin: 0px auto;
 }
 
 .section-two-image-container {
