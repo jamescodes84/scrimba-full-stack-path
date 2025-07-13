@@ -1,81 +1,147 @@
-html,
 body {
-    height: 100%;
+    color: #2b283a;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
 
-body {
-    color: #03045e;
-    font-family: 'Open Sans', sans-serif;
-    background-image: linear-gradient( 135deg, #90e0ef 10%, #00b4d8 100%);
+/* ----- TYPOGRAPHY ----- */
+
+h1, 
+h3 {
+    margin: 0;
 }
 
 h1 {
-    font-size: 3.375em; /* 54px */
-    font-family: 'Fugaz One', cursive;
-    margin: 0 0 0.222em;
+    color: whitesmoke;
+    font-size: 36px;
 }
 
 h2 {
-    color: #0077b6;
-    margin: 0;
+    color: #451c7a;
+    font-size: 28px;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 23px;
+}
+
+.subheading {
+    display: block;
+    font-size: 20px;
+    color: #d0aaff;
+}
+
+.section-two h2 {
+    color: inherit;
+}
+
+/* ----- LINKS ----- */
+
+a {
+    color: #ef5839;
+    text-decoration: underline dotted; 
+}
+
+a:hover, 
+a:active {
+    color: #d4b44c;
+}
+
+.btn {
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4.6px;
+}
+
+.btn-dark {
+    color: whitesmoke;
+    background: #5f29a3;
+}
+
+.btn-mid {
+    color: #5f29a3; 
+    background: #f0e0ff; 
+}
+
+.btn-light {
+    color: #5f29a3; 
+    background: whitesmoke;
+}
+
+.btn:hover, 
+.btn:active {
+    color: #2b238a;
+    background-color: #f3e885;
+}
+
+/* ----- LAYOUT ----- */
+
+header, 
+section, 
+footer {
+    padding: 46px 0;
+}
+
+header, 
+.section-two {
+    background-color: #5f29a3;
+}
+
+.section-two {
+    color: whitesmoke;
 }
 
 /*
- Challenge: Convert values from px to em
-   - Padding and margin values of the h3
-   - Padding value of .container
-   - Padding and margin values of the header
+  Challenge:
+   1. Google "how to set the maximum width of an element"  
+   2. Apply a maximum width of 800px to .container
 */
 
-
-h3 {
-    font-size: 1.5em; /* 24px */
-    width: 80%;
-    border-bottom: dotted 1px;
-    padding-bottom: .5em;
-    margin: 0 auto 0.75em;
-}
-
 .container {
-    width: 680px;
-    padding: 1.25em;
-    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid tomato;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
-header {
-    padding-top: 1.875em;
-    margin-bottom: 1.875em;
+/*
+  Challenge:
+   1. Apply a maximum width to .main-image
+   2. Make the image slightly narrower than 
+     its container and center it on the page 
+*/
+
+.main-image {
+    width: 100%;
+    max-width: 400px;
+    
+    
+    margin: 0px auto;
 }
 
-.day {
-    color: #355070;
-    text-align: center;
-    width: 20%;
-    padding: 1em;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px #00b4d8;
-}
-
-.total-wk {
-    font-size: 1.125em; /* 18px */
-    letter-spacing: -1px;
-}
-
-.week {
+.section-two-image-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-main {
-    display: flex;
-    gap: 12px;
+.feature-image {
+    width: 48.8%;
+    border-radius: 4.6px;
 }
 
-.distance,
-.total-wk  {
-    font-weight: bold;
+footer {
+    text-align: center;
+    color: #5f29a3;
 }
