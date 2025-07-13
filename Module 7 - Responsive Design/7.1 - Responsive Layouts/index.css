@@ -6,12 +6,6 @@ body {
 
 /* ----- TYPOGRAPHY ----- */
 
-/*
-  Challenge:
-   - Change all the font-sizes from em to rem:
-     h1, h2, h3, .subheading, and .btn
-*/
-
 h1, 
 h3 {
     margin: 0;
@@ -32,15 +26,21 @@ h3 {
     font-size: 1.25rem;
 }
 
+/*
+  Challenge:
+   - Set the line-height of the paragraph to a unitless value
+     that’s 150% larger than the font size
+*/
+
 p {
-    line-height: 23px;
+    line-height: 1.5;
 }
 
 .subheading {
     display: block;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
     color: #d0aaff;
-}
+
 
 .section-two h2 {
     color: inherit;
@@ -63,9 +63,9 @@ a:active {
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
-    padding: 0.5rem 1rem;
-    margin-right: 0.5rem;
-    margin-bottom: 1rem;
+    padding: 0.5em 1em;
+    margin-right: 0.5em;
+    margin-bottom: 1em;
     border-radius: 4.6px;
 }
 
@@ -95,7 +95,7 @@ a:active {
 header, 
 section, 
 footer {
-    padding: 2.875rem 0;
+    padding: 2.875em 0;
 }
 
 header, 
@@ -117,7 +117,7 @@ header,
     width: 100%;
     display: block;
     max-width: 640px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2em;
 }
 
 .section-two-image-container {
