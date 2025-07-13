@@ -4,13 +4,13 @@ import { restaurantData } from './data.js'
 const outerContainer = document.getElementById("outer-container")
 const headerContainer = document.getElementById("header-container")
 const cartContainer = document.getElementById("cart-container")
-
+const paymentModal = document.getElementById("payment-modal-div")
 let restaurantChoice = "burger"
 let restaurant = {}
 
 let cart = new Map()
 
-function render() {
+function initialRender() {
    renderHeader()
    renderItemsAvailable()  
 }
@@ -53,36 +53,47 @@ function renderItemsAvailable() {
 
 
 function renderCart() {
+    let zeroQuantItemCount = 0
+    //check if cart is empty
+     for ( const [name , details] of cart) {
+        if (cart.get(name).quantity === 0) {
+            zeroQuantItemCount += 1
+        }
+    }
+    if (zeroQuantItemCount === cart.size) {
+        cartContainer.innerHTML = ``
+        return
+    }
     let subTotal = 0
     let cartHTML = `<div id="cart-h1-container"><h1 id="cart-h1">Your Order</h1></div>`
-   
+    
     for ( const [name , details] of cart) {
         // console.log(name, details)
+       if (cart.get(name).quantity > 0){
         cartHTML += `
         
-        <div class="cart-item-details"><span class="cart-remove-span">
+        <div class="cart-item-details"><span class="cart-remove-span font-size-28">
             ${name}
-            <button class="cart-remove-button" id="${name}-remove-button" data-item=${name}>remove 1 ${name}</button></span> <div>$${details.price} x ${details.quantity}</div> </div>
+            <button class="cart-remove-button" id="${name}-remove-button" data-item=${name}>remove 1 ${name}</button></span> <div>$${details.price} x ${details.quantity}</div></div>
         
         `
         subTotal += details.price * details.quantity
+       }
     }
     
-    // for (let lineBreaks = 0; lineBreaks < (restaurantData.itemsArray.length - cart.size); lineBreaks ++){
-    //     cartHTML += `<br>`
-    // }
+   
     let lineBreaks = restaurant.itemsArray.length - cart.size
-    // console.log(lineBreaks)
+
     for (let i = 0; i < lineBreaks; i++){
         cartHTML += `<div class="line-break-div"></div>`
     }
     cartHTML += `
     <hr>
-    <div class="cart-total-details">
-   <span> Total:</span><span>${subTotal}</span>
+    <div class="cart-total-details ">
+   <span class="font-size-28"> Total:</span><span class="font-size-20">$${subTotal}</span>
     </div>
     <div id="checkout-button-container">
-    <button id="complete-order-button">Complete Order</button>
+    <button id="complete-order-button" class="complete-order-button">Complete Order</button>
     </div>
     `
     cartContainer.innerHTML = cartHTML
@@ -98,32 +109,50 @@ switch (restaurantChoice) {
 outerContainer.addEventListener("click", (event) => {
     
    if (event.target.type === "submit") {
-    // console.log('button clicked')
-    // console.log(restaurant.itemsArray)
+    
     
     // add selected item to cart array or increase quantity
     restaurant.itemsArray.filter((item) => {
+       
         if (item.name === event.target.id) {
-             
+            
              if (cart.has(item.name)) {
-                cart.set(item.name, {price: item.price, quantity: cart.get(item.name).quantity += 1})
-                // console.log("item already in cart")
-             } else {
-                cart.set(item.name, {price: item.price, quantity: 1})
-                // console.log(`${item.name} added to cart`)
+               cart.set(item.name, {price: item.price, quantity: cart.get(item.name).quantity += 1})
+           } else {
+               cart.set(item.name, {price: item.price, quantity: 1})
+                
              }
         
-        }
-    })
+         }
+     })
+     
     if (event.target.classList.contains("cart-remove-button")) {
-        const event = document.querySelector('.cart-remove-button')
-        console.log("item removed")
-        console.log(event.dataset.item)
+        let itemToRemove = cart.get(event.target.dataset.item)
+        let quantity = itemToRemove.quantity
         
+        if (quantity > 0) {
+            let newCartValue = {...itemToRemove, quantity: itemToRemove.quantity -=1}
+            cart.delete(itemToRemove)
+             for ( const [name , details] of cart) {
+                console.log(name, cart.get(name))
+            }
+          //  cart.set(itemToRemove, newCartValue)
+            
+            
+        } 
+    
     }
+    
+     if (event.target.classList.contains("complete-order-button")) {
+        console.log("checkout button")
+        paymentModal.classList.remove("modal-hidden")
+     }   
+    
+    
         renderCart()
     
    }
    
 })   
-render(restaurantChoice)
+
+initialRender(restaurantChoice)
