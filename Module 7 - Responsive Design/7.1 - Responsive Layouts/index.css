@@ -52,7 +52,26 @@ a:active {
     color: #d4b44c;
 }
 
+/*
+  Challenge:
+    - On narrow screens, each button should take up the full width
+      of their container 
+    - The buttons should display on the same row only at the 768px breakpoint
+*/
+@media (min-width: 768px){
+    .btn {
+         font-size: 1.125rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5em 1em;
+       
+        margin-bottom: 1em;
+        border-radius: 4.6px;
+    }
+}
 .btn {
+    width: 100%;
     font-size: 1.125rem;
     font-weight: 500;
     text-decoration: none;
@@ -85,21 +104,6 @@ a:active {
 }
 
 /* ----- LAYOUT ----- */
-
-/*
-  Challenge:
-    1. Create a new media query that targets a browser width of 768px or wider. 
-    2. Within the media query, select the header, section, and footer elements
-       and apply a top and bottom padding of 2.875em.
-    3. Adjust the initial padding for the header, section and footer elements.
-       Set a top and bottom padding value in em equal to 20px.
-*/
-
-@media (min-width: 768px) {
-    header, section, footer {
-        padding: 2.875em 0em;
-    }
-}
 
 header, 
 section, 
@@ -150,5 +154,13 @@ footer {
     
     .feature-image {
         width: 48.8%;        
+    }
+}
+
+@media (min-width: 768px) {
+    header,
+    section,
+    footer {
+        padding: 2.875em 0;        
     }
 }
