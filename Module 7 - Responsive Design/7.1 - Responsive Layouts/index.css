@@ -99,8 +99,14 @@ header,
     color: whitesmoke;
 }
 
+/*
+ Challenge:
+  Use a percentage value to create flexible containers 
+  that resize according to their parent’s width
+*/
+
 .container {
-    width: 640px;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -115,7 +121,7 @@ header,
 }
 
 .feature-image {
-    width: 310px;
+    width: 40%;
     border-radius: 4.6px;
 }
 
