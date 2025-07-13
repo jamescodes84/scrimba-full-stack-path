@@ -4,10 +4,13 @@ import { restaurantData } from './data.js'
 const outerContainer = document.getElementById("outer-container")
 const headerContainer = document.getElementById("header-container")
 const cartContainer = document.getElementById("cart-container")
-const paymentModal = document.getElementById("payment-modal-div")
+const paymentModalOuterDiv = document.getElementById("payment-modal-outer-div")
+const paymentButton = document.getElementById('pay-button')
+const confirmationOuterContainer = document.getElementById("confirmation-outer-container")
+const confirmationInnerContainer = document.getElementById("confirmation-inner-container")
 let restaurantChoice = "burger"
 let restaurant = {}
-
+let orderTotal = 0
 let cart = new Map()
 
 function initialRender() {
@@ -74,13 +77,13 @@ function renderCart() {
         
         <div class="cart-item-details"><span class="cart-remove-span font-size-28">
             ${name}
-            <button class="cart-remove-button" id="${name}-remove-button" data-item=${name}>remove 1 ${name}</button></span> <div>$${details.price} x ${details.quantity}</div></div>
+            <button class="cart-remove-button" id="${name}-remove-button" data-item=${name}>remove 1 ${name}</button></span> <div class="font-size-20">$${details.price} x ${details.quantity}</div></div>
         
         `
         subTotal += details.price * details.quantity
        }
     }
-    
+    orderTotal = subTotal
    
     let lineBreaks = restaurant.itemsArray.length - cart.size
 
@@ -90,7 +93,7 @@ function renderCart() {
     cartHTML += `
     <hr>
     <div class="cart-total-details ">
-   <span class="font-size-28"> Total:</span><span class="font-size-20">$${subTotal}</span>
+   <span class="font-size-28"> Total:</span><span class="font-size-20">$${orderTotal}</span>
     </div>
     <div id="checkout-button-container">
     <button id="complete-order-button" class="complete-order-button">Complete Order</button>
@@ -144,8 +147,9 @@ outerContainer.addEventListener("click", (event) => {
     }
     
      if (event.target.classList.contains("complete-order-button")) {
-        console.log("checkout button")
-        paymentModal.classList.remove("modal-hidden")
+        // console.log("checkout button")
+        paymentModalOuterDiv.classList.remove("hidden")
+        
      }   
     
     
@@ -154,5 +158,16 @@ outerContainer.addEventListener("click", (event) => {
    }
    
 })   
+
+paymentButton.addEventListener("click", (event) =>{
+    let name = document.getElementById("name-input").value
+    console.log(name)
+    event.preventDefault()
+    paymentModalOuterDiv.classList.add("hidden")
+    cartContainer.innerHTML = ``
+    
+    confirmationOuterContainer.classList.remove("hidden")
+    confirmationInnerContainer.innerHTML = `Thanks, ${name}! Your order of $${orderTotal} is on the way!`
+})
 
 initialRender(restaurantChoice)

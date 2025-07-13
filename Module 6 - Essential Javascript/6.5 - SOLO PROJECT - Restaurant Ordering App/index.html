@@ -16,12 +16,26 @@
         
         <div id="items-container"> </div>
         <div id="cart-container"> </div>
-    
+        <div id="confirmation-outer-container" class="hidden">
+        <div id ="confirmation-inner-container" ></div>
+        </div>
     </div>
     
     
-    <div id="payment-modal-div" class="modal-hidden"">
-        This is the modal
+    <div id="payment-modal-outer-div" class="hidden"">
+        <div id="payment-modal-inner-div">
+        
+        <form id="payment-form">
+            
+            <div id="form-input-container">
+                <h1 id="payment-form-h2">Enter Card details</h1>
+                <input type="text" placeholder="Enter your name" class="form-input" required id="name-input"></input>
+                <input type="text" placeholder="Enter Card Number" class="form-input" required></input>
+                <input type="text" placeholder="Enter CVV" class="form-input" required></input>
+                <button id="pay-button" class="payment-button">Pay</button>
+            </div>
+        </form>
+        </div>
     </div>
     
     
