@@ -1,3 +1,5 @@
+//to run, enter:  open -a "Google Chrome" http://localhost:5500 into the terminal
+
 import { restaurantData } from './data.js'
 
 
