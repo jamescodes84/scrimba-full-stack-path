@@ -10,19 +10,23 @@ body {
    
 /* 
   Challenge: Set the initial styles for text
-    - Set the h2 to a relative font-size value equal to 36px
-    - Give the h2 a top and bottom margin value in em equal to 6px
+    - Set the paragraph to a relative font-size value equal to 18px
+    - Set the p line-height to 1.35 times its font-size value
+    - Give .subheading a bottom margin in em equal to half its font-size value
 */
-
-h2 {
-    font-size: 2.25rem;
-    margin: .16em 0;
+p{
+    font-size: 1.125rem;
+    line-height: 1.51875rem;
 }
-
 h1 {
     font-size: 2.5rem;
     font-weight: 400;
     text-shadow: 0 2px #816fca;
+}
+
+h2 {
+    font-size: 2.25rem;
+    margin: 0.167em 0;
 }
 
 .beta-text { 
@@ -32,6 +36,7 @@ h1 {
 .subheading {
     color: #575757;
     font-weight: 900;
+    margin-bottom: .5em;
 }
 
 /* =================
