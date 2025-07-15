@@ -46,12 +46,21 @@ p {
 .intro,
 .main-content {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column; 
+    padding-left: 2em;
+    padding-right: 2em;   
 }
 
 /* =================
     Intro
    ================= */
+   
+/* 
+  Challenge: Apply a full background image
+    - Set the background of .intro to the image `intro-bg.png`
+    - The background image should scale to fill the entire
+      width and height of .intro while preserving its ratio
+*/
 
 .intro { 
     justify-content: center;
@@ -59,6 +68,8 @@ p {
     text-align: center;
     color: #fff;
     background-color: #9480e4;
+    background-image: url('./images/intro-bg.png');
+    background-size: cover;
 }
 
 /* ====================
@@ -68,8 +79,6 @@ p {
 .main-content {
     align-items: center;
     padding-top: 2.5em;
-    padding-left: 2em;
-    padding-right: 2em;
 }
 
 .img-main {
@@ -85,15 +94,6 @@ p {
 /* =================
     Media queries 
    ================= */
-   
-/* 
-  Challenge: Adjust text for wider screens
-    - In the media query, increase the h1 font-size to
-      a rem value equal to 52px
-    - Increase the h2 font-size to a rem value equal to 42px
-    - Increase the font-size of .beta-text to a 
-      rem value equal to 20px
-*/
 
 @media (min-width: 576px) {
     body {
@@ -101,7 +101,7 @@ p {
     }
     
     h1 {
-        font-size: 3.25vw;
+        font-size: 5vw;
     }
     
     h2 {
