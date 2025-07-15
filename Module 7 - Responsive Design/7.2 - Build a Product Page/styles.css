@@ -100,7 +100,7 @@ p {
         display: flex;
     }
     .intro , .main-content {
-        width: 50%;
+        flex: 50%;
 
     }
 }
