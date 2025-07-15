@@ -90,6 +90,7 @@ p {
   Challenge:
     - Expand the height of .intro so that it takes up
       the full height of the browser window
+    - Vertically center the content inside .main-content
 */
 
 @media (min-width: 576px) {
@@ -102,7 +103,13 @@ p {
         width: 50%;
         
     }
+    
     .intro {
-        height: 100vh;
+        min-height: 100vh;
+        
+    }
+    .main-content {
+        align-items: center;
+        justify-content: center;
     }
 }
