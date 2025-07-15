@@ -114,10 +114,25 @@ header,
     margin: 0 auto 2em;
 }
 
+/*
+  Challenge: Wrap the feature-item divs with flexbox
+    1. Each .feature-item should grow from an initial main size of 220px
+    2. Allow the items inside .section-two-image-container to
+       wrap onto multiple lines
+    3. Apply a gap between each .feature-item
+*/
+
+.section-two-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 220px;
+    flex-grow: 1;
+    gap: 1rem;
+}
+
 .feature-image {
     width: 100%;
     border-radius: 4.6px;
-    margin-bottom: 1em;
 }
 
 footer {
@@ -125,34 +140,28 @@ footer {
     color: #5f29a3;
 }
 
-/* ----- NAVIGATION ----- */
+.feature-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 220px;
+    flex-grow: 1;
+    margin: 1rem;
+}
 
-/*
-  Challenge: Write initial nav styles
-    1. Center-align the header content
-    2. Apply a top margin to the nav element to create space
-       between the nav and subheading
-    3. Make sure that the center alignment, the nav’s top margin,
-       and dotted borders between links display only on viewport widths
-       narrower than 768px
-*/
+/* ----- NAVIGATION ----- */
 
 nav a {
     color: #fff;
     text-decoration: none;
     font-size: 1.125rem;
     padding: 0.85em 0;
-    /* display: block; */
+    display: block;
 }
 
 ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-}
-
-li:not(:last-child) {
-    border-bottom: 1px dotted #a190b6;
 }
 
 /* ----- MEDIA QUERIES ----- */
@@ -164,23 +173,11 @@ li:not(:last-child) {
 
     nav {
         margin-top: 1.5em;
-    }  
-
+    }
+ 
     li:not(:last-child) {
         border-bottom: 1px dotted #a190b6;
     }  
-}
-
-
-@media (min-width: 480px) {
-    .section-two-image-container {
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .feature-image {
-        width: 48.8%;        
-    }
 }
 
 @media (min-width: 768px) {
@@ -188,6 +185,20 @@ li:not(:last-child) {
     section,
     footer {
         padding: 2.875em 0;        
+    }
+    
+    header .container,
+    nav ul {
+        display: flex;
+    }
+    
+    header .container {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    nav li {
+        margin-left: 1.25em;
     }
     
     .btn {
