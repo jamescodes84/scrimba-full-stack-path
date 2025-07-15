@@ -87,20 +87,22 @@ p {
    ================= */
    
 /* 
-  Challenge: Adjust the layout for wider screens
-    - Add a media query that targets a browser width of 576px or wider
-    - Within the media query, convert the parent element of .intro and 
-      .main-content to a flex container
-    - Set the width .intro and .main-content to exactly
-      half the total width of their parent container
+  Challenge:
+    - Expand the height of .intro so that it takes up
+      the full height of the browser window
 */
 
 @media (min-width: 576px) {
     body {
         display: flex;
     }
-    .intro , .main-content {
-        flex: 50%;
-
+    
+    .intro,
+    .main-content {
+        width: 50%;
+        
+    }
+    .intro {
+        height: 100vh;
     }
 }
