@@ -4,10 +4,30 @@ html, body {
     font-family: 'Manrope', sans-serif;
 }
 
+body {
+    margin: 1em;
+}
+
+/* =================
+    Layout
+   ================= */
+   
+main {
+/* 
+Challenge:
+    1. Set up the "main" element as a grid container. 
+    2. Specify a template of one column with 1fr width.
+    3. Place 1em of space between each grid item. 
+*/
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+
 /* =================
     Article Card 
    ================= */
-   
+
 a:hover, a:focus {
     filter: brightness(0.9);
 }
