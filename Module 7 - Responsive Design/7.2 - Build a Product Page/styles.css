@@ -39,6 +39,12 @@ p {
     text-transform: uppercase;
 }
 
+.fine-print {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #858585;
+}
+
 /* =================
     Flex containers
    ================= */
@@ -54,21 +60,13 @@ p {
 /* =================
     Intro
    ================= */
-   
-/* 
-  Challenge: Apply a full background image
-    - Set the background of .intro to the image `intro-bg.png`
-    - The background image should scale to fill the entire
-      width and height of .intro while preserving its ratio
-*/
 
 .intro { 
     justify-content: center;
     min-height: 250px;
     text-align: center;
     color: #fff;
-    background-color: #9480e4;
-    background-image: url('./images/intro-bg.png');
+    background: #9480e4 url("images/intro-bg.png");
     background-size: cover;
 }
 
@@ -89,7 +87,27 @@ p {
 /* =================
     Form
    ================= */
-   
+
+/* 
+  Challenge: Style the form inputs
+    - Display each input on a separate line so they
+      expand to the full width of their container
+    - Use a bottom margin to create space between the input elements
+    - Apply a padding in em that's equal to half the input's
+      font-size to all 4 sides
+*/
+
+
+form {
+    /* width: 100%; */
+    display:flex;
+    flex-direction: column;
+}
+input {
+    width: 100%;
+    margin-bottom: .4rem;
+    padding: .56em;
+}
 
 /* =================
     Media queries 
