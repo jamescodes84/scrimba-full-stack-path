@@ -1,18 +1,25 @@
-let blogList = document.getElementById('blog-list')
+let postsArray = []
 
-fetch("https://apis.scrimba.com/jsonplaceholder/posts")
-    .then(res => res.json())
-    .then(data => {
-        const postsArr = data.slice(0, 5)
-        let html = ""
-        for (let post of postsArr) {
+function renderPosts() {
+     postsArray = data.slice(0, 5)
+    let html = ""
+     for (let post of postsArray) {
             html += `
                 <h3>${post.title}</h3>
                 <p>${post.body}</p>
                 <hr />
             `
         }
-        blogList.innerHTML = html
+        document.getElementById('blog-list').innerHTML = html
+    
+}
+
+fetch("https://apis.scrimba.com/jsonplaceholder/posts")
+    .then(res => res.json())
+    .then(data => {
+        
+        postsArray = data
+        renderPosts()
     })
 
 document.getElementById("new-post").addEventListener("submit", function(e) {
@@ -34,13 +41,8 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
     
     fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
         .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            /**
-             * Challenge: Update the DOM with the new blog entry
-             */
-            blogList.innerHTML += `
-             <h3>${data.title}</h3>
-             <p>${data.body}<p>`
+        .then(post => {
+           postsArray.push(data)
+           renderPosts()
         })
 })
