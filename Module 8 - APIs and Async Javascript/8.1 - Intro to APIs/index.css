@@ -1,0 +1,23 @@
+#outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#activity-div {
+    margin: 4rem;
+    
+}
+
+#activity-button {
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+    background-color: darksalmon;
+    border: none;
+    color: white;
+}
+
+#activity-button:focus {
+    outline: none;
+}
