@@ -1,13 +1,6 @@
-/**
- Challenge:
-
- Style it up!
- 
- * Add a short (~30px height) fixed navbar at the top with the text "BlogSpace". Remember to pad the top of your content so it doesn't get hidden behind the navbar.
- * Add a font from Google Fonts.
- * Any other styling you want to make it look nice!
- 
- */
+const postForm = document.getElementById('post-form')
+const postTitle = document.getElementById('post-title')
+const postBody = document.getElementById('post-body')
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(res => res.json())
@@ -23,3 +16,26 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
         }
         document.getElementById("blog-list").innerHTML = html
     })
+
+postForm.addEventListener("submit", (event) => {
+    event.preventDefault()
+    if (postTitle.value === "" || postBody.value === "") {
+        console.log("must complete post" )
+        event.preventDefault()
+    }
+    
+    let post = {
+        title : postTitle.value,
+        body: postBody.value
+    }
+    console.log(post)
+})
+/**
+ Challenge:
+ 
+ * Listen for the "submit" event on the form (which will happen when the button is clicked)
+    * (Don't forget to preventDefault on the form so it doesn't refresh your page. Google "form preventDefault" if you're not sure what I'm talking about)
+ * Combine the title value and body value into an object (with a "title" property and "body" property)
+ * Log the object to the console
+
+*/
