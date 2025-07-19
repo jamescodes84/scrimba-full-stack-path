@@ -8,5 +8,14 @@ body {
 }
 
 nav {
+    
+    
+    flex-direction: column;
     height: 30px;
+}
+
+form {
+    background-color:#103783;
+    display: flex;
+    flex-direction: column;
 }
