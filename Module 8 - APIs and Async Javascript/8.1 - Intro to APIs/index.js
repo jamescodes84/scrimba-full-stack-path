@@ -22,7 +22,7 @@ activityButton.addEventListener("click", () => {
           activity.textContent = data.activity
           activity.classList.add("jump")
           void activity.offsetWidth;
-            setTimeout(()=>{activity.classList.remove("jump")}, 1000)
+            setTimeout(()=>{activity.classList.remove("jump")}, 400)
 
       })
 })
