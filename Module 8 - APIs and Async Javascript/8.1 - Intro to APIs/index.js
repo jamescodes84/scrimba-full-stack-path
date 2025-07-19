@@ -18,6 +18,11 @@ activityButton.addEventListener("click", () => {
   fetch("https://apis.scrimba.com/bored/api/activity")
       .then(response => response.json())
       .then(data => {
-          document.getElementById("activity-div").textContent = data.activity
+        let activity = document.getElementById("activity")
+          activity.textContent = data.activity
+          activity.classList.add("jump")
+          void activity.offsetWidth;
+            setTimeout(()=>{activity.classList.remove("jump")}, 1000)
+
       })
 })

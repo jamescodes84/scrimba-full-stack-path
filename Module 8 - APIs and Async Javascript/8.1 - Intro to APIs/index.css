@@ -13,9 +13,9 @@ body {
     align-items: center;
 }
 
-#activity-div {
+#activity {
     margin: 4rem;
-    
+    font-size: 3rem;;
     
 }
 
@@ -26,8 +26,22 @@ body {
     background-color: rgb(13, 186, 238);
     border: none;
     color: white;
+    font-size: 1rem;
 }
 
 #activity-button:focus {
     outline: none;
+}
+#activity-button:active {
+    box-shadow: 0px 0px 4px black;    
+}
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-10px); }
+  60%  { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+.jump {
+  animation: jump 0.4s ease;
 }
