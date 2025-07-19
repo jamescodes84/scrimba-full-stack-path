@@ -14,12 +14,10 @@ Challenge:
 
 let activityButton = document.getElementById('activity-button')
 
-activityButton.addEventListener("click", ()=>{
-  // console.log("button")
+activityButton.addEventListener("click", () => {
   fetch("https://apis.scrimba.com/bored/api/activity")
       .then(response => response.json())
       .then(data => {
-          // console.log(data)
           document.getElementById("activity-div").textContent = data.activity
       })
 })
