@@ -1,14 +1,40 @@
 <html>
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <nav>Blogspace</nav>
-        <div id="blog-list"></div>
+        <nav>
+            <h3>BlogSpace</h3>
+        </nav>
+        
+        <!-- 
+        Challenge:
+        
+        Create a form with 2 inputs (each with an associated label), 
+        one for the post title (a text input) and one for the post body
+        (a textarea element). Then add a button to the form. 
+        
+        Don't worry about styling quite yet.
+         -->
+         
+         
+         <div id="blog-list"></div>
+         <div id="form-container">
+            <form>
+                <h2>Write a New Post</h2>
+                <label for="post-title">Title</label>
+                <input type="text" id="post-title"></input>
+                
+                <label for="post-body">Body</label>
+                <textarea id="post-body"> </textarea>
+                <button>Submit Post</button>
+            </form>
+            
+        </div>
+         
+        
         <script src="index.js"></script>
     </body>
 </html>
