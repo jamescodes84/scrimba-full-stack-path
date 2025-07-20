@@ -40,7 +40,7 @@ function setColors () {
     
     console.log("calling api with", hex, mode)
     colorsArray = []
-    fetch(`https://www.thecolorapi.com/scheme?hex=${hex.slice(1)}&hsl=215,100%,34%&cmyk=100,58,0,33&format=json&mode=${mode}&count=5`, {method: 'GET'})
+    fetch(`https://www.thecolorapi.com/scheme?hex=${hex.slice(1)}&mode=${mode}&count=5`, {method: 'GET'})
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -63,6 +63,7 @@ function updateView() {
         // console.log(color)
         let hexColor = `#${color}`
         document.getElementById(`color-${colorIndex}`).style.backgroundColor = hexColor
+        document.getElementById(`color-${colorIndex}-value`).innerHTML = `<p>${hexColor}</p>`
         colorIndex++
     }
   
