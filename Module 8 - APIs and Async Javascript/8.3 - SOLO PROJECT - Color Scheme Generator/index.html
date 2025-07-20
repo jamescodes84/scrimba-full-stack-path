@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" src="index.css" />
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <p>test            
-        </p>
+        <div id="outermost-container">
+            <div id="toolbar">
+
+                <div id="color-picker-container">
+                    <input id="color-picker-input" type="color"/>
+                </div>
+
+                <div id="scheme-dropdown-container" >
+                    <select name="schemas" id="schema-dropdown">
+                        <option value="Monochrome">Monochrome</option>
+                        <option value="Monochrome-dark">Monochrome-dark</option>
+                        <option value="Monochrome-light">Monochrome-light</option>
+                        <option value="Analogic">Analogic</option>
+                        <option value="Complement">Complement</option>
+                        <option value="Analogic-complement">Analogic-complement</option>
+                        <option value="Triad">Triad</option>
+                    </select>
+                </div>
+
+
+                <div id="scheme-button-container">
+                    <button id="schema-button" >Get color Schema</button>
+                </div>
+
+            </div>
+        </div>
     </body>
+    <script src="index.js"></script>
 </html>

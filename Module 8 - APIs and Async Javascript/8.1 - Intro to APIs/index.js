@@ -12,8 +12,8 @@ Challenge:
 
 
 
-let activityButton = document.getElementById('activity-button')
-
+const activityButton = document.getElementById('activity-button')
+const schemaDropdown = document.getElementById('schema-dropdown')
 activityButton.addEventListener("click", () => {
   fetch("https://apis.scrimba.com/bored/api/activity")
       .then(response => response.json())
