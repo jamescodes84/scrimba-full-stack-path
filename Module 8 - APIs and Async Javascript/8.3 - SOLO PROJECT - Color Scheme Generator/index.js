@@ -10,24 +10,22 @@ let mode = schemaDropdown.value
 
 let colorsArray = []
 colorPickerInput.addEventListener('input', () => {
-    console.log("Selected Color:", colorPickerInput.value)
     hex = colorPickerInput.value
 })
 
 schemaDropdown.addEventListener('change', () => {
-    console.log("Selected Theme:", schemaDropdown.value)
     mode = schemaDropdown.value
 })
 
 body.addEventListener('click', (event) => {
     
     if (event.target.id === "schema-button") {
-        // console.log("schema button clicked")
         setColors()
     }
     
     if (event.target.classList.contains('color-container')) {
-        console.log(`${event.target.id} clicked`)
+        // console.log(`${event.target.id} clicked`)
+
        
     }
 
@@ -36,18 +34,16 @@ body.addEventListener('click', (event) => {
 
 
 function setColors () {
-    console.log("setColors()")
     
-    console.log("calling api with", hex, mode)
     colorsArray = []
-    fetch(`https://www.thecolorapi.com/scheme?hex=${hex.slice(1)}&mode=${mode}&count=5000`, {method: 'GET'})
+    fetch(`https://www.thecolorapi.com/scheme?hex=${hex.slice(1)}&mode=${mode}&count=50`, {method: 'GET'})
         .then(response => response.json())
         .then(data => {
             
 
             // change this logic to run once for each color and pick a random color from the array
             for (let i = 0; i < 5; i++) {
-                let randomIndex = Math.floor(Math.random() * 5000)
+                let randomIndex = Math.floor(Math.random() * 50)
                 colorsArray.push(data.colors[randomIndex].hex.clean)
                 //generate a random index, push that index color to the array
             }
