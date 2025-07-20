@@ -40,13 +40,16 @@ function setColors () {
     
     console.log("calling api with", hex, mode)
     colorsArray = []
-    fetch(`https://www.thecolorapi.com/scheme?hex=${hex.slice(1)}&mode=${mode}&count=5`, {method: 'GET'})
+    fetch(`https://www.thecolorapi.com/scheme?hex=${hex.slice(1)}&mode=${mode}&count=5000`, {method: 'GET'})
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            for (let color of data.colors) {
-                console.log(color.hex.clean)
-                colorsArray.push(color.hex.clean)
+            
+
+            // change this logic to run once for each color and pick a random color from the array
+            for (let i = 0; i < 5; i++) {
+                let randomIndex = Math.floor(Math.random() * 5000)
+                colorsArray.push(data.colors[randomIndex].hex.clean)
+                //generate a random index, push that index color to the array
             }
             updateView()
         })
@@ -56,8 +59,8 @@ function setColors () {
 }
 
 function updateView() {
-    console.log("updateView()")
-     console.log(colorsArray)
+   
+     
     let colorIndex = 1
     for (let color of colorsArray) {
         // console.log(color)
