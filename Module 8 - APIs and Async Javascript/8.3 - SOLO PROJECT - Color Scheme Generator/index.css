@@ -4,12 +4,19 @@ body {
     display: block;
 }
 
+
+.color-container {
+    border: 1px dashed lightseagreen;
+    height: 18rem;
+    width: 20%;
+}
+
 #outermost-container {
     margin: 1rem auto;
     width: 60%;
     height: 60%;
-    max-width: 900px;
-    max-height: 10000px;
+    max-width: 550px;
+    max-height: 550px;
     border: 1px solid white;
 }
 #toolbar {
@@ -19,4 +26,10 @@ body {
     justify-content: space-around;
     border: 1px dashed lightcoral;
     height: 4rem;
+}
+
+#colors-outer-container {
+    border: 1px solid lightgreen;
+    height: 18rem;
+    display: flex;
 }

@@ -5,13 +5,13 @@ const colorPickerInput = document.getElementById('color-picker-input')
 const schemaDropdown = document.getElementById("schema-dropdown")
 const schemaButton = document.getElementById('schema-button')
 colorPickerInput.addEventListener('input', () => {
-    console.log("Selected Color: ", colorPickerInput.value)
+    console.log("Selected Color:", colorPickerInput.value)
 })
 
 schemaDropdown.addEventListener('change', () => {
-    console.log("Selected Theme", schemaDropdown.value)
+    console.log("Selected Theme:", schemaDropdown.value)
 })
 
 schemaButton.addEventListener('click', () => {
-    console.log("schema button clicked")
+    console.log("Get Schema Button Clicked")
 })
