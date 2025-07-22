@@ -1,13 +1,16 @@
-/**
- * Challenge: Define our anonymous callback function as a separate function, then
- * pass it as the 2nd parameter to our `addEventListener`
- */
-
-function callAPI() {
+function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
         .then(res => res.json())
         .then(data => console.log(data))
 }
 
+document.getElementById("new-deck").addEventListener("click", handleClick)
 
-document.getElementById("new-deck").addEventListener("click", callAPI)
+/**
+ * Challenge: 
+ * 
+ * Part 1: write a `setTimeout` command. Have it wait for 2000 ms before logging "I finally ran!" to the console
+ * 
+ * Part 2: Upcoming...
+ */
+setTimeout( () => {console.log("I finally ran!")}, 2000)
