@@ -1,4 +1,4 @@
-let deckId
+let deckId = null
 
 function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
@@ -9,7 +9,17 @@ function handleClick() {
         })
 }
 
+
+function newCards() {
+    console.log(deckId)
+    fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`, {method: 'GET'})
+        .then(response => response.json())
+        .then(data => console.log(data))
+}
+
+
 document.getElementById("new-deck").addEventListener("click", handleClick)
+document.getElementById('new-cards').addEventListener("click", newCards)
 /**
  * Challenge
  * 
@@ -26,3 +36,4 @@ document.getElementById("new-deck").addEventListener("click", handleClick)
  *      since you're only saving your deckId in a local variable right now
  * 2. Log those 2 cards to the console
  */
+
