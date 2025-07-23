@@ -1,4 +1,36 @@
 html, body {
     margin: 0;
     padding: 0;
+    /* max-width: 800px; */
+    border: 1px solid red;
+}
+
+
+
+
+#outermost-container {
+    width: 600px;
+    height: 400px;
+     background-image: url('img/table.png');
+    background-size: cover;
+    margin: 2rem;
+    position: relative;
+}
+#button-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+#new-deck {
+    width: 9rem;
+}
+
+#draw-cards {
+    margin-top: 58.5%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
