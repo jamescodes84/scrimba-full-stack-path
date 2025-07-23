@@ -1,3 +1,5 @@
+
+
 function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
         .then(res => res.json())
@@ -5,16 +7,15 @@ function handleClick() {
 }
 
 document.getElementById("new-deck").addEventListener("click", handleClick)
-
 /**
- * Challenge: 
+ * Challenge
  * 
- * Part 1: write a `setTimeout` command. Have it wait for 2000 ms before logging "I finally ran!" to the console
+ * Background:
+ * The Deck of Cards API expects us to provide the deck id 
+ * of the deck we're playing with so it can remember which
+ * cards we've already drawn, how many are remaining in the
+ * deck, etc.
  * 
- * Part 2: Move the anonymous in-line function to its own, named function
+ * Task: save the deck_id from the returned data to a local
+ * variable so we can use it later
  */
-function run(){
-    console.log("I finally ran!")
-}
-
-setTimeout(run, 2000)
