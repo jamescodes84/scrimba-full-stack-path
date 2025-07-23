@@ -47,7 +47,13 @@ img.card {
     height: 100%;
 }
 
-#remaining-div {
-  font-size: 1.4rem;  
-  margin-bottom: .5rem;
+div.top {
+    display: flex;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+div.top > p {
+    margin: 0;
+    margin-left: 10px;
 }
