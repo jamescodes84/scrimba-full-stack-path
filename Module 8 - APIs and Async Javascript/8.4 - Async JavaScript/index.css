@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: white;
 }
 
 button {
@@ -31,7 +32,7 @@ button.draw {
 }
 
 div.card-slot {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     height: 120px;
     width: calc(120px * 5 / 7);
@@ -46,7 +47,7 @@ img.card {
     height: 100%;
 }
 
-#winner-div {
-    color : white;
-    font-size: 3rem;
+#remaining-div {
+  font-size: 1.4rem;  
+  margin-bottom: .5rem;
 }
