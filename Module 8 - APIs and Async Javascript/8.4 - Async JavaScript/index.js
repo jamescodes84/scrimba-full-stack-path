@@ -9,17 +9,13 @@ function handleClick() {
         })
 }
 
-
-function newCards() {
-    console.log(deckId)
-    fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`, {method: 'GET'})
-        .then(response => response.json())
-        .then(data => console.log(data))
-}
-
-
 document.getElementById("new-deck").addEventListener("click", handleClick)
-document.getElementById('new-cards').addEventListener("click", newCards)
+
+document.getElementById("new-cards").addEventListener("click", () => {
+    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+})
 /**
  * Challenge
  * 
@@ -36,4 +32,3 @@ document.getElementById('new-cards').addEventListener("click", newCards)
  *      since you're only saving your deckId in a local variable right now
  * 2. Log those 2 cards to the console
  */
-
