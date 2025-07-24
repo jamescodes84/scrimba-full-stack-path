@@ -1,4 +1,5 @@
-
+// require('dotenv').config();
+const apiKey = import.meta.env.OMDB_API_KEY;
 let outermostContainer = document.getElementById('outermost-container')
 let watchListButton = document.getElementById('watchlist-button')
 let searchText = document.getElementById('search-text')
@@ -18,7 +19,7 @@ outermostContainer.addEventListener("click", (event) => {
         search(searchText.value)
     }
 })
-
+console.log(OMDB_API_KEY)
 async function search() {
-    let res = await fetch ()
+    // let res = await fetch (`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&` , {method: 'GET'})
 }

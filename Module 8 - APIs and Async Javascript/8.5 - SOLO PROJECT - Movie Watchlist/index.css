@@ -6,7 +6,7 @@ html, body {
 #outermost-container {
     border: 1px solid red;
     height: 100%;
-    max-width: 120rem;
+    max-width: 90rem;
 }
 
 #header-outer-container {
@@ -46,8 +46,9 @@ html, body {
     width: 100%;
     justify-content: center;;
     position: absolute;
-    top: 12.25rem
+    top: 12rem
 }
 #search-text {
-    width: 2rem;
+    width: 60rem;
+    height: 2rem;
 }
