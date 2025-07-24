@@ -22,7 +22,7 @@ outermostContainer.addEventListener("click", (event) => {
 })
 console.log(CONFIG.OMDB_API_KEY)
 async function search() {
-    let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&t=${searchText.value}` , {method: 'GET'})
+    let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&t=${searchText.value}&type=movie&r=json&plot=full` , {method: 'GET'})
     let data = await res.json()
     console.log(data)
     document.getElementById('test-output').innerHTML = 
