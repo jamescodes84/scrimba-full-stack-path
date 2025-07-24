@@ -2,3 +2,52 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+#outermost-container {
+    border: 1px solid red;
+    height: 100%;
+    max-width: 120rem;
+}
+
+#header-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid blue;
+    height: 13rem;
+    position: relative;
+    
+}
+
+#header-upper-container {
+    padding: 2rem 2rem 0rem 2rem;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    height: 100%;
+}
+
+#header-title-container {
+    
+    display: flex;
+    align-self: center;
+    
+}
+#watchlist-button {
+    /* margin-top: 3rem; */
+}
+
+#search-container {
+    /* border: 1px solid purple; */
+    display: flex;
+
+    width: 100%;
+    justify-content: center;;
+    position: absolute;
+    top: 12.25rem
+}
+#search-text {
+    width: 2rem;
+}
