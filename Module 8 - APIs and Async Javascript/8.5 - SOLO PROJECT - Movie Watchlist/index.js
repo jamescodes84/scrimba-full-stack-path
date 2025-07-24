@@ -26,5 +26,5 @@ async function search() {
     let data = await res.json()
     console.log(data)
     document.getElementById('test-output').innerHTML = 
-    `<br><div>${data.Title, data.Year, data.Runtime, data.Plot}</div>`
+    `<div class="output">Title: ${ data.Title}<br> Plot:${data.Plot}</div>`
 }
