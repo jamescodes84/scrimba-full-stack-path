@@ -52,3 +52,7 @@ html, body {
     width: 60rem;
     height: 2rem;
 }
+
+#test-output {
+    margin-top: 1rem;
+}
