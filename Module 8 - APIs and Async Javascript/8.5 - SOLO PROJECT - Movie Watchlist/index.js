@@ -23,7 +23,7 @@ outermostContainer.addEventListener("click", (event) => {
 
 
 async function search() {
-    document.getElementById('test-output').innerHTML ="" 
+    document.getElementById('output').innerHTML ="" 
     // perform macro query
     let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&s=${searchText.value}&type=movie&r=json&page=1` , {method: 'GET'})
     let data = await res.json()
@@ -61,14 +61,19 @@ async function search() {
             let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&i=${uniqueMovie.imdbID}&type=movie&r=json&page=1` , {method: 'GET'})
             let movie = await res.json()
             console.log("Micro Result",movie)
-            document.getElementById('test-output').innerHTML += 
+            document.getElementById('output').innerHTML += 
                     `
-                        <div class="output">   
-                                                Title: ${ movie.Title}<br>
-                                                Year: ${movie.Year}<br>
-                                                Plot: ${movie.Plot}
+                        <div class="output-card"> 
+                            <div id="movie-poster-${movie.imdbID}">
+                             <img  class="movie-poster" src="${movie.Poster}">
+                            </div>
+                            <div>  
+                                Title: ${movie.Title}<br>
+                                Year: ${movie.Year}<br>
+                                Plot: ${movie.Plot}
+                            </div>
                         </div>
-                        <br>
+                        
                     `
         }
 

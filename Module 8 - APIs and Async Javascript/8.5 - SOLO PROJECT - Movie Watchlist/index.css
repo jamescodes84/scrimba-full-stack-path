@@ -89,7 +89,25 @@ button:hover {
 #test-output {
     margin-top: 1rem;
 }
-
+#output-outer-container {
+    padding-top: 1rem;
+}
 .output {
     margin-left: 4rem;
+}
+
+.output-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #E5E7EB;
+    margin: 0 2rem;
+    
+}
+
+.movie-poster {
+    width: 6rem;
+    height: 8rem;
+    margin: 1rem;
+
 }
