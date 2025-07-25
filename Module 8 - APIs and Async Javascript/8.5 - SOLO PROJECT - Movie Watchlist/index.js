@@ -21,25 +21,61 @@ outermostContainer.addEventListener("click", (event) => {
     }
 })
 
-console.log(CONFIG.OMDB_API_KEY)
+
 async function search() {
     document.getElementById('test-output').innerHTML ="" 
     // perform macro query
     let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&s=${searchText.value}&type=movie&r=json&page=1` , {method: 'GET'})
     let data = await res.json()
-    let moviesSearcResults = data.Search
     //perform micro query to retrieve plots for each movie
 
 
-    console.log(data.Search)
-    
-    for (let movie of data.Search) {
-         let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&t=${searchText.value}&type=movie&r=json&page=1` , {method: 'GET'})
-        let data = await res.json()
-        console.log(data)
-    //      document.getElementById('test-output').innerHTML += 
-    // `<div class="output">Title: ${ movie.Title}<br>${movie.Year}</div>
-    // <div>${data}</div>`
+    // sort the movies array by year
+   
+    const uniqueMoviesMap = new Map();
+    let uniqueMovies = null
+    // console.log(movies)
+    // console.log(data[0])
+    if (Array.isArray(data.Search)) {
+        // Step 1: Remove duplicates
+        
+        for (let movie of data.Search) {
+            // Use imdbID as a unique identifier (recommended)
+            if (!uniqueMoviesMap.has(movie.imdbID)) {
+                uniqueMoviesMap.set(movie.imdbID, movie);
+            }
+        }
+
+        // Step 2: Convert map back to array
+        uniqueMovies = Array.from(uniqueMoviesMap.values());
+
+        // Step 3: Sort by year
+        uniqueMovies.sort((a, b) =>  parseInt(b.Year) - parseInt(a.Year));
+
+        // console.log(uniqueMovies);
+    } else {
+        console.error("No valid movie list found:", data.Search);
     }
+    
+    for (let uniqueMovie of  uniqueMovies) {
+        console.log("Unique Result:" , uniqueMovie.imdbID)
+        let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&i=${uniqueMovie.imdbID}&type=movie&r=json&page=1` , {method: 'GET'})
+        let movie = await res.json()
+        console.log("Micro Result",movie)
+        document.getElementById('test-output').innerHTML += 
+                `
+                    <div class="output">   
+                                            Title: ${ movie.Title}<br>
+                                            Year: ${movie.Year}<br>
+                                            Plot: ${movie.Plot}
+                    </div>
+                    <br>
+                `
+    }
+
+   
+      
+   
+   
    
 }
