@@ -23,9 +23,20 @@ outermostContainer.addEventListener("click", (event) => {
 
 console.log(CONFIG.OMDB_API_KEY)
 async function search() {
-    let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&t=${searchText.value}&type=movie&r=json&plot=full` , {method: 'GET'})
+    document.getElementById('test-output').innerHTML ="" 
+    let movieArray = []
+    // perform macro query
+    let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&s=${searchText.value}&type=movie&r=json&page=1` , {method: 'GET'})
     let data = await res.json()
-    console.log(data)
-    document.getElementById('test-output').innerHTML = 
-    `<div class="output">Title: ${ data.Title}<br> Plot:${data.Plot}</div>`
+ 
+    //perform micro query to retrieve plots for each movie
+
+
+    console.log(data.Search)
+    for (let movie of data.Search) {
+         document.getElementById('test-output').innerHTML += 
+    `<div class="output">Title: ${ movie.Title}<br>${movie.Year}</div>
+    <div>${data}</div>`
+    }
+   
 }
