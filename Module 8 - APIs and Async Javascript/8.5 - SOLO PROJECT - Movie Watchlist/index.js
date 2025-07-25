@@ -73,7 +73,7 @@ async function search() {
         }
 
     } else {
-         document.getElementById('test-output').innerHTML =  `Error: ${data.Error}`
+         document.getElementById('test-output').innerHTML =  `<br>Error: ${data.Error}`
     }
       
    
