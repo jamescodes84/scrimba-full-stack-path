@@ -28,7 +28,7 @@ async function search() {
     let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&s=${searchText.value}&type=movie&r=json&page=1` , {method: 'GET'})
     let data = await res.json()
     //perform micro query to retrieve plots for each movie
-    //test
+    
 
     // sort the movies array by year
    
@@ -55,6 +55,7 @@ async function search() {
 
         }
         
+
         for (let uniqueMovie of  uniqueMovies) {
             console.log("Unique Result:" , uniqueMovie.imdbID)
             let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&i=${uniqueMovie.imdbID}&type=movie&r=json&page=1` , {method: 'GET'})
