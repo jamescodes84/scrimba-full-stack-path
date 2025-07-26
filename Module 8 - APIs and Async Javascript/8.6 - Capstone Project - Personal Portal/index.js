@@ -16,3 +16,14 @@
  * https://css-tricks.com/perfect-full-page-background-image/#awesome-easy-progressive-css3-way)
  */
 
+async function getBackground() {
+	let res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature", {method:'GET'})
+	let data = await res.json()
+	console.log(data.urls.full)
+    document.getElementById('body').style.backgroundImage = `url("${data.urls.full}")`
+}
+getBackground()
+
+// console.log(randomImage)
+// document.getElementById("body").style.backgroundImage = randomImage;
+		
