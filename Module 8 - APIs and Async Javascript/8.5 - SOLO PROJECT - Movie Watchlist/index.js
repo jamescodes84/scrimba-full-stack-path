@@ -57,20 +57,22 @@ async function search() {
         
 
         for (let uniqueMovie of  uniqueMovies) {
-            console.log("Unique Result:" , uniqueMovie.imdbID)
+            console.log("Unique Result:" , uniqueMovie)
             let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&i=${uniqueMovie.imdbID}&type=movie&r=json&page=1` , {method: 'GET'})
             let movie = await res.json()
             console.log("Micro Result",movie)
             document.getElementById('output').innerHTML += 
                     `
-                        <div class="output-card"> 
+                        <div class="movie-card"> 
                             <div id="movie-poster-${movie.imdbID}">
                              <img  class="movie-poster" src="${movie.Poster}">
                             </div>
-                            <div>  
-                                Title: ${movie.Title}<br>
-                                Year: ${movie.Year}<br>
-                                Plot: ${movie.Plot}
+                            <div class="movie-details"> 
+                                <div> 
+                                    <span class="movie-title">${movie.Title}</span>
+                                    <span><span class="star-entity">&#9733</span> ${movie.imdbRating}</span>
+                                </div>
+                                <div>${movie.Plot}</div>
                             </div>
                         </div>
                         

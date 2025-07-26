@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-     font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
 
@@ -96,7 +96,7 @@ button:hover {
     margin-left: 4rem;
 }
 
-.output-card {
+.movie-card {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -104,10 +104,19 @@ button:hover {
     margin: 0 2rem;
     
 }
+.movie-title {
+    font-weight:800;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
 
+.star-entity {
+    color: #FEC654;
+}
 .movie-poster {
     width: 6rem;
     height: 8rem;
     margin: 1rem;
 
 }
+
