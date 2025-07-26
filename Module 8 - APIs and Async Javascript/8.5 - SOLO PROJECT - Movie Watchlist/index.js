@@ -30,14 +30,40 @@ outermostContainer.addEventListener("click", (event) => {
         
        
         let movieId = event.target.dataset.movie
-        console.log(movieId)
         let uniqueMovie = uniqueMoviesMap.get(movieId)
        
        
         let microQueryMovie = microQueryMap.get(uniqueMovie)
-         watchList.set(uniqueMovie, microQueryMovie)
-         localStorage.setItem("watchList", watchList)
-        // console.log(localStorage)
+        
+        // console.log(watchList.keys())
+        localStorage.setItem(movieId, microQueryMovie)
+         
+
+        // document.getElementById("watchlist").innerHTML ="<p>test</p>" 
+
+            // `
+            //          <div class="movie-card"> 
+            //                 <div id="movie-poster-${microQueryMovie.imdbID}">
+            //                  <img  class="movie-poster" src="${microQueryMovie.Poster}">
+            //                 </div>
+            //                 <div class="movie-details"> 
+            //                     <div class="movie-upper-container"> 
+            //                         <span class="movie-title">${microQueryMovie.Title}</span>
+            //                         <span class="movie-year">${microQueryMovie.Year}</span>
+            //                         <span><span class="star-entity">&#9733</span> ${microQueryMovie.imdbRating}</span>
+            //                     </div>
+            //                     <div class="movie-subheading-container">
+            //                         <span class="movie-runtime">${microQueryMovie.Runtime}</span>
+            //                         <span class="movie-genres">${microQueryMovie.Genre}</span>
+            //                         <span class="add-button" data-movie=${microQueryMovie.imdbID}><img src="assets/icons/add.png" alt="add ${microQueryMovie.Title} to watchlist" class="icon add-button" data-movie="${microQueryMovie.imdbID}"/>Add to Watchlist</span>
+            //                     </div>
+                               
+            //                     <div class="movie-plot">${microQueryMovie.Plot}</div>
+            //                 </div>
+            //             </div>
+            
+            // `
+        
     }
 })
 
