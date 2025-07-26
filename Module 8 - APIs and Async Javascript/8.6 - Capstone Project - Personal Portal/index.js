@@ -23,22 +23,26 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
             <img src=${data.image.small} />
             <span>${data.name}</span>
         `
-        /**
-         * Challenge: Add the following data points underneath the 
-         * name and icon (1 paragraph each):
-         * 
-         * 1. Current price (data.market_data.current_price.usd)
-         * 2. 24-hour high price (data.market_data.high_24h.usd)
-         * 3. 24-hour low price (data.market_data.low_24h.usd)
-         * 
-         * Feel free to check the response data object for your own currency
-         * if you don't want to use USD.
-         */
-        document.getElementById('crypto-bottom').innerHTML =
-        `
-        <div id="target">🎯:<span class="coin-data">${data.market_data.current_price.usd}</span></div>
-        <div id="high">👆:<span class="coin-data">${data.market_data.high_24h.usd}</span></div>
-        <div id="low">👇:<span class="coin-data">${data.market_data.low_24h.usd}</span></div>
+        document.getElementById("crypto").innerHTML += `
+            <p>🎯: $${data.market_data.current_price.usd}</p>
+            <p>👆: $${data.market_data.high_24h.usd}</p>
+            <p>👇: $${data.market_data.low_24h.usd}</p>
         `
     })
     .catch(err => console.error(err))
+
+/**
+ * Challenge: log the current time to the console, formatted
+ * like this:
+ * 
+ * 1:30 PM
+ * 
+ * Use Google and Stack Overflow to find the best way.
+ * 
+ * Good luck! 👍
+ */
+const now = new Date();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const seconds = now.getSeconds();
+document.getElementById('time').textContent=`${hours % 12}:${minutes}`
