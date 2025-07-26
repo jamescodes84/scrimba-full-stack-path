@@ -4,6 +4,8 @@ async function watchList(){
     let watchList = localStorage.getItem("watchList")
 
     // console.log("on watchlist page")
+
+    //TODO: REWRITE LOOP TO RERUN BOTH QUERIES FOR EACH KEY IN LOCALSTORAGE
     let watchListArray = []
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i)
