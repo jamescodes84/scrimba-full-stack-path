@@ -147,6 +147,9 @@ button:hover {
     cursor: pointer
 }
 
+.movie-plot {
+    color: #6B7280;
+}
 .movie-poster {
     width: 6rem;
     height: 8rem;

@@ -92,7 +92,7 @@ async function search() {
                                     <span class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon add-button" data-movie="${movie.imdbID}"/>Add to Watchlist</span>
                                 </div>
                                
-                                <div>${movie.Plot}</div>
+                                <div class="movie-plot">${movie.Plot}</div>
                             </div>
                         </div>
                         
