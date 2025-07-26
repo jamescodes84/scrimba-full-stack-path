@@ -32,11 +32,13 @@ outermostContainer.addEventListener("click", (event) => {
         let movieId = event.target.dataset.movie
         let uniqueMovie = uniqueMoviesMap.get(movieId)
        
-       
-        let microQueryMovie = microQueryMap.get(uniqueMovie)
         
+        let microQueryMovie = microQueryMap.get(uniqueMovie)
+        let shortMovieObjectString = JSON.stringify(uniqueMovie)
+        let bigMovieObjectString = JSON.stringify(microQueryMovie)
+        // console.log(movieString)
         // console.log(watchList.keys())
-        localStorage.setItem(movieId, microQueryMovie)
+        localStorage.setItem(shortMovieObjectString, bigMovieObjectString)
          
 
         // document.getElementById("watchlist").innerHTML ="<p>test</p>" 
@@ -110,28 +112,28 @@ async function search() {
             console.log("Micro Result",movie)
             console.log(uniqueMoviesMap.get(movie.imdbID))
             document.getElementById('output').innerHTML += 
-                    `
-                        <div class="movie-card"> 
-                            <div id="movie-poster-${movie.imdbID}">
-                             <img  class="movie-poster" src="${movie.Poster}">
-                            </div>
-                            <div class="movie-details"> 
-                                <div class="movie-upper-container"> 
-                                    <span class="movie-title">${movie.Title}</span>
-                                    <span class="movie-year">${movie.Year}</span>
-                                    <span><span class="star-entity">&#9733</span> ${movie.imdbRating}</span>
-                                </div>
-                                <div class="movie-subheading-container">
-                                    <span class="movie-runtime">${movie.Runtime}</span>
-                                    <span class="movie-genres">${movie.Genre}</span>
-                                    <span class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon add-button" data-movie="${movie.imdbID}"/>Add to Watchlist</span>
-                                </div>
-                               
-                                <div class="movie-plot">${movie.Plot}</div>
-                            </div>
+            `
+                <div class="movie-card"> 
+                    <div id="movie-poster-${movie.imdbID}">
+                        <img  class="movie-poster" src="${movie.Poster}">
+                    </div>
+                    <div class="movie-details"> 
+                        <div class="movie-upper-container"> 
+                            <span class="movie-title">${movie.Title}</span>
+                            <span class="movie-year">${movie.Year}</span>
+                            <span><span class="star-entity">&#9733</span> ${movie.imdbRating}</span>
+                        </div>
+                        <div class="movie-subheading-container">
+                            <span class="movie-runtime">${movie.Runtime}</span>
+                            <span class="movie-genres">${movie.Genre}</span>
+                            <span class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon add-button" data-movie="${movie.imdbID}"/>Add to Watchlist</span>
                         </div>
                         
-                    `
+                        <div class="movie-plot">${movie.Plot}</div>
+                    </div>
+                </div>
+                
+            `
         }
 
     } else {
