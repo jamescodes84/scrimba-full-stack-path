@@ -68,10 +68,14 @@ async function search() {
                              <img  class="movie-poster" src="${movie.Poster}">
                             </div>
                             <div class="movie-details"> 
-                                <div> 
+                                <div class="movie-upper-container"> 
                                     <span class="movie-title">${movie.Title}</span>
                                     <span><span class="star-entity">&#9733</span> ${movie.imdbRating}</span>
                                 </div>
+                                <div class="movie-subheading-container">
+                                    <span class="movie-runtime">${movie.Runtime}</span><span class="movie-genres">${movie.Genre}</span><button>Watchlist</button>
+                                </div>
+                               
                                 <div>${movie.Plot}</div>
                             </div>
                         </div>

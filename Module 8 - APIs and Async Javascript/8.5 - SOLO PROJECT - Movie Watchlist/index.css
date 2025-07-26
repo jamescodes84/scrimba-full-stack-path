@@ -101,9 +101,16 @@ button:hover {
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid #E5E7EB;
-    margin: 0 2rem;
+    margin: 0 1rem;
     
 }
+
+.movie-upper-container {
+    margin: 0rem 0rem 1rem 0rem;
+}
+
+
+
 .movie-title {
     font-weight:800;
     font-size: 1.25rem;
@@ -113,10 +120,23 @@ button:hover {
 .star-entity {
     color: #FEC654;
 }
+
+.movie-subheading-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    
+}
+
+.movie-runtime, .movie-genres {
+    margin-right: 1rem;
+}
+
+
 .movie-poster {
     width: 6rem;
     height: 8rem;
-    margin: 1rem;
+    margin: 1rem 2rem 1rem 0rem;
 
 }
 
