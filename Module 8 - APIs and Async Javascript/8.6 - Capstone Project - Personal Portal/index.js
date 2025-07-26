@@ -26,3 +26,8 @@ Challenge: Get current data on a cryptocurrency from the list below
    the data for anything that you may find interesting to use
    in the dashboard
 */
+
+
+fetch("https://api.coingecko.com/api/v3/coins/bitcoin",{method:'GET'})
+.then(res => res.json())
+.then(data => console.log(data))
