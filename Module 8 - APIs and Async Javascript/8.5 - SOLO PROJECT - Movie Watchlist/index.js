@@ -5,8 +5,8 @@ let outermostContainer = document.getElementById('outermost-container')
 let watchListButton = document.getElementById('watchlist-button')
 let searchText = document.getElementById('search-text')
 let searchButton = document.getElementById('search-button')
-const uniqueMoviesMap = new Map();
-const microQueryMap = new Map();
+let uniqueMoviesMap = new Map();
+let microQueryMap = new Map();
 const watchList = new Map()
 
 if (localStorage.getItem("watchList")) {
@@ -27,9 +27,11 @@ outermostContainer.addEventListener("click", (event) => {
 
     if (event.target.classList.contains('add-button')){
 
-        
+        console.log("Dataset: ",event.target.dataset)
        
         let movieId = event.target.dataset.movie
+        
+        
         let uniqueMovie = uniqueMoviesMap.get(movieId)
        
         
@@ -76,8 +78,8 @@ async function search() {
     let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&s=${searchText.value}&type=movie&r=json&page=1` , {method: 'GET'})
     let data = await res.json()
     //perform micro query to retrieve plots for each movie
-    
-
+    uniqueMoviesMap = new Map();
+    microQueryMap = new Map();
     // sort the movies array by year
    
     
@@ -111,6 +113,7 @@ async function search() {
             microQueryMap.set(uniqueMovie, movie)
             console.log("Micro Result",movie)
             console.log(uniqueMoviesMap.get(movie.imdbID))
+            let movieString = JSON.stringify(movie)
             document.getElementById('output').innerHTML += 
             `
                 <div class="movie-card"> 
@@ -126,7 +129,7 @@ async function search() {
                         <div class="movie-subheading-container">
                             <span class="movie-runtime">${movie.Runtime}</span>
                             <span class="movie-genres">${movie.Genre}</span>
-                            <span class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon add-button" data-movie="${movie.imdbID}"/>Add to Watchlist</span>
+                            <span class="add-button" data-movie="${movie.imdbID}"><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon add-button" data-movie="${movie.imdbID}"/>Add to Watchlist</span>
                         </div>
                         
                         <div class="movie-plot">${movie.Plot}</div>
