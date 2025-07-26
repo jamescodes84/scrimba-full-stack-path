@@ -119,6 +119,7 @@ button:hover {
 
 .star-entity {
     color: #FEC654;
+    margin-left: 1rem;
 }
 
 .movie-subheading-container , .add-button-span{
@@ -140,6 +141,10 @@ button:hover {
     /* width: 16rem; */
     justify-content:center;
     align-items: center;
+}
+
+.add-button:hover {
+    cursor: pointer
 }
 
 .movie-poster {

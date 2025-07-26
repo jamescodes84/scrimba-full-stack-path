@@ -6,6 +6,7 @@ let watchListButton = document.getElementById('watchlist-button')
 let searchText = document.getElementById('search-text')
 let searchButton = document.getElementById('search-button')
 const uniqueMoviesMap = new Map();
+const microQueryMap = new Map();
 
 outermostContainer.addEventListener("click", (event) => {
 
@@ -21,7 +22,13 @@ outermostContainer.addEventListener("click", (event) => {
     }
 
     if (event.target.classList.contains('add-button')){
-        console.log(uniqueMoviesMap.get(event.target.dataset.movie))
+       
+        let movieId = event.target.dataset.movie
+        console.log(movieId)
+        let uniqueMovie = uniqueMoviesMap.get(movieId)
+        
+        localStorage.setItem(movieId,uniqueMovie )
+        // console.log(localStorage)
     }
 })
 
@@ -64,6 +71,7 @@ async function search() {
             console.log("Unique Result:" , uniqueMovie)
             let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&i=${uniqueMovie.imdbID}&type=movie&r=json&page=1` , {method: 'GET'})
             let movie = await res.json()
+            microQueryMap.set(uniqueMovie, movie)
             console.log("Micro Result",movie)
             console.log(uniqueMoviesMap.get(movie.imdbID))
             document.getElementById('output').innerHTML += 
@@ -75,12 +83,13 @@ async function search() {
                             <div class="movie-details"> 
                                 <div class="movie-upper-container"> 
                                     <span class="movie-title">${movie.Title}</span>
+                                    <span class="movie-year">${movie.Year}</span>
                                     <span><span class="star-entity">&#9733</span> ${movie.imdbRating}</span>
                                 </div>
                                 <div class="movie-subheading-container">
                                     <span class="movie-runtime">${movie.Runtime}</span>
                                     <span class="movie-genres">${movie.Genre}</span>
-                                    <span class="add-button-span"><button class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon"/>Add to Watchlist</button></span>
+                                    <span class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon add-button" data-movie="${movie.imdbID}"/>Add to Watchlist</span>
                                 </div>
                                
                                 <div>${movie.Plot}</div>
