@@ -63,7 +63,7 @@ button:hover {
     color: white;
     font-size: 3rem;
 }
-#watchlist-button {
+#watchlist-button , #go-search-button {
     background: none;
     border: none;
     color: white;

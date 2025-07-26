@@ -7,7 +7,11 @@ let searchText = document.getElementById('search-text')
 let searchButton = document.getElementById('search-button')
 const uniqueMoviesMap = new Map();
 const microQueryMap = new Map();
+const watchList = new Map()
 
+if (localStorage.getItem("watchList")) {
+    console.log("there is a watchlist")
+}
 outermostContainer.addEventListener("click", (event) => {
 
     if (event.target.id ==="watchlist-button") {
@@ -22,12 +26,17 @@ outermostContainer.addEventListener("click", (event) => {
     }
 
     if (event.target.classList.contains('add-button')){
+
+        
        
         let movieId = event.target.dataset.movie
         console.log(movieId)
         let uniqueMovie = uniqueMoviesMap.get(movieId)
-        
-        localStorage.setItem(movieId,uniqueMovie )
+       
+       
+        let microQueryMovie = microQueryMap.get(uniqueMovie)
+         watchList.set(uniqueMovie, microQueryMovie)
+         localStorage.setItem("watchList", watchList)
         // console.log(localStorage)
     }
 })
