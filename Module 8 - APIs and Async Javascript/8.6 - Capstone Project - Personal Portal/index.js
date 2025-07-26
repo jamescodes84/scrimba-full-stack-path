@@ -41,8 +41,11 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
  * 
  * Good luck! 👍
  */
+
+
 const now = new Date();
 const hours = now.getHours();
 const minutes = now.getMinutes();
 const seconds = now.getSeconds();
-document.getElementById('time').textContent=`${hours % 12}:${minutes}`
+console.log(`${hours % 12}:${minutes} ${hours > 12 ? 'PM':'AM'}`)
+document.getElementById('time').textContent=`${hours % 12}:${minutes} ${hours > 12 ? 'PM':'AM'}`
