@@ -1,7 +1,9 @@
+* {
+    box-sizing: border-box;
+}    
+
 body {
     margin: 0;
-    padding: 15px;
-    box-sizing: border-box;
     background: no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -9,18 +11,22 @@ body {
     background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 2px 2px 2px #474747;
+    text-shadow: 0px 0px 20px #242424;
 }
 
 main {
+    padding: 15px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/*
-Challenge: Set up flexbox so the three elements are
-evenly spread vertically on the screen (don't worry
-about the horizontal alignment yet)
-*/
+div.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1.time {
+    text-align: center;
+}

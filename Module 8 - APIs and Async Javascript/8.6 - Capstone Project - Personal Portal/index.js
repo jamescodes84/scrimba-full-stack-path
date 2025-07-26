@@ -1,22 +1,28 @@
+fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
+    .then(res => res.json())
+    .then(data => {
+        document.body.style.backgroundImage = `url(${data.urls.regular})`
+		document.getElementById("author").textContent = `By: ${data.user.name}`
+    })
+    .catch(err => {
+        // Use a default background image/author
+        document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1560008511-11c63416e52d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTEwMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjI4NDIxMTc&ixlib=rb-1.2.1&q=80&w=1080
+)`
+		document.getElementById("author").textContent = `By: Dodi Achmad`
+    })
+
 /**
- * Challenge part 2: Display the image's author
- * 
- * With the data you've already fetched, display the name of the 
- * image author on the page. They show up as the "user" in the data
- * returned from the API.
- * 
- * Don't worry about positioning the author in the lower-left yet.
- */
+Challenge: Get current data on a cryptocurrency from the list below
+    * bitcoin
+    * dogecoin
+    * ethereum
+    * litecoin
 
-async function getBackground() {
-	let res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=colorado", {method:'GET'})
-	let data = await res.json()
-	console.log(data)
-    document.getElementById('body').style.backgroundImage = `url("${data.urls.full}")`
-    document.getElementById('image-author').textContent = data.user.name
-}
-getBackground()
+1. Search the API docs for an endpoint that will 
+   get you the "current data for a coin"
+   (https://www.coingecko.com/api/documentations/v3#/)
 
-// console.log(randomImage)
-// document.getElementById("body").style.backgroundImage = randomImage;
-		
+2. Execute a test request from the API docs and skim through 
+   the data for anything that you may find interesting to use
+   in the dashboard
+*/
