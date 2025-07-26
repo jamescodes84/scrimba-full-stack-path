@@ -93,15 +93,15 @@ button:hover {
     padding-top: 1rem;
 }
 .output {
-    margin-left: 4rem;
+    /* margin-left: 5rem; */
 }
 
 .movie-card {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid #E5E7EB;
-    margin: 0 1rem;
+    border-bottom: 2px solid #E5E7EB;
+    margin: 0 5rem;
     
 }
 
@@ -164,4 +164,6 @@ button:hover {
     width: 1.5rem;
     height: 1.5rem;
     margin-right: .25rem;
+    pointer-events: auto;
+    
 }

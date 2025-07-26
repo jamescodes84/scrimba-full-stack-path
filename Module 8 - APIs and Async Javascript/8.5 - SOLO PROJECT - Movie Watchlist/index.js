@@ -5,7 +5,7 @@ let outermostContainer = document.getElementById('outermost-container')
 let watchListButton = document.getElementById('watchlist-button')
 let searchText = document.getElementById('search-text')
 let searchButton = document.getElementById('search-button')
-
+const uniqueMoviesMap = new Map();
 
 outermostContainer.addEventListener("click", (event) => {
 
@@ -18,6 +18,10 @@ outermostContainer.addEventListener("click", (event) => {
         console.log(`${searchText.value}`)
 
         search(searchText.value)
+    }
+
+    if (event.target.classList.contains('add-button')){
+        console.log(uniqueMoviesMap.get(event.target.dataset.movie))
     }
 })
 
@@ -32,7 +36,7 @@ async function search() {
 
     // sort the movies array by year
    
-    const uniqueMoviesMap = new Map();
+    
     let uniqueMovies = null
     // console.log(movies)
     // console.log(data[0])
@@ -61,6 +65,7 @@ async function search() {
             let res = await fetch (`http://www.omdbapi.com/?apikey=${CONFIG.OMDB_API_KEY}&i=${uniqueMovie.imdbID}&type=movie&r=json&page=1` , {method: 'GET'})
             let movie = await res.json()
             console.log("Micro Result",movie)
+            console.log(uniqueMoviesMap.get(movie.imdbID))
             document.getElementById('output').innerHTML += 
                     `
                         <div class="movie-card"> 
@@ -75,7 +80,7 @@ async function search() {
                                 <div class="movie-subheading-container">
                                     <span class="movie-runtime">${movie.Runtime}</span>
                                     <span class="movie-genres">${movie.Genre}</span>
-                                    <span class="add-button-span"><button class="add-button"><img src="assets/icons/add.png" class="icon"/>Watchlist</button></span>
+                                    <span class="add-button-span"><button class="add-button" data-movie=${movie.imdbID}><img src="assets/icons/add.png" alt="add ${movie.Title} to watchlist" class="icon"/>Add to Watchlist</button></span>
                                 </div>
                                
                                 <div>${movie.Plot}</div>
