@@ -17,7 +17,7 @@
  */
 
 async function getBackground() {
-	let res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature", {method:'GET'})
+	let res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=colorado", {method:'GET'})
 	let data = await res.json()
 	console.log(data.urls.full)
     document.getElementById('body').style.backgroundImage = `url("${data.urls.full}")`
