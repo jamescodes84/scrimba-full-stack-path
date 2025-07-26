@@ -73,7 +73,9 @@ async function search() {
                                     <span><span class="star-entity">&#9733</span> ${movie.imdbRating}</span>
                                 </div>
                                 <div class="movie-subheading-container">
-                                    <span class="movie-runtime">${movie.Runtime}</span><span class="movie-genres">${movie.Genre}</span><button>Watchlist</button>
+                                    <span class="movie-runtime">${movie.Runtime}</span>
+                                    <span class="movie-genres">${movie.Genre}</span>
+                                    <span class="add-button-span"><button class="add-button"><img src="assets/icons/add.png" class="icon"/>Watchlist</button></span>
                                 </div>
                                
                                 <div>${movie.Plot}</div>
