@@ -12,22 +12,12 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     })
 
 /**
-Challenge: Get current data on a cryptocurrency from the list below
-    * bitcoin
-    * dogecoin
-    * ethereum
-    * litecoin
-
-1. Search the API docs for an endpoint that will 
-   get you the "current data for a coin"
-   (https://www.coingecko.com/api/documentations/v3#/)
-
-2. Execute a test request from the API docs and skim through 
-   the data for anything that you may find interesting to use
-   in the dashboard
-*/
-
-
-fetch("https://api.coingecko.com/api/v3/coins/bitcoin",{method:'GET'})
+ * Challenge: Pull down the cryptocurrency data for dogecoin from the 
+ * CoinGecko API and log it to the console
+ * 
+ * Also add a .catch() method to console any errors that might occur to the console
+ */
+fetch("https://api.coingecko.com/api/v3/coins/dogecoin",{method:'GET'})
 .then(res => res.json())
 .then(data => console.log(data))
+.catch(err => console.error(err))
