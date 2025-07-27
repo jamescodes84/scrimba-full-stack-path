@@ -31,21 +31,33 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     })
     .catch(err => console.error(err))
 
+// function getCurrentTime() {
+//     const date = new Date()
+//     document.getElementById("time").textContent = date.toLocaleTimeString("en-us", {timeStyle: "short"})
+// }
+
+// setInterval(getCurrentTime, 1000)
+
+
 /**
- * Challenge: log the current time to the console, formatted
- * like this:
+ * Challenge: Learn how to access the user's coordinates
+ * by using the Geolocation Web API!
  * 
- * 1:30 PM
- * 
- * Use Google and Stack Overflow to find the best way.
- * 
- * Good luck! 👍
+ * Log the user's position to the console.
  */
 
 
-const now = new Date();
-const hours = now.getHours();
-const minutes = now.getMinutes();
-const seconds = now.getSeconds();
-console.log(`${hours % 12}:${minutes} ${hours > 12 ? 'PM':'AM'}`)
-document.getElementById('time').textContent=`${hours % 12}:${minutes} ${hours > 12 ? 'PM':'AM'}`
+function getLocation() {
+  if (navigator.geolocation) {
+    console.log(navigator.geolocation.getCurrentPosition(showPosition));
+  } else {
+   console.log( "Geolocation is not supported by this browser." );
+  }
+}
+
+function showPosition(position) {
+  console.log( "Latitude: " , position.coords.latitude ,
+  "<br>Longitude: " , position.coords.longitude);
+}
+
+getLocation()
