@@ -1,5 +1,8 @@
 import { dates } from '/utils/dates'
+import dotenv from 'dotenv'
+dotenv.config()
 
+const polygonApiKey = process.env.POLYGON_API_KEY
 const tickersArr = []
 
 const generateReportBtn = document.querySelector('.generate-report-btn')
