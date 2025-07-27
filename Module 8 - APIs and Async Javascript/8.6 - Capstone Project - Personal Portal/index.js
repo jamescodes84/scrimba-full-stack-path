@@ -10,30 +10,23 @@ document.getElementById("author").textContent = `By: ${data.user.name}`
 // 		document.getElementById("author").textContent = `By: Dodi Achmad`
 //     })
 
-/**
- * Challenge: Update the fetch below to use the top-level await
- */
 
-const res2 = await fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
-const data2 = await res2.json()
-
-
-if (!res2.ok) {
+const res = await fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+if (!res.ok) {
     throw Error("Something went wrong")
 }
-       
-   
+return res.json()
+const data = await res.json()
 document.getElementById("crypto-top").innerHTML = `
-    <img src=${data2.image.small} />
-    <span>${data2.name}</span>
+    <img src=${data.image.small} />
+    <span>${data.name}</span>
 `
 document.getElementById("crypto").innerHTML += `
-    <p>🎯: $${data2.market_data.current_price.usd}</p>
-    <p>👆: $${data2.market_data.high_24h.usd}</p>
-    <p>👇: $${data2.market_data.low_24h.usd}</p>
+    <p>🎯: $${data.market_data.current_price.usd}</p>
+    <p>👆: $${data.market_data.high_24h.usd}</p>
+    <p>👇: $${data.market_data.low_24h.usd}</p>
 `
-   
-    
+    // .catch(err => console.error(err))
 
 function getCurrentTime() {
     const date = new Date()
@@ -41,6 +34,10 @@ function getCurrentTime() {
 }
 
 setInterval(getCurrentTime, 1000)
+
+/**
+ * Challenge: Update the callback below to use async/await
+ */
 
 navigator.geolocation.getCurrentPosition(position => {
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
@@ -58,5 +55,5 @@ navigator.geolocation.getCurrentPosition(position => {
                 <p class="weather-city">${data.name}</p>
             `
         })
-        .catch(err => console.error(err))
+        // .catch(err => console.error(err))
 });
