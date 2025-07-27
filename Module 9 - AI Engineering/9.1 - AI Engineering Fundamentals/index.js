@@ -1,12 +1,10 @@
-import { dates } from '/utils/dates'
-import dotenv from 'dotenv'
-dotenv.config()
-
-const polygonApiKey = process.env.POLYGON_API_KEY
+import TEST_KEY from './9-1apikey.js';
+import { dates } from './utils/dates.js'
+// const apiKey = import.meta.env.POLYGON_API_KEY;
 const tickersArr = []
 
 const generateReportBtn = document.querySelector('.generate-report-btn')
-
+console.log(TEST_KEY)
 generateReportBtn.addEventListener('click', fetchStockData)
 
 document.getElementById('ticker-input-form').addEventListener('submit', (e) => {
