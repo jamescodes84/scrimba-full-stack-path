@@ -48,3 +48,28 @@ div#crypto-top {
 div#crypto-top > span {
     margin-left: 10px;
 }
+
+#weather-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+#weather-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid white; */
+}
+#weather-bottom {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
