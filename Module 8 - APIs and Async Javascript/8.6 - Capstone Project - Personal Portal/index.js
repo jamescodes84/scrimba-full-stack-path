@@ -40,24 +40,19 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
 
 
 /**
- * Challenge: Learn how to access the user's coordinates
- * by using the Geolocation Web API!
+ * Challenge: Get the user's current weather for their area and 
+ * log it to the console
  * 
- * Log the user's position to the console.
+ * BaseURL: https://apis.scrimba.com/openweathermap/data/2.5/weather
+ * Queries to include: 
+ *     - lat (latitude)
+ *     - lon (longitude)
+ *     - units (imperial or metric)
  */
 
-
-function getLocation() {
-  if (navigator.geolocation) {
-    console.log(navigator.geolocation.getCurrentPosition(showPosition));
-  } else {
-   console.log( "Geolocation is not supported by this browser." );
-  }
-}
-
-function showPosition(position) {
-  console.log( "Latitude: " , position.coords.latitude ,
-  "<br>Longitude: " , position.coords.longitude);
-}
-
-getLocation()
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`,{method:'GET'})
+    .then(res => res.json())
+    .then(data => console.log(data))
+});
