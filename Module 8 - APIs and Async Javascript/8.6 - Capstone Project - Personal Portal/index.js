@@ -52,7 +52,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 <div id="weather-container">
                     <div id="weather-top">
                         <img src=${iconUrl} />
-                        <p>${Math.round(data.main.temp)}º</p>
+                        <p id="temp">${Math.round(data.main.temp)}º</p>
                     
                     </div>
                         <div id="weather-bottom">
