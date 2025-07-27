@@ -1,6 +1,7 @@
 import { dates } from './utils/dates.js'
 // const apiKey = import.meta.env.POLYGON_API_KEY;
 import  { POLYGON_API_KEY , OPENAI_API_KEY} from   './9-1apikey.js'
+
 const tickersArr = []
 
 const generateReportBtn = document.querySelector('.generate-report-btn')
