@@ -1,6 +1,7 @@
 import TEST_KEY from './9-1apikey.js';
 import { dates } from './utils/dates.js'
 // const apiKey = import.meta.env.POLYGON_API_KEY;
+import OpenAI from "openai";
 const tickersArr = []
 
 const generateReportBtn = document.querySelector('.generate-report-btn')
@@ -72,3 +73,15 @@ function renderReport(output) {
     report.textContent = output
     outputArea.style.display = 'flex'
 }
+
+
+
+
+const client = new OpenAI();
+
+const response = await client.responses.create({
+    model: "gpt-4.1",
+    input: "Write a one-sentence bedtime story about a unicorn."
+});
+
+console.log(response.output_text);
