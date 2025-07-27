@@ -38,21 +38,34 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
 
 // setInterval(getCurrentTime, 1000)
 
+navigator.geolocation.getCurrentPosition(position => {
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
+        .then(res => {
+            if (!res.ok) {
+                throw Error("Weather data not available")
+            }
+            return res.json()
+        })
+        .then(data => {
+            console.log(data)
+            
+            document.getElementById("weather").innerHTML += 
+`
+    <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
+`
+        })
+        .catch(err => console.error(err))
+});
 
 /**
- * Challenge: Get the user's current weather for their area and 
- * log it to the console
+ * Challenge: Display the weather icon as an <img />
+ * inside the <div id="weather">
  * 
- * BaseURL: https://apis.scrimba.com/openweathermap/data/2.5/weather
- * Queries to include: 
- *     - lat (latitude)
- *     - lon (longitude)
- *     - units (imperial or metric)
+ * This site shows an example URL for the icon:
+ * https://openweathermap.org/weather-conditions
+ * 
+ * Note: the weather icon is found instead data.weather, which is
+ * an array of weather for that area. You can just access the first
+ * item in that array to get the icon ID.
  */
 
-navigator.geolocation.getCurrentPosition(position => {
-    console.log(position)
-    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`,{method:'GET'})
-    .then(res => res.json())
-    .then(data => console.log(data))
-});
