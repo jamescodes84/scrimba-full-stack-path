@@ -47,25 +47,18 @@ navigator.geolocation.getCurrentPosition(position => {
             return res.json()
         })
         .then(data => {
-            console.log(data)
-            
-            document.getElementById("weather").innerHTML += 
-`
-    <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
-`
+            let city = data.name
+            let temp = data.main.temp.toFixed(0)
+            const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+            document.getElementById("weather").innerHTML = `
+                <img src=${iconUrl} />
+                <div>${city} ${temp}</div>
+            `
         })
         .catch(err => console.error(err))
 });
 
 /**
- * Challenge: Display the weather icon as an <img />
- * inside the <div id="weather">
- * 
- * This site shows an example URL for the icon:
- * https://openweathermap.org/weather-conditions
- * 
- * Note: the weather icon is found instead data.weather, which is
- * an array of weather for that area. You can just access the first
- * item in that array to get the icon ID.
+ * Challenge: Display the temperature (rounded to the nearest degree)
+ * and the city. Don't worry about the layout for now.
  */
-
