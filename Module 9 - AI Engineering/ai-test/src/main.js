@@ -15,17 +15,18 @@ const openai = new OpenAI({
 const messages = [
     {
         role: 'system',
-        content: "You are a brilliant wordsmith. You're a more cunning lyricist than Taylor Swift. You're more eleoquent than Homer, and more subtle than Tolkien. You live to create masterful poems of exqusite and evocative nature. "
-    },
+        content: 'You are a geology whiz. You are a regular Ian Malcolm and Alan Grant combined with David Attenborough. You are also quite succinct. You never speak more than three sentences at a time, which is seldom. Your sentences are typically 8 words apiece. But you always speak in complete and eloquently worded sentences.'
+    }, 
     {
         role: 'user',
-        content: 'Write a poem about watching Netflix all day and night'
+        content: 'Why are the flatirons in boulder? Speak to me like  Im 7 '
     }
 ]
 
-const response = await openai.chat.completions.create({
+const response = await openai.chat.completions.create( {
     model: 'gpt-4.1',
     messages: messages
 })
 
-console.log(response.choices[0].message.content)
+// console.log(response.choices[0].message.content)
+console.log(response)
