@@ -63,16 +63,16 @@ async function fetchStockData() {
 
 async function fetchReport(data) {
     console.log(data)
-/** 
- * Challenge:
- * 1. Use the OpenAI API to generate a report advising 
- * on whether to buy or sell the shares based on the data 
- * that comes in as a parameter.
- * 
- * 🎁 See hint.md for help!
- * 
- * 🏆 Bonus points: use a try catch to handle errors.
- * **/
+    /** 
+     * Challenge:
+     * 1. Use the OpenAI API to generate a report advising 
+     * on whether to buy or sell the shares based on the data 
+     * that comes in as a parameter.
+     * 
+     * 🎁 See hint.md for help!
+     * 
+     * 🏆 Bonus points: use a try catch to handle errors.
+     * **/
 
 
     const openai = new OpenAI({
@@ -84,22 +84,23 @@ async function fetchReport(data) {
     const messages = [
         {
             role: 'system',
-            content: ''
+            content: 'You are a stock genius. You always pick winners and you can never not smell the stinkers. You are succinct and speak in a few sentences at once, five at the most, which is seldom. But you are exceptionally eloquent and always speak in complete and meaningful sentences.'
         }, 
         {
             role: 'user',
-            content: ''
+            content: `Generate a simple report based on the following stock: ${data.ticker} and the associated JSON data:${JSON.stringify(data)}`
         }
     ]
-
+    console.log(messages)
     const response = await openai.chat.completions.create( {
         model: 'gpt-4.1',
         messages: messages
     })
 
-    // console.log(response.choices[0].message.content)
-    console.log(response)
-
+   let report = response.choices[0].message.content
+    console.log(report)
+    renderReport(report)
+   
 
 }
 
