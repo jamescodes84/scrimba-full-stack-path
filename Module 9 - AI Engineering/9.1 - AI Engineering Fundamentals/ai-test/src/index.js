@@ -64,16 +64,14 @@ async function fetchStockData() {
 async function fetchReport(data) {
     console.log(data)
     /** 
-     * Challenge:
-     * 1. Use the OpenAI API to generate a report advising 
-     * on whether to buy or sell the shares based on the data 
-     * that comes in as a parameter.
-     * 
-     * 🎁 See hint.md for help!
-     * 
-     * 🏆 Bonus points: use a try catch to handle errors.
-     * **/
-
+ * Challenge:
+ * 1. Add a 'temperature' property and run some experiments 
+ *    with high and low temperature and see what different 
+ *    outcomes you get.
+ * 
+ * ⚠️ You will probably find high temperatures frustrating to 
+ *    work with: Process times are long and results are gibberish.    
+ **/
 
     const openai = new OpenAI({
         apiKey: OPENAI_API_KEY, 
@@ -94,7 +92,9 @@ async function fetchReport(data) {
     console.log(messages)
     const response = await openai.chat.completions.create( {
         model: 'gpt-4.1',
-        messages: messages
+        messages: messages,
+        temperature: 1
+
     })
 
    let report = response.choices[0].message.content
