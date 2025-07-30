@@ -117,7 +117,7 @@ input {
 }
 
 #translate-outer-container {
-    border: 1px dashed fuchsia;
+    /* border: 1px dashed fuchsia; */
     height: 100%;
     width: 100%;
     display: flex;
@@ -138,7 +138,8 @@ input {
     background-color:#FFFFFF;
 }
 
-#text-to-translate {
+#text-to-translate , #translated-text {
+    padding: .5rem;
     font-family: "Poppins", sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
@@ -171,9 +172,10 @@ input {
     display: flex;
     flex-direction: column;
     /* justify-content: start; */
+    /* border: 1px solid fuchsia; */
 }
 
-#translate-button {
+#translate-button , #reset-button {
     font-family: "Poppins", sans-serif;
     height: 3rem;
     margin-top: 2rem;
@@ -184,4 +186,11 @@ input {
     font-size: 1.5rem;
     font-weight: 600;
     /* width: 90% */
+}
+
+#reset-button {
+    margin-bottom: 2rem;
+    height: 4.25rem;
+    width: 300px;
+
 }

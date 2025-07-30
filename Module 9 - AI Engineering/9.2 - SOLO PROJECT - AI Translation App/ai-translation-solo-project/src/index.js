@@ -10,6 +10,8 @@ textToTranslate.addEventListener("keydown", (event) => {
 })
 
 languagesForm.addEventListener("click", (event) => {
+
+    
     const selectedLanguage = document.querySelector('input[name="language"]:checked');
     if (event.target.id === "translate-button") {
         console.log("text to translate: " , textToTranslate.value)
@@ -32,7 +34,7 @@ async function translate(text , language){
     const messages = [
         {
             role: 'system',
-            content: `You are an absolute expert in translating English into ${language}. You are masterful at the subtleties involved in evoking similar ideas when translating, and you keep aligned with cultural concerns with respect to dialect, syntax, etymology, etc.`
+            content: `You are an absolute expert in translating English into ${language}. You are masterful at the subtleties involved in evoking similar ideas when translating, and you keep aligned with cultural concerns with respect to dialect, syntax, etymology, etc. You never break character and ask the user questions. You only ever provide your best attempt at a translation.`
         }, 
         {
             role: 'user',
@@ -49,5 +51,28 @@ async function translate(text , language){
 
    let translation = response.choices[0].message.content
     console.log(translation)
+
+    document.getElementById("languages-form").style.display = 'none'
+    document.getElementById("translate-inner-container").innerHTML =
+    `
+         
+                        <div id="translate-title-div" class="text-header">
+                            Original Text 👇
+                        </div>
+                        <textarea id="text-to-translate" placeholder="${textToTranslate.value}" readonly></textarea>
+                        <div id="translated-text-div" class="text-header">
+                            Translated Text 👇
+                           
+                        </div>
+                         <textarea id="translated-text">${translation}</textarea>
+                            <button id="reset-button">Start Over</button>
+
+
+
+                    
+                    
+    `
     // renderReport(report)
+
+    document.getElementById("reset-button").addEventListener("click", () => location.reload())
 }
