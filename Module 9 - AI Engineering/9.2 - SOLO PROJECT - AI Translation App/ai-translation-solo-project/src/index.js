@@ -1,3 +1,5 @@
+import OpenAI from "openai"
+import {OPENAI_API_KEY, POLYGON_API_KEY} from 'apikeys.js'
 const textToTranslate = document.getElementById("text-to-translate")
 const languagesForm  = document.getElementById('languages-form')
 textToTranslate.addEventListener("keydown", (event) => {
