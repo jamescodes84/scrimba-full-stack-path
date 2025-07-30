@@ -25,9 +25,12 @@ input {
 .form-input-div {
     display: flex;
     flex-direction: row-reverse;
+
     justify-content: start;
+    /* align-items: center; */
     /* border: 1px solid red; */
     /* width: 100%; */
+    
 }
 
 
@@ -44,12 +47,19 @@ input {
    font-size: 1.5rem;
    font-weight:650;
    margin: .15rem .75rem;
+    
+}
 
+.radio {
+    /* font-size: 4rem */
+    transform: scale(2); 
+    /* border: 1px solid #BCBCBC; */
 }
 
 .radio-button-img {
     margin-left: .4rem;
     border: 1px solid black;
+    
 }
 
 /* Elements By Id*/
@@ -135,7 +145,7 @@ input {
     height: 33%;
     margin-bottom: 1rem;
     width: 90%;
-    background-color: #EFF0F4;
+    background-color: #dadadc;
     border-radius: 8px;
     border: none;
     resize: none;
@@ -163,7 +173,7 @@ input {
 #translate-button {
     font-family: "Poppins", sans-serif;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     background-color: #035A9D;
     width: 300px;
     border-radius: 8px;
