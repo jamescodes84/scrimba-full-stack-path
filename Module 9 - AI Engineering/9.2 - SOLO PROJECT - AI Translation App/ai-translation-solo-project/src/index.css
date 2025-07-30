@@ -149,8 +149,11 @@ input {
     border-radius: 8px;
     border: none;
     resize: none;
+    color: black;
 }
-
+#text-to-translate::placeholder {
+    color: black;
+}
 
 #languages-form-fieldset {
     display: flex;
