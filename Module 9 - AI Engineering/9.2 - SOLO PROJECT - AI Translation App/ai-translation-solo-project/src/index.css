@@ -72,4 +72,34 @@ body {
     width: 94%;
     height:90%;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color:#FFFFFF;
+}
+
+#languages-form-fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: c;
+    
+    /* flex-wrap: wrap; */
+    /* width: 30%; */
+    border: none;
+}
+
+#form-inner-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.form-input-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    /* border: 1px solid red; */
 }
