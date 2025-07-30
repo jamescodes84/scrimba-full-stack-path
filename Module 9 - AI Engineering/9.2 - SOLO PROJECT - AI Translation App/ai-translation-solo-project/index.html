@@ -28,34 +28,34 @@
 
                 <div id="translate-outer-container">
                     <div id="translate-inner-container">
-                        <div id="translate-title-div">
+                        <div id="translate-title-div" class="text-header">
                             Text to Translate 👇
                         </div>
-                        <textarea id="text-to-translate" placeholder="How are you?">
+                        <textarea id="text-to-translate">How are you?
                         </textarea>
 
                         <form id="languages-form">
                             <fieldset id="languages-form-fieldset">
-                                 <legend>Select Language 👇</legend>
+                                 <legend class="text-header">Select Language 👇</legend>
                                 <div id="form-inner-div">
                                   
                                    
                                       <div class="form-input-div">
-                                        <label>French <img src="src/assets/fr-flag.png"/></label>
-                                        <input type="radio" />
+                                        <label for="french" class="radio-button">French <img src="src/assets/fr-flag.png" class="radio-button-img"/></label>
+                                        <input id="french" type="radio" name="language"/>
                                         </div>
 
                                     <div class="form-input-div">
-                                        <label>Spanish <img src="src/assets/sp-flag.png"/></label>
-                                         <input type="radio" />
+                                        <label for="spanish" class="radio-button">Spanish <img src="src/assets/sp-flag.png" class="radio-button-img"/></label>
+                                         <input id="spanish" type="radio" name="language"/>
                                     </div>
                                     <div class="form-input-div">
-                                        <label>Japanese<img src="src/assets/jpn-flag.png"/></label>
-                                        <input type="radio" />
+                                        <label for="japanese" class="radio-button">Japanese<img src="src/assets/jpn-flag.png" class="radio-button-img"/></label>
+                                        <input id="japanese" type="radio" name="language" />
 
                                     </div>
                                     
-                                    <button>Translate</button>
+                                    <button id="translate-button">Translate</button>
                                 </div>
                             </fieldset>
                         </form>

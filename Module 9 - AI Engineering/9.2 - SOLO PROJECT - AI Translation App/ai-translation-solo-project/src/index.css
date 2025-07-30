@@ -1,3 +1,5 @@
+
+/* Elements */
 body {
     display: flex;
     align-items: center;
@@ -5,22 +7,68 @@ body {
     margin: 0;
     background-color: dimgrey;
 }
+form {
+    /* border: 1px solid aqua; */
+    width: 90%;
+    display: flex;
+    align-items: center;
+    /* padding-left: 7%; */
+}
+input {
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* Classes */
+
+
+.form-input-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    /* border: 1px solid red; */
+    /* width: 100%; */
+}
+
+
+.text-header {
+   font-family: "Poppins", sans-serif;
+   font-size: 1.5rem;
+   font-weight:700;
+   color: #035A9D;
+   margin: 1rem;
+}
+
+.radio-button{
+    font-family: "Poppins", sans-serif;
+   font-size: 1.5rem;
+   font-weight:650;
+   margin: .15rem .75rem;
+
+}
+
+.radio-button-img {
+    margin-left: .4rem;
+    border: 1px solid black;
+}
+
+/* Elements By Id*/
 
 #outermost-container {
     width: 24rem;
     max-width: 390px;
-    height: 47rem;
+    height: 48rem;
     max-width: 1000px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
-    align-items: center;
+    /* align-items: center; */
     margin: 5%;
 }
 
 #header-outer-container {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
     height: 23%;
     background-image: url('assets/worldmap.png')  ;
@@ -75,31 +123,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: space-around; */
     
     background-color:#FFFFFF;
 }
+
+#text-to-translate {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    height: 33%;
+    margin-bottom: 1rem;
+    width: 90%;
+    background-color: #EFF0F4;
+    border-radius: 8px;
+    border: none;
+    resize: none;
+}
+
 
 #languages-form-fieldset {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: c;
+    align-items: center;
     
     /* flex-wrap: wrap; */
     /* width: 30%; */
     border: none;
+    /* width: 100%; */
 }
 
 #form-inner-div {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    /* justify-content: start; */
 }
 
-.form-input-div {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: start;
-    /* border: 1px solid red; */
+#translate-button {
+    font-family: "Poppins", sans-serif;
+    height: 3rem;
+    margin-top: 1rem;
+    background-color: #035A9D;
+    width: 300px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* width: 90% */
 }
