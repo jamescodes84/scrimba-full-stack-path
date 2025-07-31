@@ -9,11 +9,24 @@ const openai = new OpenAI(
         dangerouslyAllowBrowser: true
     });
 
-const embedding = await openai.embeddings.create({
-  model: "text-embedding-3-small",
-  input: "Your text string goes here",
-  encoding_format: "float",
-  
-});
+
 
 console.log(embedding);
+ 
+/*
+  TODO: Challenge: Pair text with its embedding
+    - For each text input, create an object with 
+      a 'content' and 'embedding' property
+    - The value of 'content' should be the text
+    - The value of 'embedding' should be the vector embedding for that text
+*/
+async function getEmbedding(inputText) {
+    const embeddingVector = await openai.embeddings.create({
+            model: "text-embedding-3-small",
+            input: "Your text string goes here",
+            encoding_format: "float",
+    
+        }).then()
+}
+
+console.log(getEmbedding("This is a test"))
