@@ -11,7 +11,7 @@ const openai = new OpenAI(
 
 
 
-console.log(embedding);
+// console.log(embedding);
  
 /*
   TODO: Challenge: Pair text with its embedding
@@ -21,12 +21,19 @@ console.log(embedding);
     - The value of 'embedding' should be the vector embedding for that text
 */
 async function getEmbedding(inputText) {
+    let returnValues = {}
     const embeddingVector = await openai.embeddings.create({
             model: "text-embedding-3-small",
             input: "Your text string goes here",
             encoding_format: "float",
     
-        }).then()
+        })
+        .then(vector => {
+          returnValues = {
+            content: inputText,
+            embedding: vector
+          }
+        } )
 }
 
 console.log(getEmbedding("This is a test"))
