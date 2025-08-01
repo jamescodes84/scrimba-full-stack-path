@@ -1,6 +1,5 @@
 import { OPENAI_API_KEY } from "./apikeys";
 
-console.log(OPENAI_API_KEY)
 
 import OpenAI from "openai";
 const openai = new OpenAI(
