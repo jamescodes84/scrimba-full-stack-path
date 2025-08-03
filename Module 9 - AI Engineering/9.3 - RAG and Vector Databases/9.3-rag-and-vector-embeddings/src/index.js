@@ -1,4 +1,5 @@
-import openai from './config.js';
+import { SUPABASE_API_KEY } from './apikeys.js';
+import {openai , supabase } from './config.js';
 
 const content = [
   "Beyond Mars: speculating life on distant planets.",
@@ -16,7 +17,7 @@ const content = [
     - The value of 'embedding' should be the vector embedding for that text
 */
 
-async function main() {
+async function getEmbeddings() {
   const embeddings = await openai.embeddings.create({
     model: "text-embedding-ada-002",
     input: content,
@@ -29,9 +30,16 @@ async function main() {
       embedding: embeddingObject.embedding
     }
   })
-  console.log(dataObjects)
+  return dataObjects
 }
 
 
-main();
+// main();
 // console.log(dataObjects)
+
+async function insertData(data) {
+  await supabase.from('documents').insert(data)
+  console.log('Embedding and storing complete')
+
+}
+getEmbeddings().then(data => insertData(data))
