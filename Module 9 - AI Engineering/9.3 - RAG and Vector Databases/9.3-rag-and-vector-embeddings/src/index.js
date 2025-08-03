@@ -42,4 +42,6 @@ async function insertData(data) {
   console.log('Embedding and storing complete')
 
 }
-getEmbeddings().then(data => insertData(data))
+
+// DO NOT RUN THIS QUERY AGAIN
+// getEmbeddings().then(data => insertData(data))
