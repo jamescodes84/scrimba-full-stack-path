@@ -10,11 +10,10 @@ letsGoButton.addEventListener('click', (event) => {
     const funnyOrSerious = funnyOrSeriousInput.value
     const newOrOld = newOrOldInput.value
 
-    const inputJSON = 
-    {
-        favMovie: favMovie,
-        funnyOrSerious: funnyOrSerious,
-        newOrOld: newOrOld
-    }
+    const inputJSON = {
+            favMovie: favMovie,
+            funnyOrSerious: funnyOrSerious,
+            newOrOld: newOrOld
+        }
     console.log(inputJSON)
 })
