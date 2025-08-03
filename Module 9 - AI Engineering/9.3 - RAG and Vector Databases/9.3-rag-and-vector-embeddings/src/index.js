@@ -17,13 +17,13 @@ const content = [
 */
 
 async function main() {
-  const embedding = await openai.embeddings.create({
+  const embeddings = await openai.embeddings.create({
     model: "text-embedding-ada-002",
     input: content,
   });
   // embedding.data.map(dataElemet =>console.log(dataE , content))
-  console.log(embedding)
-  const dataObjects = embedding.data.map(embeddingObject => {
+  console.log(embeddings)
+  const dataObjects = embeddings.data.map(embeddingObject => {
     return {
       content: content[embeddingObject.index],
       embedding: embeddingObject.embedding
