@@ -46,15 +46,12 @@ async function insertData(data) {
 
 // DO NOT RUN THIS QUERY AGAIN
 // getEmbeddings().then(data => insertData(data))
-let query = "Jammin in the Big Easy is a good song"
 // getEmbedding(query).then(data => {
 
 // })
 
 async function runQuery(query) {
   const dataObject = await getEmbedding(query)
-  // console.log(queryEmbedding)
-  console.log(dataObject)
   
   const { data:queryResult , error} = await supabase.rpc('match_documents', {
   query_embedding: dataObject.embedding,
@@ -63,11 +60,43 @@ async function runQuery(query) {
 })
   console.log(queryResult)
   
-
+return queryResult
  
 }
 
 
 
 
-runQuery(query)
+
+
+
+
+// Use OpenAI to make the response conversational
+const chatMessages = [{
+    role: 'system',
+    content: `You are an enthusiastic podcast expert who loves recommending podcasts to people. You will be given two pieces of information - some context about podcasts episodes and a question. Your main job is to formulate a short answer to the question using the provided context. Please do not make up the answer.Do not refuse to answer.` 
+}];
+
+async function getChatCompletion(text, query) {
+  console.log(text)
+  chatMessages.push({
+    role: 'user',
+    content: `Context: ${text} Question: ${query}`
+  });
+  
+  const response = await openai.chat.completions.create({
+    model: 'gpt-4',
+    messages: chatMessages,
+    temperature: 0.0,
+    frequency_penalty: 0.0
+  });
+  console.log(response)
+  console.log(response.choices[0].message.content);
+}
+
+let query = "silence"
+let queryResult = await runQuery(query).then(result => {
+  getChatCompletion(result, query)
+}
+)
+
