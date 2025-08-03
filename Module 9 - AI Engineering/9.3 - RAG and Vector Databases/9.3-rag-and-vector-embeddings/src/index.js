@@ -1,38 +1,37 @@
-import { OPENAI_API_KEY } from "./apikeys";
+import openai from './config.js';
 
+const content = [
+  "Beyond Mars: speculating life on distant planets.",
+  "Jazz under stars: a night in New Orleans' music scene.",
+  "Mysteries of the deep: exploring uncharted ocean caves.",
+  "Rediscovering lost melodies: the rebirth of vinyl culture.",
+  "Tales from the tech frontier: decoding AI ethics.",
+]; 
 
-import OpenAI from "openai";
-const openai = new OpenAI(
-    {
-        apiKey: OPENAI_API_KEY,
-        dangerouslyAllowBrowser: true
-    });
-
-
-
-// console.log(embedding);
- 
 /*
-  TODO: Challenge: Pair text with its embedding
+  Challenge: Pair text with its embedding
     - For each text input, create an object with 
       a 'content' and 'embedding' property
     - The value of 'content' should be the text
     - The value of 'embedding' should be the vector embedding for that text
 */
-async function getEmbedding(inputText) {
-    let returnValues = {}
-    const embeddingVector = await openai.embeddings.create({
-            model: "text-embedding-3-small",
-            input: "Your text string goes here",
-            encoding_format: "float",
-    
-        })
-        .then(vector => {
-          returnValues = {
-            content: inputText,
-            embedding: vector
-          }
-        } )
+
+async function main() {
+  const embedding = await openai.embeddings.create({
+    model: "text-embedding-ada-002",
+    input: content,
+  });
+  // embedding.data.map(dataElemet =>console.log(dataE , content))
+  console.log(embedding)
+  const dataObjects = embedding.data.map(embeddingObject => {
+    return {
+      content: content[embeddingObject.index],
+      embedding: embeddingObject.embedding
+    }
+  })
+  console.log(dataObjects)
 }
 
-console.log(getEmbedding("This is a test"))
+
+main();
+// console.log(dataObjects)
