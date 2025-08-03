@@ -92,13 +92,14 @@ async function getChatCompletion(text, query) {
     temperature: 0.0,
     frequency_penalty: 0.0
   });
+
   console.log(response)
   console.log(response.choices[0].message.content);
 }
 
 let query = "any good recommendations for jazz"
 let queryResult = await runQuery(query).then(result => {
-  getChatCompletion(result, query)
-}
+    getChatCompletion(result, query)
+  }
 )
 
