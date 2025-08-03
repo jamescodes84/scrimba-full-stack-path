@@ -4,6 +4,28 @@ html, body {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+textarea {
+    width: 80%;
+    resize: none;
+    background-color:#3B4877;
+    border-radius: 18px;
+    height: 3rem;
+    color: white;
+    padding: 1rem;
+    margin-top: .75rem;
+    font-size: .875rem;
+}
+
+.label {
+    margin-top: 2rem;
 }
 
 #outermost-container {
@@ -22,6 +44,7 @@ html, body {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    /* border-bottom: 1px solid gray; */
 }
 #header-logo {
     width: 5rem;
@@ -34,4 +57,22 @@ html, body {
     color: #FFFFFF;
     margin: .25rem 0rem 1rem 0rem;
 
+}
+
+#content-container {
+    margin-top: 1rem;
+}
+
+#lets-go-button {
+    width: 85%;
+    margin-top: 2.25rem;
+    height: 3.5rem;
+    background-color:#51E08A;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    border-radius: 18px;
+    /* height: 4rem; */
+    color: #000C36;
+    /* color: red; */
 }
