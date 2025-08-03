@@ -17,20 +17,21 @@ const content = [
     - The value of 'embedding' should be the vector embedding for that text
 */
 
-async function getEmbeddings() {
+async function getEmbedding(data) {
   const embeddings = await openai.embeddings.create({
     model: "text-embedding-ada-002",
-    input: content,
+    input: data,
   });
   // embedding.data.map(dataElemet =>console.log(dataE , content))
-  console.log(embeddings)
+  // console.log(embeddings)
   const dataObjects = embeddings.data.map(embeddingObject => {
     return {
-      content: content[embeddingObject.index],
+      content: data,
       embedding: embeddingObject.embedding
     }
   })
-  return dataObjects
+  // console.log(dataObjects)
+  return dataObjects[0]
 }
 
 
@@ -45,3 +46,28 @@ async function insertData(data) {
 
 // DO NOT RUN THIS QUERY AGAIN
 // getEmbeddings().then(data => insertData(data))
+let query = "Jammin in the Big Easy is a good song"
+// getEmbedding(query).then(data => {
+
+// })
+
+async function runQuery(query) {
+  const dataObject = await getEmbedding(query)
+  // console.log(queryEmbedding)
+  console.log(dataObject)
+  
+  const { data:queryResult , error} = await supabase.rpc('match_documents', {
+  query_embedding: dataObject.embedding,
+  match_threshold: 0.5,
+  match_count: 1
+})
+  console.log(queryResult)
+  
+
+ 
+}
+
+
+
+
+runQuery(query)
