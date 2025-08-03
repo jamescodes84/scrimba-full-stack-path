@@ -78,10 +78,12 @@ const chatMessages = [{
 }];
 
 async function getChatCompletion(text, query) {
-  console.log(text)
+
+  console.log(text[0])
+
   chatMessages.push({
     role: 'user',
-    content: `Context: ${text} Question: ${query}`
+    content: `Context: ${text[0].content} Question: ${query}`
   });
   
   const response = await openai.chat.completions.create({
@@ -94,7 +96,7 @@ async function getChatCompletion(text, query) {
   console.log(response.choices[0].message.content);
 }
 
-let query = "silence"
+let query = "any good recommendations for jazz"
 let queryResult = await runQuery(query).then(result => {
   getChatCompletion(result, query)
 }
