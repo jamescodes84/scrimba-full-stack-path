@@ -6,12 +6,12 @@ const newOrOldInput = document.getElementById('new-or-old')
 const funnyOrSeriousInput = document.getElementById('funny-or-serious')
 letsGoButton.addEventListener('click', (event) => {
     event.preventDefault()
-    const favMovie = favoriteMovieInput.value
+    const favoriteMovie = favoriteMovieInput.value
     const funnyOrSerious = funnyOrSeriousInput.value
     const newOrOld = newOrOldInput.value
 
     const inputJSON = {
-            favMovie: favMovie,
+            favoriteMovie: favoriteMovie,
             funnyOrSerious: funnyOrSerious,
             newOrOld: newOrOld
         }
