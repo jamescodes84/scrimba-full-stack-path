@@ -1,7 +1,7 @@
 import { openai, supabase } from './config.js';
 // import data from 'content.js'
 import {movies} from './content.js'
-
+import { OMDB_API_KEY } from './apikeys.js';
 const letsGoButton = document.getElementById('lets-go-button')
 const favoriteMovieInput = document.getElementById('favorite-movie')
 const newOrOldInput = document.getElementById('new-or-old')
@@ -34,8 +34,21 @@ letsGoButton.addEventListener('click', async (event) => {
             mood: funnyOrSerious,
             genre: newOrOld
         }
-    let movieSuggestion = await rag(inputJSON)
-    document.getElementById('content-container').innerHTML = `<div id="movie-suggestion">${movieSuggestion}</div>`
+    let movie = await rag(inputJSON)
+
+    // call open movie database api for this specific movie and retrieve poster url
+    let posterURL = await getPoster(movie.title, movie.year)
+    document.getElementById('header-container').style.display = 'none'
+    document.getElementById('content-container').innerHTML = 
+    `
+    <div id="movie-suggestion">
+        <img id="movie-poster" src="${posterURL}"/>
+        <div id="movie-title">${movie.title} (${movie.year})</div>
+        <div id="suggestion-text">${movie.suggestion}</div>
+         <button id="reset-button" >Go Again</button>    
+    </div>
+    `
+    document.getElementById("reset-button").addEventListener("click", (event) => location.reload())
 })
 
 // https://supabase.com/blog/openai-embeddings-postgres-vector
@@ -96,9 +109,9 @@ const chatMessages = [{
                 Your main job is to formulate a movie recommendation based on provided context. 
                 Your output will be JSON in the following format:
                 {
-                    "title": MOVIE TITLE GOES HERE,
-                    "year": YEAR GOES HERE
-                    "suggestion": SUGGESTION TEXT GOES HERE
+                    "title":TITLE HERE,
+                    "year": YEAR HERE,
+                    "suggestion": SUGGESTION HERE,
                 }
                 You never lie to somebody about a movie, if you don't have good information on a movie, politely ask for more context .`
 
@@ -124,8 +137,11 @@ async function getChatCompletion(query, context) {
     frequency_penalty: 0.3
   });
 
-  console.log(response)
-  return response.choices[0].message.content
+  console.log(response.choices[0].message.content)
+
+  const responseObject = JSON.parse(response.choices[0].message.content)
+
+  return responseObject
   
 }
 
@@ -142,3 +158,15 @@ async function rag(userInput) {
     return responseFromAI
 }
 
+ async function getPoster(title,year) {
+    let res = await fetch (`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${title}&year=${year}&type=movie&r=json&page=1` , {method: 'GET'})
+            let movie = await res.json()
+            
+            console.log("Micro Result",movie.Poster)
+            return movie.Poster
+ }
+
+ let title = "The Lord of the Rings: The Fellowship of the Ring"
+ let year = 2001
+
+ getPoster(title, year)
