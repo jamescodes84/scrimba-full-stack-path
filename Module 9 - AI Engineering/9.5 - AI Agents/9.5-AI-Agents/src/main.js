@@ -1,98 +1,102 @@
 import OpenAI from "openai"
-import { getCurrentWeather, getLocation } from "./tools"
+import { getCurrentWeather, getLocation, tools } from "./tools"
 
 export const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
     dangerouslyAllowBrowser: true
 })
 
-/**
- * Goal - build an agent that can answer any questions that might require knowledge about my current location and the current weather at my location.
- */
+const availableFunctions = {
+    getCurrentWeather,
+    getLocation
+}
 
-/**
- PLAN:
- 1. Design a well-written ReAct prompt
- 2. Build a loop for my agent to run in.
- 3. Parse any actions that the LLM determines are necessary
- 4. End condition - final Answer is given
- 
- */
-
-const systemPrompt = `
-You cycle through Thought, Action, PAUSE, Observation. At the end of the loop you output a final Answer. Your final answer should be highly specific to the observations you have from running
-the actions.
-1. Thought: Describe your thoughts about the question you have been asked.
-2. Action: run one of the actions available to you - then return PAUSE.
-3. PAUSE
-4. Observation: will be the result of running those actions.
-
-Available actions:
-- getCurrentWeather: 
-    E.g. getCurrentWeather: Salt Lake City
-    Returns the current weather of the location specified.
-- getLocation:
-    E.g. getLocation: null
-    Returns user's location details. No arguments needed.
-
-Example session:
-Question: Please give me some ideas for activities to do this afternoon.
-Thought: I should look up the user's location so I can give location-specific activity ideas.
-Action: getLocation: null
-PAUSE
-
-You will be called again with something like this:
-Observation: "New York City, NY"
-
-Then you loop again:
-Thought: To get even more specific activity ideas, I should get the current weather at the user's location.
-Action: getCurrentWeather: New York City
-PAUSE
-
-You'll then be called again with something like this:
-Observation: { location: "New York City, NY", forecast: ["sunny"] }
-
-You then output:
-Answer: <Suggested activities based on sunny weather that are highly specific to New York City and surrounding areas.>
-`
-
-/**
- * Challenge: Set up the function
- * 1. Create a function called `agent` that takes a `query` as a parameter
- * 2. Create a messages array that follows the pattern openai expects for 
- *    its chat completions endpoint. The first message should be the system
- *    prompt we wrote above, and the second message should be the query 
- *    from the user found in the `agent` function parameter.
- * 3. Move the code below inside the function (and uncomment it)
- * 4. Call the function with a string query of any kind and see what gets returned.
- */
 async function agent(query) {
-    let messages = [
-        {
-            role: "system",
-            content: systemPrompt
-        } ,
-        {
-            role: "user",
-            content: query
-        }
+    const messages = [
+        { role: "system", content: "You are a helpful AI agent. Give highly specific answers based on the information you're provided. Prefer to gather information with the tools provided to you rather than giving basic, generic answers." },
+        { role: "user", content: query }
     ]
-    const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-            {
-                role: "user",
-                content: `Give me a list of activity ideas based on my current location of ${location} and weather of ${weather}`
-            }
-        ]
-    })
 
-    console.log(response.choices[0].message.content)
-    
-    
+    const MAX_ITERATIONS = 5
+
+    // for (let i = 0; i < MAX_ITERATIONS; i++) {
+    //     console.log(`Iteration #${i + 1}`)
+        const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo-1106",
+            messages,
+            tools
+        })
+
+        console.log(response.choices[0])
+        const { finish_reason: finishReason, message } = response.choices[0]
+        
+        if (finishReason === "stop") {
+            // console.log(message.content)
+            console.log("AGENT ENDING")
+            return
+        }
+        
+        /**
+         * Challenge:
+         * Write the logic for the "tool_calls" finish reason. 
+         * Console.log the function response.
+         * Notes:
+         * - Assume our functions won't ever have any arguments. We'll
+         *   update this later
+         * - Notice that "tool_calls" is an array, and account for that
+         *   when writing your code
+         * - Don't worry about pushing any messages to the messages array yet
+         */
+        
+        for (let tool_call of message.tool_calls) {
+            let tool = tool_call['function'].name
+            if (tool === 'getCurrentWeather') {
+                console.log("weather")
+                console.log(await getCurrentWeather())
+            } else if (tool === 'getLocation') {
+                console.log(await getLocation())
+            }
+        }
+        // Check finish_reason
+        // if "stop"
+            // return the result
+        // else if "tool_calls"
+            // call functions
+            // append results
+            // continue
+        
+    // }
+}
+
+await agent("What's the current location?")
+
+/**
+{
+    "index": 0,
+    "message": {
+        "role": "assistant",
+        "content": "As an AI, I don't have feelings, but I'm here to assist you with any questions or tasks you have. How can I help you today?"
+    },
+    "finish_reason": "stop"
 }
 
 
-
-let newQuery = "whats my name??"
-agent(newQuery)
+{
+    "index": 0,
+    "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+            {
+                "id": "call_SDhXnJbvxSWwy1m1R1J43EmQ",
+                "type": "function",
+                "function": {
+                    "name": "getLocation",
+                    "arguments": "{}"
+                }
+            }
+        ]
+    },
+    "finish_reason": "tool_calls"
+}
+ */
