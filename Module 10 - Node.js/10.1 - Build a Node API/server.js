@@ -24,11 +24,36 @@ const server = http.createServer( async (req , res) => {
                 res.statusCode = 404 // bad request status code
                 res.setHeader('Content-Type', 'application/json')
                 res.write('no cheese for you\n')
-                
+
                 const errorObject = {error: "not found", message: "The requested route does not exist"}
                 res.end(JSON.stringify (errorObject))
         }
-    } 
+    } else if ( req.url.startsWith('/api/continent') ){
+        
+        switch (req.method) {
+            case 'GET':
+                res.statusCode = 200
+                res.setHeader("Content-Type", "application/json")
+                const continent = req.url.split('/').pop()
+                
+                res.write('You have found the continental cheese\n')
+                res.end(JSON.stringify(destinations.filter(destination => {
+      
+                    return destination.continent.toLowerCase() === continent.toLowerCase()
+        
+                })))
+
+                break;
+            default:
+                res.statusCode = 404 // bad request status code
+                res.setHeader('Content-Type', 'application/json')
+                res.write('no cheese for you\n')
+
+                const errorObject = {error: "not found", message: "The requested route does not exist"}
+                res.end(JSON.stringify (errorObject))
+
+        }
+    }
     res.end()
 })
 
