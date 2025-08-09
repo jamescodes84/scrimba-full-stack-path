@@ -12,9 +12,7 @@ const server = http.createServer((req , res) => {
             default:
                 res.write('no cheese for you')
         }
-    } else {
-        
-    }
+    } 
     res.end()
 })
 
