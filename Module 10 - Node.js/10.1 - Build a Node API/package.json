@@ -4,8 +4,7 @@
   "description": "this is a server built for module 10.1 of Scrimba's Full Stack Developer Learning Path, the official project description is: a dataset of the planet's most interesting places.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
   },
   "author": "James A. Reynolds",
   "license": "ISC"
