@@ -6,7 +6,7 @@ const server = http.createServer( async (req , res) => {
     const destinations = await getDataFromDB()
     console.log(destinations)
     if (req.url ==="/api") {
-        res.write("Access Granted\n")
+        
         switch (req.method) {
             case 'GET':
                 /*
@@ -17,6 +17,7 @@ const server = http.createServer( async (req , res) => {
                 res.statusCode = 200
                 res.write('You have found the cheese\n')
                 res.write(JSON.stringify(destinations))
+                
                 break
             default:
                 res.write('no cheese for you')
