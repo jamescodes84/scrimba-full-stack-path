@@ -1,13 +1,16 @@
-import http from 'node:http'
+import http, { get } from 'node:http'
 
 const PORT = 4500
-
-const server = http.createServer((req , res) => {
+import { getDataFromDB } from './database/db.js'
+const server = http.createServer( async (req , res) => {
+    const destinations = await getDataFromDB()
+    console.log(destinations)
     if (req.url ==="/api") {
         res.write("Access Granted\n")
         switch (req.method) {
             case 'GET':
-                res.write('You have found the cheese')
+                res.write('You have found the cheese\n')
+                res.write(JSON.stringify({destinations}))
                 break
             default:
                 res.write('no cheese for you')
