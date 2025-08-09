@@ -11,10 +11,10 @@ const server = http.createServer( async (req , res) => {
             case 'GET':
                 /*
                     Challenge:
-                    1. Access the ‘setHeader’ method on the response object and pass in two strings to set the      
-                    Content-Type to ‘application/json’ - watch out for casing! 
-                */  
+                    1. Access the 'statusCode' property and set it to 200.
+                */
                 res.setHeader("Content-Type", "application/json")
+                res.statusCode = 200
                 res.write('You have found the cheese\n')
                 res.write(JSON.stringify(destinations))
                 break
