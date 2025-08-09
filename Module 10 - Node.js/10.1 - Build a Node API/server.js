@@ -9,8 +9,14 @@ const server = http.createServer( async (req , res) => {
         res.write("Access Granted\n")
         switch (req.method) {
             case 'GET':
+                /*
+                    Challenge:
+                    1. Access the ‘setHeader’ method on the response object and pass in two strings to set the      
+                    Content-Type to ‘application/json’ - watch out for casing! 
+                */  
+                res.setHeader("Content-Type", "application/json")
                 res.write('You have found the cheese\n')
-                res.write(JSON.stringify({destinations}))
+                res.write(JSON.stringify(destinations))
                 break
             default:
                 res.write('no cheese for you')
