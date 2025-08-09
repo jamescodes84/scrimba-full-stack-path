@@ -35,7 +35,6 @@ const server = http.createServer( async (req , res) => {
                 res.statusCode = 200
                 res.setHeader("Content-Type", "application/json")
                 const continent = req.url.split('/').pop()
-                
                 res.write('You have found the continental cheese\n')
                 res.end(JSON.stringify(destinations.filter(destination => {
       
