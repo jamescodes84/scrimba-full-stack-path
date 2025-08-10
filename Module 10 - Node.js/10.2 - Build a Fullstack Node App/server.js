@@ -19,6 +19,7 @@ const server = http.createServer((req, res) => {
     
     res.setHeader("Content-type", "text/html")
     res.write(`<html><h1>The server is working</h1></html>`)
+    res.end()
 })
 
 server.listen(PORT , () => console.log(`server is listening on port ${PORT}`))
