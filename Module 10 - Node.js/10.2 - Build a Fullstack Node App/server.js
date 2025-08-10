@@ -1,25 +1,26 @@
+import http from 'node:http'
+import serveStatic from './utils/serveStatic.js'
+const PORT = 8000
+
 /*
-Challenge: 
+Challenge 1:
 
-1.Set up a server that serves the string 
-    '<html><h1>The server is working</h1></html>'.
-    
-    What should the content type be? 
-    What status code should you send?
-
-2. Listen on port 8000 and log a connection message to the console.
-
-3. Open the browser to see your first served HTML.
-
+1. Get the name of the directory holding this server.js file and store it to a const ‘__dirname’.
 */
 
-import http from 'http'
-const PORT = 8000
+const __dirname = import.meta.dirname
 const server = http.createServer((req, res) => {
-    
-    res.setHeader("Content-type", "text/html")
-    res.write(`<html><h1>The server is working</h1></html>`)
-    res.end()
+
+/*
+Challenge 3:
+
+1. Import and call serveStatic and pass it the directory of this current module.
+*/
+
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'text/html')
+    res.end('<html><h1>The server is working</h1></html>')
+    serveStatic(__dirname)
 })
 
-server.listen(PORT , () => console.log(`server is listening on port ${PORT}`))
+server.listen(PORT, ()=> console.log(`Connected on port: ${PORT}`))
