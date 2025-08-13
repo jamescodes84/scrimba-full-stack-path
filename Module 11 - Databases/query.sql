@@ -1,8 +1,8 @@
 /*
-	Find cars which are not yellow
-		Select the brand, model, price and color
+	Select the brand, model, color and year for cars
+		where the model is 'DB' followed by any other single character
 */
 
-SELECT brand, model, price, color
+SELECT brand, model, color, year
 FROM cars
-WHERE color != 'yellow';
+WHERE model LIKE 'DB_'
