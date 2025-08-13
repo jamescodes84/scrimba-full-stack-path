@@ -1,12 +1,11 @@
 /*
-	Select the brand, model, condition and year from cars
-		Where the year is 1961, 1963, 1965, 1967 or 1969
-		and the condition is 3 or higher
-		and sold is false
+	Select brand, model, price and sold from cars
+		filter out any cars which are sold
+		show cars where the brand is none of ('Ford', 'Triumph', 'Chevrolet', 'Dodge')
+		or the price is less than $50000
 */
 
-
-SELECT brand, model, conditIon, year
+SELECT brand, model, price, sold
 FROM cars
-WHERE year IN ('1961', '1963', '1965', '1967', '1969')
-AND condition >= 3 AND sold IS FALSE;
+WHERE  (brand NOT IN ('Ford', 'Triumph', 'Chevrolet', 'Dodge')
+OR price < 50000) AND  sold IS FALSE;
