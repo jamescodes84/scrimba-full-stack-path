@@ -1,11 +1,10 @@
 /*
-	Select brand, model, condition, color and price from cars
-		where the price is between $20,000 and $60,000
-		and the condition is between 1 and 3
-		and the color contains red
+	Search for brand, model, color, year and price of cars
+		where the color is a shade of red
+		or the year is between 1960 and 1969
 */
-SELECT brand, model, condition, color, price
+
+SELECT brand, model, color, year, price
 FROM cars
-WHERE price BETWEEN 20000 AND 60000
-AND condition BETWEEN 1 AND 3
-AND color LIKE '%red%';
+WHERE color LIKE '%red'
+or year BETWEEN 1960 AND 1969;
