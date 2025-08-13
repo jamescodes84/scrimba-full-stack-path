@@ -1,8 +1,7 @@
 /*
-	Select the brand, model, condition and price from cars
-		find results where the price is less than $50,000
+	Filter out cars from 1965
+		Select the brand, model, year and price
 */
-
-SELECT brand, model, condition, price
+SELECT brand, model, year, price
 FROM cars
-WHERE price < 50000;
+WHERE year != 1965;
