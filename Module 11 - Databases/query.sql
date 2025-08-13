@@ -9,4 +9,4 @@
 SELECT brand, model, color, year, price, sold FROM cars
 	WHERE (color LIKE '%red%'
 	OR year BETWEEN 1960 AND 1969)
-	AND sold = 'FALSE';
+	AND sold = FALSE;
