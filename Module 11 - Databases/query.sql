@@ -1,8 +1,8 @@
 /*
 	Select the brand, model, condition and price from cars
-		where the condition equals 0
+		find results where the price is less than $50,000
 */
 
 SELECT brand, model, condition, price
 FROM cars
-WHERE condition = 0;
+WHERE price < 50000;
