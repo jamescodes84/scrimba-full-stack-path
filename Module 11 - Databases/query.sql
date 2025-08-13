@@ -1,12 +1,12 @@
 /*
-	Search for columns: brand, model, color, year, price, sold
-		from the table cars
-		where the color is a shade of red
-		or the year is between 1960 and 1969
+	Select the brand, model, condition and year from cars
+		Where the year is 1961, 1963, 1965, 1967 or 1969
+		and the condition is 3 or higher
 		and sold is false
 */
 
-SELECT brand, model, color, year, price, sold FROM cars
-	WHERE (color LIKE '%red%'
-	OR year BETWEEN 1960 AND 1969)
-	AND sold = FALSE;
+
+SELECT brand, model, conditIon, year
+FROM cars
+WHERE year IN ('1961', '1963', '1965', '1967', '1969')
+AND condition >= 3 AND sold IS FALSE;
