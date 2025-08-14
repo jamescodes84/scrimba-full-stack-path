@@ -1,11 +1,11 @@
 /*
-	Select brand, model, price and sold from cars
-		filter out any cars which are sold
-		show cars where the brand is none of ('Ford', 'Triumph', 'Chevrolet', 'Dodge')
-		or the price is less than $50000
+	Select brand, model, and color from cars
+		where the color is 'red'
+		and the brand is not 'Ferrari'
+		and the car has not been sold
 */
 
-SELECT brand, model, price, sold
+SELECT brand, model, color
 FROM cars
-WHERE  (brand NOT IN ('Ford', 'Triumph', 'Chevrolet', 'Dodge')
-OR price < 50000) AND  sold IS FALSE;
+WHERE color = 'red' AND brand != 'Ferrari'
+AND sold is false;
