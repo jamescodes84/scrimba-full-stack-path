@@ -7,5 +7,5 @@
 
 SELECT brand, model, year, sold
 FROM cars
-WHERE ((brand = 'Dodge' AND year is BETWEEN 1960 AND 1969) 
-OR ((brand = 'Ford' OR brand = 'Triumph') AND year IS BETWEEN 1970 AND 1979)) AND sold = FALSE;
+WHERE ((brand = 'Dodge' AND year is LIKE '196_') 
+OR ((brand = 'Ford' OR brand = 'Triumph') AND year IS LIKE '197_')) AND sold = FALSE;
