@@ -1,11 +1,9 @@
 /*
-	Select brand, model, year, sold from cars
-		where the brand is 'Dodge' and year is in the 60s
-		or the brand is either 'Ford' or 'Triumph' and the car is from the 70s
-		only select cars where sold is not true
+	Select the brand, model, condition and price from cars
+		order the table by condition in descending order
+		and by price in ascending order
 */
 
-SELECT brand, model, year, sold
+SELECT brand, model, condition, price
 FROM cars
-WHERE ((brand = 'Dodge' AND year is LIKE '196_') 
-OR ((brand = 'Ford' OR brand = 'Triumph') AND year IS LIKE '197_')) AND sold = FALSE;
+ORDER BY condition DESC , price;
