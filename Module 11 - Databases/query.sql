@@ -1,16 +1,19 @@
 /*
 	Select:
-		* the brand
-		* a count of the brand
-		* and an average of the price for each brand
-		* round the average down to the nearest number
-		* alias the average as 'AVG' in your output
-	From cars where
-		the car has not been sold
-	Group the table by brand.
+		* year
+		* a count of cars from that year, aliased as car_count
+		* the maximum price
+		* the minimum price
+	from the table cars
+		where the car has been sold
+	group by year
+		only show years where more than one car has been sold from that year
+	order the result by car_count
 */
 
-SELECT brand, COUNT (brand), FLOOR(AVG(price)) AS 'AVG'
+SELECT year, COUNT(cars) AS car_count, MAX(price), MIN(price)
 FROM cars
-WHERE sold = FALSE
-GROUP BY brand;
+WHERE sold = TRUE
+GROUP BY year
+HAVING (COUNT(year) > 1)
+ORDER BY car_count;
