@@ -1,14 +1,9 @@
 /*
-	Select the brand, model, color and price from cars
-		where the color is a shade of 'red'
-		and sold is false
-		order by price
-		limit the results to 5
+	Sum the price of cars
+		where sold is true
+	Use the alias total_earnings in your output
 */
 
-SELECT brand, model, color, price
+SELECT SUM(price) AS total_earnings
 FROM cars
-WHERE color LIKE "%red%"
-AND sold = false
-ORDER BY price
-LIMIT 5;
+WHERE sold = true;
