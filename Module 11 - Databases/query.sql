@@ -1,9 +1,8 @@
 /*
-	Sum the price of cars
-		where sold is true
-	Use the alias total_earnings in your output
+	Use the AVG aggregate function to find the average price
+		where the brand is Bentley
 */
 
-SELECT SUM(price) AS total_earnings
+SELECT AVG(price)
 FROM cars
-WHERE sold = true;
+WHERE brand = 'Bentley';
