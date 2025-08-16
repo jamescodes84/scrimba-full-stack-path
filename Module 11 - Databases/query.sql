@@ -1,19 +1,11 @@
 /*
-	Select:
-		* year
-		* a count of cars from that year, aliased as car_count
-		* the maximum price
-		* the minimum price
-	from the table cars
-		where the car has been sold
-	group by year
-		only show years where more than one car has been sold from that year
-	order the result by car_count
+	Select brand, model, and year from cars
+		only show the oldest 5 cars in the database
+		show cars which haven't been sold
 */
 
-SELECT year, COUNT(cars) AS car_count, MAX(price), MIN(price)
+SELECT brand, model, year
 FROM cars
-WHERE sold = TRUE
-GROUP BY year
-HAVING (COUNT(year) > 1)
-ORDER BY car_count;
+WHERE sold != TRUE
+ORDER BY year
+LIMIT 5;
