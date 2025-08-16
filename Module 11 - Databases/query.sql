@@ -1,14 +1,14 @@
 /*
-	Select color and count how many cars have each color
-		find cars which have not been sold
-		order by count in descending order
-		only show results where the count is greater than 2
+	Insert these two cars to the cars table:
+		1. Brand: Chevrolet, model: Bel Air, year: 1955,
+			retail_price: 50000, color: purple, condition 5, sold: false
+		2. Brand: Porsche, model: 944 Turbo, year: 1986,
+			retail_price: 48000, color: white, condition: 4, sold: false
 */
-
-SELECT color, COUNT(color)
-FROM cars
-WHERE sold = FALSE
-GROUP BY (color)
-HAVING count(color) > 2
-ORDER BY count DESC;
-
+INSERT INTO cars (
+	brand, model, year, price, color, condition, sold
+) VALUES (
+	'Chevrolet', 'Bel Air', 1955, 50000, 'purple', 5, FALSE
+), (
+	'Porsche', '944 Turbo', 1986, 48000, 'white', 4, FALSE
+)
