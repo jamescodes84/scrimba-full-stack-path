@@ -1,8 +1,10 @@
 /*
-	Use the AVG aggregate function to find the average price
-		where the brand is Bentley
+	Select the average, minimum and maximum price from cars
+	where sold is true
+	Round the average up to the nearest whole number
+	and use 'avg' as the alias for that result	
 */
 
-SELECT AVG(price)
+SELECT CEIL(AVG(price)) as 'avg' , MIN(price) as minimum, MAX(price) as maximum
 FROM cars
-WHERE brand = 'Bentley';
+WHERE sold = TRUE;
