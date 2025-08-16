@@ -1,14 +1,9 @@
 /*
-	Insert these two cars to the cars table:
-		1. Brand: Chevrolet, model: Bel Air, year: 1955,
-			retail_price: 50000, color: purple, condition 5, sold: false
-		2. Brand: Porsche, model: 944 Turbo, year: 1986,
-			retail_price: 48000, color: white, condition: 4, sold: false
+	Update the record for the Aston Martin DB4 with ID 14
+		set the condition to 5
+		and the price to 465000
 */
-INSERT INTO cars (
-	brand, model, year, price, color, condition, sold
-) VALUES (
-	'Chevrolet', 'Bel Air', 1955, 50000, 'purple', 5, FALSE
-), (
-	'Porsche', '944 Turbo', 1986, 48000, 'white', 4, FALSE
-)
+
+UPDATE cars set
+condition = 5, price = 465000
+WHERE id = 14;
