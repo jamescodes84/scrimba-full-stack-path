@@ -1,11 +1,14 @@
 /*
-	Use full join to show the name, role and sold_price
-		from staff
-	Full join with sold_cars
-		matching seller with staff.id	
+	Select the city and average car price
+	Round that car price to a whole number
+	
+	Only show dealerships which have cars
+	
+	Group by dealership city and state
 */
 
-SELECT name, role, sold_price
-FROM staff
-FULL JOIN sold_cars
-ON seller = staff.id;
+
+select city , FLOOR(AVG(price) )
+FROM CARS LEFT JOIN dealerships
+ON dealership_id = dealerships.id
+GROUP BY city, state;
