@@ -45,3 +45,6 @@ ALTER COLUMN seller DROP NOT NULL;
 /*
 	3. Delete Frankie Fender from the staff table
 */
+
+DELETE FROM staff
+where id = 5;
