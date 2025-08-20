@@ -1,17 +1,19 @@
 /*
-	Select the name and role, alongside a total_sales:
-		this is the sum of sales by a member of staff
+	Select the city, state and
+		count the total number of cars in each dealership
+		alias the count as car_count
 	
-	Use staff as your left table and sold_cars as your right table
+	Use cars as the left table, and dealerships as the right table
+		choosing a join which will show every dealership
+		
+	Include a condition to count unsold cars
 	
-	Include a where clause to select only staff with the role 'Salesperson'
-	
-	Group by staff name and role
-	Order by the total_sales from high to low
+	Group by dealership city and state
+	Order by the car_count
 */
 
-SELECT name, role, SUM (sold_price) AS sumPrice
-FROM staff LEFT JOIN sold_cars on staff.id = seller
-WHERE role = 'Salesperson'
-GROUP BY staff.name , staff.role
-ORDER BY sumPrice DESC;
+SELECT city , state, COUNT(id) as car_count
+FROM cars LEFT JOIN dealerships ON dealership_id = dealerships.id
+WHERE sold = FALSE
+GROUP BY city, state
+ORDER BY car_count;
