@@ -1,9 +1,9 @@
 /*
-	Select name, role, city, state
-		From the staff table
-	Right join with the dealerships table where the dealership_id in staff
-			matches with the id in dealerships
+	Select name, role, sold_price from staff
+	Inner join with sold_cars
+		matching seller with staff.id	
 */
 
-SELECT name, role, city, state FROM staff
-  RIGHT JOIN dealerships ON dealership_id = dealerships.id;
+SELECT name, role, sold_price
+FROM staff
+INNER JOIN sold_cars ON seller = staff.id;
