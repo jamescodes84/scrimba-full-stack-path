@@ -1,14 +1,17 @@
 /*
-	Select the city and average car price
-	Round that car price to a whole number
+	Select the name and role, alongside a total_sales:
+		this is the sum of sales by a member of staff
 	
-	Only show dealerships which have cars
+	Use staff as your left table and sold_cars as your right table
 	
-	Group by dealership city and state
+	Include a where clause to select only staff with the role 'Salesperson'
+	
+	Group by staff name and role
+	Order by the total_sales from high to low
 */
 
-
-select city , FLOOR(AVG(price) )
-FROM CARS LEFT JOIN dealerships
-ON dealership_id = dealerships.id
-GROUP BY city, state;
+SELECT name, role, SUM (sold_price) AS sumPrice
+FROM staff LEFT JOIN sold_cars on staff.id = seller
+WHERE role = 'Salesperson'
+GROUP BY staff.name , staff.role
+ORDER BY sumPrice DESC;
