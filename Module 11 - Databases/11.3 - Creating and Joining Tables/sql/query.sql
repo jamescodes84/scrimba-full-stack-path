@@ -17,3 +17,4 @@ FROM cars LEFT JOIN dealerships ON dealership_id = dealerships.id
 WHERE sold = FALSE
 GROUP BY city, state
 ORDER BY car_count;
+
