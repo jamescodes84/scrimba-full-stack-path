@@ -9,31 +9,64 @@ app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
 
 app.get('/api', (req,res)=> {
-    /*
-    Challenge:
-    1. When a user hits the /api endpoint with query params, filter the data so 
-    we only serve objects that meet their requirements. 
-        
-    The user can filter by the following properties:
-    industry, country, continent, is_seeking_funding, has_mvp
+  /*
+  Challenge:
+  1. When a user hits the /api endpoint with query params, filter the data so 
+  we only serve objects that meet their requirements. 
+    
+  The user can filter by the following properties:
+  industry, country, continent, is_seeking_funding, has_mvp
 
-    Test Cases
+  Test Cases
 
-    /api?industry=renewable%20energy&country=germany&has_mvp=true
-    Should get the "GreenGrid Energy" object.
+  /api?industry=renewable%20energy&country=germany&has_mvp=true
+  Should get the "GreenGrid Energy" object.
 
-    /api?industry=renewable%20energy&country=germany&has_mvp=false
-    Should not get any object
+  /api?industry=renewable%20energy&country=germany&has_mvp=false
+  Should not get any object
 
-    /api?continent=asia&is_seeking_funding=true&has_mvp=true
-    should get for objects with IDs 3, 22, 26, 29
-    */
+  /api?continent=asia&is_seeking_funding=true&has_mvp=true
+  should get for objects with IDs 3, 22, 26, 29
+  */
 
-    console.log(req.params)
-     let filteredData = startups.filter(startup => {
-        console.log(startup)
-        
-  })
+  // console.log(req.query)
+  let filteredData = startups
 
+  const { industry , country, continent, is_seeking_funding, has_mvp } = req.query
+
+
+  if (industry) {
+    console.log(industry)
+    filteredData = filteredData.filter((startup) => {
+        return startup.industry.toLowerCase() === industry.toLowerCase()
+      }
+    )
+  }
+
+  if (country) {
+    filteredData = filteredData.filter( startup => 
+      startup.country.toLowerCase() === country.toLowerCase()
+    )
+  }
+  
+  if (continent) {
+    filteredData = filteredData.filter( startup => 
+      startup.continent.toLowerCase() === continent.toLowerCase()
+    )
+  }
+
+  if (is_seeking_funding) {
+    filteredData = filteredData.filter( startup => 
+      startup.is_seeking_funding === JSON.parse(is_seeking_funding.toLowerCase())
+    )
+  }
+  
+  if (has_mvp) {
+    filteredData = filteredData.filter( startup => 
+      startup.has_mvp === JSON.parse(has_mvp.toLowerCase())
+    )
+  }
+
+  
   res.json(filteredData)
 })
