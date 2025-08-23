@@ -953,3 +953,9 @@ export const startups = [
     has_mvp: true,
   },
 ]
+
+// old test data
+// const celebrity = {
+//   type: "action hero",
+//   name: "JSON Statham"
+// }
