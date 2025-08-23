@@ -67,6 +67,57 @@ app.get('/api', (req,res)=> {
     )
   }
 
-  
   res.json(filteredData)
 })
+
+/*
+Challenge:
+1. Add a new route which accepts GET requests to /api/<field>/<term>.
+2. Filter the data based on the path params.
+3. Serve the filtered data.
+
+For now, don’t worry that using some fields will trigger an error.
+
+** The functionality **
+Get all startups in a given country via api/country/<country name>
+Get all startups in a given continent via api/continent/<continent name>
+Get all startups in a given industry via api/industry/<industry name>
+
+**Test Cases** 
+
+These should work:
+  api/country/india
+  api/continent/europe
+  api/industry/ai
+
+This will throw an error - but that's fine!
+	api/has_mvp/true
+
+*/
+
+
+app.get('/api/:field/:term' , (req, res) => {
+  // console.log('req.params: ',req.params)
+  let filteredData = startups
+
+  // let reqField = req.params.field.toLowerCase()
+  let reqField = req.params.field
+  let reqTerm = req.params.term
+  console.log(reqTerm)
+  if (reqField === 'country') {
+    filteredData = filteredData.filter( startup => {
+        return startup.country.toLowerCase() === reqTerm.toLowerCase()
+      }
+    )
+  }
+
+  if (reqField ==='continent'){
+    console.log('continent')
+  }
+
+  if (reqField === 'industry') {
+    console.log('industry')
+  }
+  // console.log(filteredData)
+  res.json(filteredData)
+}) 
