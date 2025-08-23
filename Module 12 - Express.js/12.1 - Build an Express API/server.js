@@ -8,8 +8,32 @@ app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
 
 
-app.get('/', (req,res)=> {
+app.get('/api', (req,res)=> {
+    /*
+    Challenge:
+    1. When a user hits the /api endpoint with query params, filter the data so 
+    we only serve objects that meet their requirements. 
+        
+    The user can filter by the following properties:
+    industry, country, continent, is_seeking_funding, has_mvp
 
-    res.json(startups)
-    // res.status(200)
+    Test Cases
+
+    /api?industry=renewable%20energy&country=germany&has_mvp=true
+    Should get the "GreenGrid Energy" object.
+
+    /api?industry=renewable%20energy&country=germany&has_mvp=false
+    Should not get any object
+
+    /api?continent=asia&is_seeking_funding=true&has_mvp=true
+    should get for objects with IDs 3, 22, 26, 29
+    */
+
+    console.log(req.params)
+     let filteredData = startups.filter(startup => {
+        console.log(startup)
+        
+  })
+
+  res.json(filteredData)
 })
