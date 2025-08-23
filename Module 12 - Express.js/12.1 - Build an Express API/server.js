@@ -95,15 +95,12 @@ This will throw an error - but that's fine!
 
 */
 
-
 app.get('/api/:field/:term' , (req, res) => {
   // console.log('req.params: ',req.params)
   let filteredData = startups
-
-  // let reqField = req.params.field.toLowerCase()
   let reqField = req.params.field
   let reqTerm = req.params.term
-  console.log(reqTerm)
+
   if (reqField === 'country') {
     filteredData = filteredData.filter( startup => {
         return startup.country.toLowerCase() === reqTerm.toLowerCase()
@@ -112,12 +109,19 @@ app.get('/api/:field/:term' , (req, res) => {
   }
 
   if (reqField ==='continent'){
-    console.log('continent')
+    filteredData = filteredData.filter( startup => {
+        return startup.continent.toLowerCase() === reqTerm.toLowerCase()
+      }
+    )
   }
 
   if (reqField === 'industry') {
-    console.log('industry')
+    filteredData = filteredData.filter( startup => {
+        return startup.industry.toLowerCase() === reqTerm.toLowerCase()
+      }
+    )
   }
   // console.log(filteredData)
+
   res.json(filteredData)
 }) 
